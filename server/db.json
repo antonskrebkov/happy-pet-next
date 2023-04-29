@@ -1,0 +1,105 @@
+{
+  "categories": [
+    "monkey", "reptile", "rodent", "cat", "dog", "parrot"
+  ],
+  "pets": [
+    {
+      "id": 1,
+      "age": 2,
+      "name": "Папуга Гриша",
+      "description": "Папуга-балакун чудовий новий друг для всієї родини",
+      "category": "parrot",
+      "price": 900,
+      "sex": "male",
+      "wc": true,
+      "images": [
+        "http://localhost:3002/assets/images/parrots/parrot-grisha/01.png",
+        "http://localhost:3002/assets/images/parrots/parrot-grisha/8049cde3183c0deab0a4f69206268ecd.jpeg", "http://localhost:3002/assets/images/parrots/parrot-grisha/tiger-2430625__480.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "age": 4,
+      "name": "Доберман Василь",
+      "description": "Відмінний новий друг для всієї родини, охороняє та обожнює",
+      "category": "dog",
+      "price": 1900,
+      "sex": "male",
+      "wc": true,
+      "images": [
+        "http://localhost:3002/assets/images/dogs/doberman-vasiliy/02.png",
+        "http://localhost:3002/assets/images/dogs/doberman-vasiliy/1644175601_4-sobakovod-club-p-sobaki-doberman-smeshnie-5.jpg", "http://localhost:3002/assets/images/dogs/doberman-vasiliy/2807457400_834e02e63f_b.jpg", "http://localhost:3002/assets/images/dogs/doberman-vasiliy/1606857011125779740.jpg", "http://localhost:3002/assets/images/dogs/doberman-vasiliy/1606857023145119462.jpg", "http://localhost:3002/assets/images/dogs/doberman-vasiliy/smile.jpeg"
+      ]
+    },
+    {
+      "id": 3,
+      "age": 7,
+      "name": "Висловуха кішка Кіра",
+      "description": "Прекрасна подруга на дощові холодні часи",
+      "category": "cat",
+      "price": 2200,
+      "sex": "female",
+      "wc": true,
+      "images": [
+        "http://localhost:3002/assets/images/cats/vislovuha-kira/03.png", "http://localhost:3002/assets/images/cats/vislovuha-kira/cat123.jpeg", "http://localhost:3002/assets/images/cats/vislovuha-kira/scottish-fold-cat-2560x1440.jpg"
+        
+      ]
+    },
+    {
+      "id": 4,
+      "age": 7,
+      "name": "Шимпанзе Роза",
+      "description": "Домашній вихованець для тих, кому не хочеться нудьгувати",
+      "category": "monkey",
+      "price": 4700,
+      "sex": "female",
+      "wc": true,
+      "images": [
+        "http://localhost:3002/assets/images/monkeys/chimpanzee-roza/04.png", "http://localhost:3002/assets/images/monkeys/chimpanzee-roza/image1234.jpeg"
+        
+      ]
+    },
+    {
+      "id": 5,
+      "age": 12,
+      "name": "Черепаха Ніна",
+      "description": "Домашній вихованець для тих, хто постійно не вдома",
+      "category": "reptile",
+      "price": 800,
+      "sex": "female",
+      "wc": false,
+      "images": [
+        "http://localhost:3002/assets/images/reptiles/turtle-nina/05.png"
+        
+      ]
+    },
+    {
+      "id": 6,
+      "age": 8,
+      "name": "Девон-рекс Чічі",
+      "description": "Доброзичливий кіт Чичі полюбляє пеститись і гуляти на вулиці",
+      "category": "cat",
+      "price": 3000,
+      "sex": "male",
+      "wc": true,
+      "images": [
+        "http://localhost:3002/assets/images/cats/devon-chichi/06.png", "http://localhost:3002/assets/images/cats/devon-chichi/303567866e07784aa29fb29adff4f929.jpg"
+        
+      ]
+    },
+    {
+      "id": 7,
+      "age": 3,
+      "name": "Кролик Сніф",
+      "description": "Кролик Сніф закохає всіх своїми вухами",
+      "category": "rodent",
+      "price": 700,
+      "sex": "male",
+      "wc": false,
+      "images": [
+        "http://localhost:3002/assets/images/rodents/rabbit-sniff/07.png", "http://localhost:3002/assets/images/rodents/rabbit-sniff/hqdefault.jpg", "http://localhost:3002/assets/images/rodents/rabbit-sniff/maxresdefault.jpg", "http://localhost:3002/assets/images/rodents/rabbit-sniff/sinfff12432.jpeg", "http://localhost:3002/assets/images/rodents/rabbit-sniff/snifff.jpeg"
+        
+      ]
+    }
+  ]
+}

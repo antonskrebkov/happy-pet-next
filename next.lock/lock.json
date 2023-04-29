@@ -1,0 +1,9 @@
+{
+  "http://localhost:3002/assets/images/gallery/01.jpg": { "integrity": "sha512-hqvckaB1PpVs+V8FRjZHClv22pJBepTGIXP5tCImU8y94sodNNO7m4PTZvb6P+sdk9605nfLloT7rB/eKQS/gA==", "contentType": "image/jpeg" },
+  "http://localhost:3002/assets/images/gallery/02.jpg": { "integrity": "sha512-HCpQuIkPMxsrRmE5EWB5iNDhBjJWZsbRQnaeO9Jq9xpX+6jkRZ4i71U3ZabPqeLVmRIeFvmSBcjc9ZzdOK7Atg==", "contentType": "image/jpeg" },
+  "http://localhost:3002/assets/images/gallery/03.jpg": { "integrity": "sha512-desCYN0oxdFMw8SP32gwQez+Xm4VyRPhpqhEkF755tu9HR2H5BZL6E4V/+OKOqqsg2rCTuyRr1GWRUDhe6DyEQ==", "contentType": "image/jpeg" },
+  "http://localhost:3002/assets/images/gallery/04.jpg": { "integrity": "sha512-uPA+2C5lICMK/macAsRd4T976TrztUxhsGlRP//SM4wc/LIlHwxWaxWUEQgVqJqNZ57rxC/ectPUC4koVuZkCg==", "contentType": "image/jpeg" },
+  "http://localhost:3002/assets/images/gallery/05.jpg": { "integrity": "sha512-O5/9RU08x2CWDqaeJtRLfcQ58DHYO0NiJDD+dHMJALUGTIyIJvpCKhtg3bM9DD/NdVxei0MpIjRpgCF6FkP2Gg==", "contentType": "image/jpeg" },
+  "http://localhost:3002/assets/images/gallery/06.jpg": { "integrity": "sha512-2v5R6/bFuYvX02doKs+s9TaI5+cEOgBVDVXDp8tFW5/j2aooPPlhch2BS35WIXhNwcOhEPJ10nqsV1G12dA5UA==", "contentType": "image/jpeg" },
+  "version": 1
+}
