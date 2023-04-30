@@ -1,0 +1,155 @@
+.about {
+  margin-top: 125px;
+  margin-bottom: 50px;
+  @media (max-width: 700px) {
+    margin-top: 115px;
+    margin-bottom: 25px;
+  }
+}
+.container {
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.info {
+  &Wrapper {
+    display: flex;
+    gap: 2%;
+    @media (max-width: 700px) {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+  &Left {
+    width: 30%;
+    border-right: 2px solid #ccc;
+    padding-bottom: 50px;
+    padding-right: 20px;
+    @media (max-width: 950px) {
+      padding-bottom: 30px;
+    }
+    @media (max-width: 700px) {
+      width: 100%;
+      border-right: none;
+      padding-bottom: 15px;
+    }
+  }
+  &Right {
+    width: 68%;
+    padding-bottom: 50px;
+    @media (max-width: 950px) {
+      padding-bottom: 30px;
+    }
+    @media (max-width: 700px) {
+      width: 100%;
+      padding-bottom: 30px;
+    }
+  }
+  &Title {
+    position: relative;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1;
+    padding-top: 10px;
+    @media (max-width: 950px) {
+      font-size: 18px;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 4px;
+      border-radius: 10px;
+      top: 0;
+      left: 0;
+      background-color: #000;
+      @media (max-width: 950px) {
+        width: 40px;
+      }
+    }
+  }
+  &Text {
+    font-size: 18px;
+    line-height: 1.4;
+    @media (max-width: 950px) {
+      font-size: 15px;
+    }
+    & + .infoText {
+      margin-top: 15px;
+      @media (max-width: 950px) {
+        margin-top: 8px;
+      }
+    }
+  }
+  &Faq {
+    padding-bottom: 0;
+    @media (max-width: 700px) {
+      padding-bottom: 15px;
+    }
+    &Text {
+      font-size: 18px;
+      line-height: 1.4;
+      @media (max-width: 950px) {
+        font-size: 15px;
+      }
+      & + .infoFaqText {
+        margin-top: 15px;
+        @media (max-width: 950px) {
+          margin-top: 8px;
+        }
+      }
+    }
+  }
+}
+
+.item {
+  border-bottom: 2px solid #ccc;
+  &Btn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: left;
+    color: #000;
+    background-color: transparent;
+    border: none;
+    transition: background-color 0.2s;
+    @media (max-width: 950px) {
+      padding: 12px;
+      font-size: 15px;
+    }
+    &:hover {
+      background-color: #f3f3f3;
+    }
+    &Expanded {
+      background-color: #e7e7e7;
+      &.chevron {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  &Content {
+    transition: height 0.2s ease-in-out;
+  }
+  &Panel {
+    padding: 16px;
+    @media (max-width: 950px) {
+      padding: 12px;
+    }
+  }
+}
+.chevron {
+  margin-left: auto;
+  transition: transform 0.2s ease-in-out;
+}
+
+.itemBtnExpanded .chevron {
+  transform: rotate(180deg);
+}
