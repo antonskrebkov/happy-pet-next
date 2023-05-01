@@ -35,10 +35,9 @@ const Footer: FC = () => {
             </li>
           </ul>
           <div className={styles.topLocation}>
-            ул. Шота Руставели, 44, 3 этаж, оф. 7, Киев. +380 67 345 2774,
-            hello@happypet.ua
+            с. Фасова, Киевская область, hello@happypet.ua
           </div>
-          <a href="tel:+380673452774" className="top-footer__phone">
+          <a href="tel:+380673452774" className={styles.topPhone}>
             +(38) 067 345 2774
           </a>
         </div>
