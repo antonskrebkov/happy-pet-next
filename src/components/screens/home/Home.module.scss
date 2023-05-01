@@ -80,6 +80,7 @@
     align-self: flex-end;
 
     img {
+      height: auto;
       @media (min-width: 1400px) {
         max-width: 867px;
         max-height: 770px;

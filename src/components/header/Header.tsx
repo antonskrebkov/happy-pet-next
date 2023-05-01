@@ -164,7 +164,7 @@ const Header: FC = () => {
                 }
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className={styles.cartTop}>В корзине</div>
+                <div className={styles.cartTop}>В переноске</div>
                 <ul className={styles.cartList}>
                   <li className={styles.cartItem}>
                     <a href="" className={styles.cartItemImage}>
@@ -217,9 +217,9 @@ const Header: FC = () => {
                   <div className={styles.cartTotal}>
                     Вместе: <span>0 ₴</span>
                   </div>
-                  <a href="" className={styles.cartCheckout}>
+                  <Link href="/checkout" className={styles.cartCheckout}>
                     Оформить заказ
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
