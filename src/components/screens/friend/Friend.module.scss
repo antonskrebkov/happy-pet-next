@@ -1,0 +1,217 @@
+.friend {
+  margin: 115px 0 40px;
+  @media (max-width: 700px) {
+    margin-top: 115px;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 48% 48%;
+  gap: 4%;
+  @media (max-width: 650px) {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+.breadcrumbs {
+  margin-bottom: 20px;
+
+  &List {
+    display: flex;
+    gap: 16px;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+
+  &Item {
+    position: relative;
+    color: #777777;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+
+    &:not(:first-child) {
+      padding-left: 22px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        height: 8px;
+        width: 6px;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background-image: url("./icons/breadcrumbs-arrow.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+}
+
+.gallery {
+  &Slider {
+    width: 100%;
+    height: 500px;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    @media (max-width: 980px) {
+      height: 400px;
+    }
+    @media (max-width: 830px) {
+      height: 300px;
+    }
+    &Item {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  &Thumb {
+    width: 100%;
+    height: 130px;
+    margin-top: 15px;
+    @media (max-width: 1100px) {
+      height: 110px;
+    }
+    @media (max-width: 980px) {
+      height: 100px;
+    }
+    @media (max-width: 900px) {
+      height: 90px;
+    }
+    @media (max-width: 830px) {
+      height: 80px;
+    }
+    @media (max-width: 740px) {
+      height: 65px;
+    }
+    &Item {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+      object-fit: contain;
+    }
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.title {
+  font-size: 28px;
+  font-weight: 700;
+}
+.shortId {
+  font-weight: 500;
+}
+.shortDescription {
+  font-weight: 500;
+}
+.price {
+  font-size: 20px;
+  font-weight: 700;
+}
+.add {
+  padding: 15px 10px;
+  color: #fff;
+  font-weight: 600;
+  background-color: #32b71d;
+  border-radius: 20px;
+  transition: background 0.3s;
+  &:hover {
+    background-color: #268b16;
+  }
+}
+.details {
+  &Text {
+    line-height: 1.5;
+  }
+  &Row {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    & + .detailsRow {
+      margin-top: 10px;
+    }
+    &Key {
+      font-weight: 500;
+    }
+    &Value {
+    }
+  }
+}
+.chevron {
+  margin-left: auto;
+  transition: transform 0.2s ease-in-out;
+}
+
+.item {
+  border-bottom: 2px solid #ccc;
+  &Btn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: left;
+    color: #000;
+    background-color: transparent;
+    border: none;
+    transition: background-color 0.2s;
+    @media (max-width: 950px) {
+      padding: 12px;
+      font-size: 15px;
+    }
+    &:hover {
+      background-color: #f3f3f3;
+    }
+    &Expanded {
+      background-color: #e7e7e7;
+      &.chevron {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  &Content {
+    transition: height 0.2s ease-in-out;
+  }
+  &Panel {
+    padding: 16px;
+    @media (max-width: 950px) {
+      padding: 12px;
+    }
+  }
+}
+.chevron {
+  margin-left: auto;
+  transition: transform 0.2s ease-in-out;
+}
+
+.itemBtnExpanded .chevron {
+  transform: rotate(180deg);
+}
+
+.itemBtnExpanded .chevron {
+  transform: rotate(180deg);
+}

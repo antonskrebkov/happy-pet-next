@@ -6,6 +6,7 @@ import cartPet1 from "@/components/screens/home/images/pets/01.png";
 import wc from "@/components/screens/home/icons/wc.svg";
 import cart from "./icons/cart.svg";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Friends() {
   const kindOptions = [
@@ -362,7 +363,7 @@ export default function Friends() {
         <section className={styles.catalog}>
           <div className={styles.catalogContainer}>
             <div className={styles.catalogItems}>
-              <a href="" className={styles.catalogItem}>
+              <Link href="/friends/1" className={styles.catalogItem}>
                 <div className={styles.catalogItemWrapper}>
                   <div className={styles.catalogItemHeader}>
                     <div className={styles.catalogItemHeaderTag}>
@@ -408,7 +409,7 @@ export default function Friends() {
                     <Image src={cart} alt="" />
                   </button>
                 </div>
-              </a>
+              </Link>
               <a href="" className={styles.catalogItem}>
                 <div className={styles.catalogItemWrapper}>
                   <div className={styles.catalogItemHeader}>

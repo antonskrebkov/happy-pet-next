@@ -20,6 +20,7 @@ import icon3 from "./icons/03.svg";
 import wc from "./icons/wc.svg";
 import cartPet1 from "./images/pets/01.png";
 import Select from "react-select";
+import Link from "next/link";
 
 interface IConfirmation {
   isPersonalDataChecked: boolean;
@@ -66,9 +67,9 @@ const Home = () => {
                 Онлайн-магазин домашних животных подарит тебе нового друга в
                 несколько кликов. Действуй!
               </div>
-              <a href="" className={styles.mainBlockButton}>
+              <Link href="/friends" className={styles.mainBlockButton}>
                 Посмотреть друзей
-              </a>
+              </Link>
             </div>
             <div className={styles.mainBlockImg}>
               <Image src={pets} alt="" />
@@ -144,7 +145,7 @@ const Home = () => {
               <SwiperSlide>
                 <a href="" className={styles.sliderItem}>
                   <div
-                    className={`${styles.sliderItemCategory} ${styles.sliderItemCategoryMonkey}`}
+                    className={`${styles.sliderItemCategory} ${styles.sliderItemCategoryReptile}`}
                   >
                     Рептилии
                   </div>
@@ -156,7 +157,7 @@ const Home = () => {
               <SwiperSlide>
                 <a href="" className={styles.sliderItem}>
                   <div
-                    className={`${styles.sliderItemCategory} ${styles.sliderItemCategoryMonkey}`}
+                    className={`${styles.sliderItemCategory} ${styles.sliderItemCategoryRodent}`}
                   >
                     Грызуны
                   </div>
@@ -168,7 +169,7 @@ const Home = () => {
               <SwiperSlide>
                 <a href="" className={styles.sliderItem}>
                   <div
-                    className={`${styles.sliderItemCategory} ${styles.sliderItemCategoryMonkey}`}
+                    className={`${styles.sliderItemCategory} ${styles.sliderItemCategoryCat}`}
                   >
                     Кошки
                   </div>
@@ -180,7 +181,7 @@ const Home = () => {
               <SwiperSlide>
                 <a href="" className={styles.sliderItem}>
                   <div
-                    className={`${styles.sliderItemCategory} ${styles.sliderItemCategoryMonkey}`}
+                    className={`${styles.sliderItemCategory} ${styles.sliderItemCategoryDog}`}
                   >
                     Собаки
                   </div>
@@ -192,7 +193,7 @@ const Home = () => {
               <SwiperSlide>
                 <a href="" className={styles.sliderItem}>
                   <div
-                    className={`${styles.sliderItemCategory} ${styles.sliderItemCategoryMonkey}`}
+                    className={`${styles.sliderItemCategory} ${styles.sliderItemCategoryParrot}`}
                   >
                     Попугаи
                   </div>
@@ -202,7 +203,6 @@ const Home = () => {
                 </a>
               </SwiperSlide>
             </Swiper>
-
             <div
               ref={homeSliderButtonNext}
               className={styles.sliderButtonNext}
@@ -753,9 +753,9 @@ const Home = () => {
                     количество постепенно увеличивается.
                   </p>
                 </div>
-                <a href="" className={styles.aboutDescriptionLink}>
+                <Link href="/about" className={styles.aboutDescriptionLink}>
                   Читать больше
-                </a>
+                </Link>
               </div>
               <div className={styles.aboutImg}>
                 <Image src={about} alt="" />

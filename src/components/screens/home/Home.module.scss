@@ -153,6 +153,11 @@
   }
 
   &Item {
+    &:hover {
+      .sliderItemCategory {
+        padding-right: 42px;
+      }
+    }
     &Category {
       display: inline-block;
       position: relative;
@@ -199,6 +204,7 @@
         right: 0;
         top: 50%;
         transform: translateY(-50%);
+        transition: all 0.2s;
       }
     }
 
@@ -415,14 +421,15 @@
     }
 
     &Title {
-      font-weight: 900;
+      font-weight: 800;
+      margin-bottom: 5px;
       line-height: math.div(24, 20);
       @include adaptiveValue("font-size", 20, 15, 1200, 800);
       @include adaptiveValue("font-size", 20, 15, 799, 320);
     }
 
     &Text {
-      font-weight: 500;
+      font-weight: 400;
       line-height: math.div(20, 16);
       @include adaptiveValue("font-size", 16, 12, 1200, 800);
       @include adaptiveValue("font-size", 16, 12, 799, 320);
@@ -1020,7 +1027,7 @@
 
     &Title {
       line-height: math.div(24, 20);
-      font-weight: 900;
+      font-weight: 800;
       margin-bottom: 27px;
       @include adaptiveValue("font-size", 20, 15, 1200, 800);
       @include adaptiveValue("font-size", 20, 15, 799, 320);
@@ -1029,7 +1036,7 @@
     &Text {
       font-size: 16px;
       line-height: math.div(24, 16);
-      font-weight: 500;
+      font-weight: 400;
       margin-bottom: 27px;
       text-align: justify;
       @include adaptiveValue("font-size", 16, 12, 1200, 800);
@@ -1349,7 +1356,7 @@
         visibility: hidden;
 
         &:checked + span::before {
-          border: 1px solid #f52456;
+          border: 2px solid #f52456;
         }
 
         &:checked + span::after {
@@ -1374,7 +1381,7 @@
           top: 0;
           width: 15px;
           height: 15px;
-          border: 1px solid #a5a5a5;
+          border: 2px solid #a5a5a5;
           background-color: transparent;
           border-radius: 2px;
         }
