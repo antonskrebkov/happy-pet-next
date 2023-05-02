@@ -31,7 +31,7 @@ export default function Contacts() {
             <div className={styles.infoLeft}>
               <h2 className={styles.infoTitle}>Контакти</h2>
               <p className={styles.infoText}>
-                Номер для звʼязку: +(38) 067 345 2774
+                <span>Номер для звʼязку:</span> +(38) 067 345 2774
               </p>
               <p className={styles.infoText}>
                 <span>Важливо!</span> Прийом телефоних дзвінків з 9:00 до 19:00
@@ -41,26 +41,26 @@ export default function Contacts() {
                 відповімо на всі ваші питання
               </p>
               <p className={styles.infoText}>
-                Електронна пошта: happypet@gmail.com
+                <span>Електронна пошта:</span> happypet@gmail.com
               </p>
               <p className={styles.infoText}>
-                Адреса: с. Фасова, Київська область
+                <span>Адреса:</span> с. Фасова, Київська область
               </p>
             </div>
             <div className={styles.infoRight}>
               <h2 className={styles.infoTitle}>Допомога хвостикам</h2>
               <p className={styles.infoText}>
-                Рахунок Приват банк 5169 3305 2447 9703 ГО ЗТ &quot;Happy
-                pet&quot;
+                <span>Рахунок Приватбанк</span> 5169 3305 2447 9703 ГО ЗТ
+                &quot;Happy pet&quot;
               </p>
               <p className={styles.infoText}>
-                Призначення: Благодійна допомога
+                <span>Призначення:</span> Благодійна допомога
               </p>
               <p className={styles.infoText}>
-                IBAN: UA693052990000026002036209188
+                <span>IBAN:</span> UA693052990000026002036209188
               </p>
               <p className={styles.infoText}>
-                Монобанка:{" "}
+                <span>Монобанка: </span>
                 <a
                   href="https://send.monobank.ua/jar/9cHF2su8WS"
                   target="_blank"
@@ -69,7 +69,8 @@ export default function Contacts() {
                 </a>
               </p>
               <p className={styles.infoText}>
-                Для допомоги з інших країн: PayPal snezhana.bv@gmail.com
+                <span>Для допомоги з інших країн:</span> PayPal
+                snezhana.bv@gmail.com
               </p>
             </div>
           </div>

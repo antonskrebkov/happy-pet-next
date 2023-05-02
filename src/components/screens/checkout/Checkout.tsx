@@ -83,7 +83,7 @@ export default function Checkout() {
                 <div className={styles.summaryPrice}>900 ₴</div>
               </div>
               <div className={styles.summarySum}>
-                <div className={styles.summarySumText}>Сума</div>
+                <div className={styles.summarySumText}>Всього</div>
                 <div className={styles.summarySumPrice}>900 ₴</div>
               </div>
               <div className={styles.summarySubmit}>

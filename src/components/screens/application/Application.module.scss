@@ -1,6 +1,252 @@
+@use "sass:math";
+
 .application {
   margin-top: 125px;
-  @media (max-width: 700px) {
+  margin-bottom: 40px;
+  @media (max-width: 755px) {
     margin-top: 115px;
+    margin-bottom: 80px;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 55% 40%;
+  gap: 5%;
+  @media (max-width: 755px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form {
+  &Box {
+    & + .formBox {
+      margin-top: 25px;
+      margin-bottom: 10px;
+    }
+  }
+  &Title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    @media (max-width: 550px) {
+      font-size: 21px;
+    }
+  }
+  &Wrapper {
+    position: relative;
+    & + .formWrapper {
+      margin-top: 15px;
+    }
+  }
+  &Input {
+    position: relative;
+    padding: 14px 15px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    cursor: text;
+    outline: none;
+    &:focus.error,
+    &.error {
+      border: 1px solid red;
+      & + .formInputLabel {
+        color: red;
+      }
+    }
+    &:focus {
+      border: 1px solid #000;
+      & + .formInputLabel {
+        opacity: 1;
+      }
+    }
+    &:focus::placeholder {
+      font-size: 0;
+    }
+    &Label {
+      opacity: 0;
+      background-color: #fff;
+      padding: 2px;
+      left: 15px;
+      top: -10px;
+      position: absolute;
+      font-size: 13px;
+    }
+    &Validation {
+      opacity: 0;
+      color: red;
+      font-size: 13px;
+      padding-top: 4px;
+      padding-left: 16px;
+      &.error {
+        opacity: 1;
+      }
+    }
+  }
+  &Checkbox {
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: math.div(17, 14);
+    color: #777;
+    cursor: pointer;
+
+    @media (max-width: 570px) {
+      font-size: 13px;
+    }
+
+    @media (max-width: 400px) {
+      line-height: 2;
+    }
+
+    &.error {
+      span {
+        color: #f52456;
+      }
+
+      a {
+        color: #f52456;
+      }
+    }
+
+    input {
+      position: absolute;
+      width: 0;
+      height: 0;
+      opacity: 0;
+      visibility: hidden;
+
+      &:checked + span::before {
+        background-color: #000;
+        border: 1px solid #000;
+      }
+
+      &:checked + span::after {
+        content: "";
+        position: absolute;
+        background-image: url("./done.svg");
+        left: 3px;
+        top: 4px;
+        width: 12px;
+        height: 9px;
+      }
+    }
+
+    span {
+      position: relative;
+      padding-left: 30px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 15px;
+        height: 15px;
+        border: 1px solid #a5a5a5;
+        background-color: transparent;
+        border-radius: 2px;
+      }
+
+      a {
+        color: #999999;
+        text-decoration: underline;
+      }
+    }
+  }
+  &Button {
+    width: 100%;
+    padding: 20px 12px;
+    color: #757575;
+    background-color: #f5f5f5;
+    font-weight: 500;
+    border-radius: 30px;
+    margin-top: 30px;
+    cursor: default;
+    &.active {
+      cursor: pointer;
+      color: #fff;
+      background-color: #000;
+    }
+  }
+}
+
+.order {
+  @media (max-width: 755px) {
+    order: -1;
+  }
+  &Title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    @media (max-width: 550px) {
+      font-size: 21px;
+    }
+  }
+  &Items {
+  }
+  &Item {
+    display: flex;
+    margin-bottom: 10px;
+    &Image {
+      border-radius: 10px;
+      margin-right: 10px;
+      object-fit: cover;
+      width: 100px;
+      height: 100px;
+    }
+    &Body {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    &Title {
+      font-weight: 600;
+    }
+    &Price {
+    }
+  }
+  &Total {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+
+    &Title {
+    }
+    &Price {
+      font-weight: 500;
+    }
+  }
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(#000, 0.2);
+  &Content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    align-items: center;
+    width: 400px;
+    height: 200px;
+    background-color: #fff;
+    border-radius: 20px;
+  }
+  &Title {
+    font-size: 22px;
+  }
+  &Link {
+    text-decoration: underline;
   }
 }
