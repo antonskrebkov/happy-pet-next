@@ -1,14 +1,11 @@
 import { FC, useRef } from "react";
-import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
-import Image from "next/image";
 import "swiper/scss";
 import styles from "./HomeNewSlider.module.scss";
 import "node_modules/swiper/modules/pagination/pagination.scss";
-
-import wc from "./images/wc.svg";
-import cartPet1 from "./images/01.png";
+import friend1 from "./images/01.png";
+import FriendItem from "../UI/friend-item/FriendItem";
 
 const HomeNewSlider: FC = () => {
   const buttonPrev = useRef<HTMLButtonElement | null>(null);
@@ -19,45 +16,53 @@ const HomeNewSlider: FC = () => {
       id: 1,
       age: 2,
       name: "Папуга Гриша",
-      description: "Папуга-балакун чудовий новий друг для всієї родини",
+      shortDescription: "Папуга-балакун чудовий новий друг для всієї родини",
+      description:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque, laboriosam possimus tempore, quasi inventore rerum, explicabo laudantium totam voluptas quas quis dolorum est? Magnam, reiciendis. Hic aspernatur asperiores odio aliquid.",
       category: "parrot",
       price: 900,
       sex: "male",
       wc: true,
-      images: [cartPet1, cartPet1],
+      images: [friend1, friend1],
     },
     {
       id: 2,
       age: 2,
       name: "Папуга Гриша",
-      description: "Папуга-балакун чудовий новий друг для всієї родини",
+      shortDescription: "Папуга-балакун чудовий новий друг для всієї родини",
+      description:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque, laboriosam possimus tempore, quasi inventore rerum, explicabo laudantium totam voluptas quas quis dolorum est? Magnam, reiciendis. Hic aspernatur asperiores odio aliquid.",
       category: "parrot",
       price: 900,
       sex: "male",
       wc: true,
-      images: [cartPet1, cartPet1],
+      images: [friend1, friend1],
     },
     {
       id: 3,
       age: 2,
       name: "Папуга Гриша",
-      description: "Папуга-балакун чудовий новий друг для всієї родини",
+      shortDescription: "Папуга-балакун чудовий новий друг для всієї родини",
+      description:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque, laboriosam possimus tempore, quasi inventore rerum, explicabo laudantium totam voluptas quas quis dolorum est? Magnam, reiciendis. Hic aspernatur asperiores odio aliquid.",
       category: "parrot",
       price: 900,
       sex: "male",
       wc: false,
-      images: [cartPet1, cartPet1, cartPet1],
+      images: [friend1, friend1, friend1],
     },
     {
       id: 4,
       age: 12,
       name: "Папуга Гриша",
-      description: "Папуга-балакун чудовий новий друг для всієї родини",
+      shortDescription: "Папуга-балакун чудовий новий друг для всієї родини",
+      description:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque, laboriosam possimus tempore, quasi inventore rerum, explicabo laudantium totam voluptas quas quis dolorum est? Magnam, reiciendis. Hic aspernatur asperiores odio aliquid.",
       category: "parrot",
       price: 1000,
       sex: "male",
       wc: false,
-      images: [cartPet1, cartPet1],
+      images: [friend1, friend1],
     },
   ];
 
@@ -113,60 +118,12 @@ const HomeNewSlider: FC = () => {
           >
             {sliderItems.map((sliderItem) => (
               <SwiperSlide key={sliderItem.id}>
-                <Link
-                  href={"/friends/" + sliderItem.id}
-                  className={styles.newItem}
-                >
-                  <div className={styles.newItemWrapper}>
-                    <div className={styles.newItemHeader}>
-                      <div className={styles.newItemHeaderTag}>
-                        <div className={styles.newItemHeaderTagBadge}>
-                          <div className={styles.newItemHeaderTagValue}>
-                            {sliderItem.age}
-                          </div>
-                          <div className={styles.newItemHeaderTagText}>
-                            месяцев
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        className={
-                          sliderItem.wc
-                            ? `${styles.newItemHeaderWc} ${styles.newItemHeaderWcGreen}`
-                            : `${styles.newItemHeaderWc} ${styles.newItemHeaderWcRed}`
-                        }
-                      >
-                        <Image src={wc} alt="" />
-                      </div>
-                    </div>
-                    <div className={styles.newItemBody}>
-                      <Image
-                        src={sliderItem.images[0]}
-                        alt=""
-                        className={styles.newItemBodyImg}
-                      />
-                      <div className={styles.newItemBodyInfo}>
-                        <div className={styles.newItemBodyInfoTitle}>
-                          {sliderItem.name}
-                        </div>
-                        <div className={styles.newItemBodyInfoText}>
-                          {sliderItem.description}
-                        </div>
-                        <div className={styles.newItemBodyInfoTags}>
-                          <div className={styles.newItemBodyInfoTagsAnimal}>
-                            {sliderItem.category}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                <FriendItem friend={sliderItem}>
+                  <div className={styles.itemFooterPrice}>
+                    {sliderItem.price}
                   </div>
-                  <div className={styles.newItemFooter}>
-                    <div className={styles.newItemFooterPrice}>
-                      {sliderItem.price}
-                    </div>
-                    <div className={styles.newItemFooterBadge}></div>
-                  </div>
-                </Link>
+                  <div className={styles.itemFooterBadge}></div>
+                </FriendItem>
               </SwiperSlide>
             ))}
           </Swiper>

@@ -1,0 +1,28 @@
+.choose {
+  &Container {
+    max-width: 1200px;
+    padding: 0 15px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+
+    @media (max-width: 777px) {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+
+  &Title {
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 1;
+  }
+
+  &Quantity {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #777777;
+  }
+}

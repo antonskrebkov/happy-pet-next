@@ -1,0 +1,62 @@
+@use "sass:math";
+
+.catalog {
+  margin: 30px 0 50px;
+  &Container {
+    max-width: 1200px;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+
+  &Items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 35px;
+    @media (max-width: 969px) {
+      justify-items: center;
+    }
+  }
+}
+
+.itemFooter {
+  &Price {
+    position: relative;
+    font-size: 22px;
+    line-height: math.div(27, 22);
+    font-weight: 700;
+    color: #000;
+
+    @media (max-width: 1199px) {
+      font-size: 18px;
+    }
+
+    &::after {
+      content: "₴";
+      position: absolute;
+      font-size: 22px;
+      line-height: math.div(27, 22);
+      font-weight: 700;
+      color: #000;
+      padding-left: 5px;
+
+      @media (max-width: 1199px) {
+        font-size: 18px;
+      }
+    }
+  }
+  &Add {
+    width: 41px;
+    height: 41px;
+    background-color: #32b71d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+      background-color: darken(#32b71d, 10%);
+    }
+  }
+}

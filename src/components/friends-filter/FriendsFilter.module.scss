@@ -1,0 +1,29 @@
+.filter {
+  margin-top: 43px;
+  min-height: 53px;
+  background-color: #fbf6ed;
+  padding: 16px 0;
+
+  &Container {
+    max-width: 1200px;
+    padding: 0 15px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+    @media (max-width: 777px) {
+      flex-direction: column;
+    }
+  }
+
+  &Friend {
+    width: 250px;
+    height: 24px;
+
+    @media (max-width: 777px) {
+      width: 100%;
+    }
+  }
+}

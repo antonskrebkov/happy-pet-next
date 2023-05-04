@@ -4,11 +4,7 @@ import styles from "./Friend.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Thumbs } from "swiper";
 import "swiper/scss";
-import sliderPet1 from "src/components/screens/home/images/pets/01.png";
-import sliderPet2 from "src/components/screens/home/images/pets/02.png";
-import sliderPet3 from "src/components/screens/home/images/about.jpeg";
-import sliderPet4 from "src/components/screens/home/images/bg.jpg";
-import sliderPet5 from "src/components/screens/home/images/pets/05.png";
+import sliderPet1 from "@/components/home-new-slider/images/01.png";
 
 import Image from "next/image";
 import { Accordion, AccordionItem as Item } from "@szhsin/react-accordion";
@@ -86,41 +82,6 @@ export default function Friend() {
                     alt=""
                   />
                 </SwiperSlide>
-                <SwiperSlide>
-                  <Image
-                    src={sliderPet2}
-                    className={styles.gallerySliderItem}
-                    alt=""
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image
-                    src={sliderPet3}
-                    className={styles.gallerySliderItem}
-                    alt=""
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image
-                    src={sliderPet4}
-                    className={styles.gallerySliderItem}
-                    alt=""
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image
-                    src={sliderPet5}
-                    className={styles.gallerySliderItem}
-                    alt=""
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image
-                    src={sliderPet6}
-                    className={styles.gallerySliderItem}
-                    alt=""
-                  />
-                </SwiperSlide>
               </Swiper>
               <Swiper
                 modules={[Thumbs]}
@@ -136,41 +97,6 @@ export default function Friend() {
                 <SwiperSlide>
                   <Image
                     src={sliderPet1}
-                    className={styles.galleryThumbItem}
-                    alt=""
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image
-                    src={sliderPet2}
-                    className={styles.galleryThumbItem}
-                    alt=""
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image
-                    src={sliderPet3}
-                    className={styles.galleryThumbItem}
-                    alt=""
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image
-                    src={sliderPet4}
-                    className={styles.galleryThumbItem}
-                    alt=""
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image
-                    src={sliderPet5}
-                    className={styles.galleryThumbItem}
-                    alt=""
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image
-                    src={sliderPet6}
                     className={styles.galleryThumbItem}
                     alt=""
                   />
