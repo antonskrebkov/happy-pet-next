@@ -1,7 +1,6 @@
 import { FC, useEffect, useRef, useState } from "react";
 import Select from "react-select";
 import styles from "./header.module.scss";
-import cartPet from "src/components/screens/home/images/pets/07.png";
 import Image from "next/image";
 import deleteIcon from "./icons/delete.svg";
 import Link from "next/link";
@@ -20,6 +19,13 @@ const Header: FC = () => {
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
 
   const headerEl = useRef(null);
+
+  const menuItems = [
+    { link: "/", title: "Головна" },
+    { link: "/friends", title: "Друзі" },
+    { link: "/about", title: "Про нас" },
+    { link: "/contacts", title: "Контакти" },
+  ];
 
   useEffect(() => {
     const observer: any = new IntersectionObserver(function (
@@ -51,55 +57,21 @@ const Header: FC = () => {
             Happy pet
           </Link>
           <nav className={styles.menu}>
-            <ul className={styles.menuList}>
-              <li className={styles.menuItem}>
-                <Link
-                  href="/"
-                  className={
-                    pathname === "/"
-                      ? `${styles.menuLink} ${styles.active}`
-                      : styles.menuLink
-                  }
-                >
-                  Главная
-                </Link>
-              </li>
-              <li className={styles.menuItem}>
-                <Link
-                  href="/friends"
-                  className={
-                    pathname === "/friends"
-                      ? `${styles.menuLink} ${styles.active}`
-                      : styles.menuLink
-                  }
-                >
-                  Друзья
-                </Link>
-              </li>
-              <li className={styles.menuItem}>
-                <Link
-                  href="/about"
-                  className={
-                    pathname === "/about"
-                      ? `${styles.menuLink} ${styles.active}`
-                      : styles.menuLink
-                  }
-                >
-                  О нас
-                </Link>
-              </li>
-              <li className={styles.menuItem}>
-                <Link
-                  href="/contacts"
-                  className={
-                    pathname === "/contacts"
-                      ? `${styles.menuLink} ${styles.active}`
-                      : styles.menuLink
-                  }
-                >
-                  Контакты
-                </Link>
-              </li>
+            <ul className={styles.menuItems}>
+              {menuItems.map((menuItem) => (
+                <li key={menuItem.link} className={styles.menuItem}>
+                  <Link
+                    href={menuItem.link}
+                    className={
+                      pathname === menuItem.link
+                        ? `${styles.menuLink} ${styles.active}`
+                        : styles.menuLink
+                    }
+                  >
+                    {menuItem.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
           <div className={styles.actions}>
@@ -165,10 +137,13 @@ const Header: FC = () => {
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className={styles.cartTop}>В переноске</div>
-                <ul className={styles.cartList}>
+                <ul className={styles.cartItems}>
                   <li className={styles.cartItem}>
                     <a href="" className={styles.cartItemImage}>
-                      <Image src={cartPet} alt="" />
+                      <img
+                        src="https://localhost:3002/assets/images/reptiles/turtle-nina/05.png"
+                        alt=""
+                      />
                     </a>
                     <div className={styles.cartItemContent}>
                       <a href="" className={styles.cartItemTitle}>
@@ -191,7 +166,10 @@ const Header: FC = () => {
                   </li>
                   <li className={styles.cartItem}>
                     <a href="" className={styles.cartItemImage}>
-                      <Image src={cartPet} alt="" />
+                      <img
+                        src="https://localhost:3002/assets/images/reptiles/turtle-nina/05.png"
+                        alt=""
+                      />
                     </a>
                     <div className={styles.cartItemContent}>
                       <a href="" className={styles.cartItemTitle}>
@@ -243,55 +221,21 @@ const Header: FC = () => {
                   : styles.mobileMenuBody
               }
             >
-              <ul className={styles.mobileMenuList}>
-                <li className={styles.mobileMenuItem}>
-                  <Link
-                    href="/"
-                    className={
-                      pathname === "/"
-                        ? `${styles.mobileMenuLink} ${styles.active}`
-                        : styles.mobileMenuLink
-                    }
-                  >
-                    Главная
-                  </Link>
-                </li>
-                <li className={styles.mobileMenuItem}>
-                  <Link
-                    href="/friends"
-                    className={
-                      pathname === "/friends"
-                        ? `${styles.mobileMenuLink} ${styles.active}`
-                        : styles.mobileMenuLink
-                    }
-                  >
-                    Друзья
-                  </Link>
-                </li>
-                <li className={styles.mobileMenuItem}>
-                  <Link
-                    href="/about"
-                    className={
-                      pathname === "/about"
-                        ? `${styles.mobileMenuLink} ${styles.active}`
-                        : styles.mobileMenuLink
-                    }
-                  >
-                    О сервисе
-                  </Link>
-                </li>
-                <li className={styles.mobileMenuItem}>
-                  <Link
-                    href="/contacts"
-                    className={
-                      pathname === "/contacts"
-                        ? `${styles.mobileMenuLink} ${styles.active}`
-                        : styles.mobileMenuLink
-                    }
-                  >
-                    Контакты
-                  </Link>
-                </li>
+              <ul className={styles.mobileMenuItems}>
+                {menuItems.map((menuItem) => (
+                  <li key={menuItem.link} className={styles.mobileMenuItem}>
+                    <Link
+                      href={menuItem.link}
+                      className={
+                        pathname === menuItem.link
+                          ? `${styles.mobileMenuLink} ${styles.active}`
+                          : styles.mobileMenuLink
+                      }
+                    >
+                      {menuItem.title}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </nav>
           </nav>
@@ -302,9 +246,3 @@ const Header: FC = () => {
 };
 
 export default Header;
-
-// [x] - модалка корзины (нельзя нажать на элементы) (закрытие при нажатии на другую область)
-// [x] - кнопка корзины (количество элементов в ней)
-// [ ] - общая оптимизация стилей / кода
-// [ ] -  компонентный подход
-// [x] - моковые страницы для переходов + хедер для других страниц

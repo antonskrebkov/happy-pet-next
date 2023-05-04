@@ -9,7 +9,6 @@ import sliderPet2 from "src/components/screens/home/images/pets/02.png";
 import sliderPet3 from "src/components/screens/home/images/about.jpeg";
 import sliderPet4 from "src/components/screens/home/images/bg.jpg";
 import sliderPet5 from "src/components/screens/home/images/pets/05.png";
-import sliderPet6 from "src/components/screens/home/images/pets.png";
 
 import Image from "next/image";
 import { Accordion, AccordionItem as Item } from "@szhsin/react-accordion";

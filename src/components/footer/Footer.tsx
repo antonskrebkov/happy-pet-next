@@ -8,31 +8,46 @@ import inst from "./icons/inst.svg";
 import tg from "./icons/tg.svg";
 
 const Footer: FC = () => {
+  const socialItems = [
+    {
+      link: "https://twitter.com/yasochka6",
+      imageLink: twitter,
+    },
+    {
+      link: "https://www.facebook.com/ZahistTvarinPlushka/",
+      imageLink: fb,
+    },
+    {
+      link: "https://www.instagram.com/snezhana_zahist_tvarin/",
+      imageLink: inst,
+    },
+    {
+      link: "https://t.me/s/Rostok_Pitomnik",
+      imageLink: tg,
+    },
+  ];
+
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.top}>
           <ul className={styles.topSocialList}>
-            <li className={styles.topSocialItem}>
-              <a href="" className={styles.topSocialLink}>
-                <Image width="27" height="27" src={twitter} alt="" />
-              </a>
-            </li>
-            <li className={styles.topSocialItem}>
-              <a href="" className={styles.topSocialLink}>
-                <Image width="27" height="27" src={fb} alt="" />
-              </a>
-            </li>
-            <li className={styles.topSocialItem}>
-              <a href="" className={styles.topSocialLink}>
-                <Image width="27" height="27" src={inst} alt="" />
-              </a>
-            </li>
-            <li className={styles.topSocialItem}>
-              <a href="" className={styles.topSocialLink}>
-                <Image width="27" height="27" src={tg} alt="" />
-              </a>
-            </li>
+            {socialItems.map((socialItem) => (
+              <li key={socialItem.link} className={styles.topSocialItem}>
+                <a
+                  href={socialItem.link}
+                  target="_blank"
+                  className={styles.topSocialLink}
+                >
+                  <Image
+                    width="27"
+                    height="27"
+                    src={socialItem.imageLink}
+                    alt=""
+                  />
+                </a>
+              </li>
+            ))}
           </ul>
           <div className={styles.topLocation}>
             с. Фасова, Киевская область, hello@happypet.ua

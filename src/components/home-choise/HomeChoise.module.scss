@@ -1,0 +1,82 @@
+@use "sass:math";
+@import "@/styles/mixins";
+
+.choise {
+  padding-top: 50px;
+  padding-bottom: 160px;
+
+  @media (max-width: 1365px) {
+    padding-top: 0;
+    padding-bottom: 50px;
+  }
+
+  &Container {
+    max-width: 1200px;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+
+  &Title {
+    width: 311px;
+    font-size: 30px;
+    line-height: math.div(37, 30);
+    font-weight: 900;
+    margin-bottom: 100px;
+    @include adaptiveValue("font-size", 30, 20, 1200, 800);
+    @include adaptiveValue("font-size", 30, 20, 799, 320);
+    @include adaptiveValue("width", 311, 220, 1200, 800);
+    @include adaptiveValue("width", 311, 220, 799, 320);
+
+    @media (max-width: 1365px) {
+      margin: 0 auto 50px;
+      text-align: center;
+    }
+  }
+
+  &Items {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    @media (max-width: 799px) {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  &Item {
+    display: flex;
+    align-items: center;
+    width: 370px;
+
+    @media (max-width: 799px) {
+      width: auto;
+    }
+    &Img {
+      @include adaptiveValue("width", 92, 46, 1200, 800);
+      @include adaptiveValue("height", 92, 46, 1200, 800);
+      @include adaptiveValue("width", 92, 46, 799, 320);
+      @include adaptiveValue("height", 92, 46, 799, 320);
+    }
+
+    &Body {
+      @include adaptiveValue("margin-left", 27, 15, 1200, 800);
+      @include adaptiveValue("margin-left", 27, 15, 799, 320);
+    }
+
+    &Title {
+      font-weight: 800;
+      margin-bottom: 5px;
+      line-height: math.div(24, 20);
+      @include adaptiveValue("font-size", 20, 15, 1200, 800);
+      @include adaptiveValue("font-size", 20, 15, 799, 320);
+    }
+
+    &Text {
+      font-weight: 400;
+      line-height: math.div(20, 16);
+      @include adaptiveValue("font-size", 16, 12, 1200, 800);
+      @include adaptiveValue("font-size", 16, 12, 799, 320);
+    }
+  }
+}

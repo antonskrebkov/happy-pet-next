@@ -13,9 +13,37 @@
   max-width: 1200px;
   padding: 0 15px;
   margin: 0 auto;
+}
+
+.backButton {
+  position: relative;
+  width: 100px;
+  height: 38px;
+  padding-left: 17px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 10px;
+  transition: background-color 0.2s;
+  &:hover {
+    background-color: rgba(#000, 0.8);
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    background: url("./back-arrow.svg");
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 12px;
+    left: 9px;
+    top: 30%;
+  }
+}
+
+.wrapper {
   display: grid;
   grid-template-columns: 55% 40%;
   gap: 5%;
+  margin-top: 15px;
   @media (max-width: 755px) {
     grid-template-columns: 1fr;
   }
@@ -165,10 +193,16 @@
     border-radius: 30px;
     margin-top: 30px;
     cursor: default;
+    pointer-events: none;
     &.active {
       cursor: pointer;
       color: #fff;
       background-color: #000;
+      pointer-events: all;
+      transition: background-color 0.2s;
+      &:hover {
+        background-color: rgba(#000, 0.8);
+      }
     }
   }
 }

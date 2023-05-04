@@ -1,0 +1,336 @@
+@use "sass:math";
+@import "@/styles/mixins";
+
+.questions {
+  position: relative;
+  background-image: url("./images/bg-questions.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 135px 0 170px;
+
+  @media (max-width: 1365px) {
+    padding-top: 60px;
+    padding-bottom: 50px;
+  }
+
+  @media (max-width: 768px) {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: 560px;
+    height: 847px;
+    background-image: url("./images/questions-dog.jpg");
+    background-repeat: no-repeat;
+    background-position: top right;
+    top: 0;
+    right: 0;
+    z-index: 1;
+
+    @media (max-width: 1600px) {
+      display: none;
+    }
+  }
+  &Container {
+    max-width: 1200px;
+    padding: 0 15px;
+    margin: 0 auto;
+    color: #ffffff;
+  }
+
+  &Title {
+    font-weight: 900;
+    font-size: 30px;
+    line-height: math.div(37, 30);
+    margin-bottom: 80px;
+    @include adaptiveValue("font-size", 30, 20, 1200, 800);
+    @include adaptiveValue("font-size", 30, 20, 799, 320);
+
+    @media (max-width: 1365px) {
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      margin: 0 auto 30px;
+    }
+  }
+
+  &Form {
+    display: flex;
+    align-items: flex-end;
+    gap: 60px;
+
+    @media (max-width: 570px) {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+    &Column {
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+
+      @media (max-width: 570px) {
+        width: 100%;
+        gap: 30px;
+      }
+
+      @media (max-width: 400px) {
+        gap: 25px;
+      }
+
+      &:first-child {
+        width: 770px;
+
+        @media (max-width: 570px) {
+          width: 100%;
+        }
+      }
+    }
+
+    &Row {
+      display: flex;
+      gap: 30px;
+
+      @media (max-width: 570px) {
+        gap: 20px;
+      }
+
+      @media (max-width: 400px) {
+        flex-direction: column;
+        gap: 25px;
+      }
+
+      &Cb {
+        gap: 14px;
+        flex-direction: column;
+      }
+    }
+
+    &Wrapper {
+      position: relative;
+      max-width: 370px;
+      width: 100%;
+
+      &Textarea {
+        max-width: 100%;
+        height: 137px;
+
+        @media (max-width: 570px) {
+          height: 101px;
+        }
+      }
+    }
+
+    &Input {
+      width: 100%;
+      border-bottom: 1px solid #ffffff;
+      padding-bottom: 20px;
+      font-size: 18px;
+      line-height: math.div(22, 18);
+      font-weight: 500;
+      color: #ffffff;
+      border-radius: 0;
+      cursor: text;
+      outline: none;
+
+      @media (max-width: 570px) {
+        font-size: 14px;
+        padding-bottom: 10px;
+      }
+
+      &.error {
+        color: #f52456;
+
+        &::placeholder {
+          color: #f52456;
+        }
+      }
+
+      &:focus + .questionsFormLine {
+        animation: underlined 0.7s forwards;
+      }
+
+      &::placeholder {
+        color: #ffffff;
+      }
+
+      &:focus {
+        color: #fff;
+
+        &::placeholder {
+          font-size: 0;
+        }
+      }
+    }
+
+    &Line {
+      position: absolute;
+      width: 0;
+      height: 1px;
+      background-color: #f52456;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      bottom: 0;
+      z-index: 99;
+      &.active {
+        bottom: -1px;
+        animation: underlined 0.7s forwards;
+      }
+    }
+
+    &Select {
+      height: 100%;
+      border-bottom: 1px solid #fff;
+      position: relative;
+      width: 100%;
+      line-height: math.div(22, 18);
+      font-weight: 500;
+      color: #ffffff;
+      cursor: pointer;
+      outline: none;
+    }
+
+    &Message {
+      width: 100%;
+      height: 136px;
+      border-bottom: 1px solid #ffffff;
+      font-size: 18px;
+      line-height: math.div(22, 18);
+      font-weight: 500;
+      color: #ffffff;
+      border-radius: 0;
+      cursor: text;
+      outline: none;
+      resize: none;
+
+      @media (max-width: 570px) {
+        font-size: 14px;
+        height: 100px;
+      }
+
+      &:focus + .questionsFormLine {
+        bottom: 1px;
+        animation: underlined 0.7s forwards;
+      }
+
+      &::placeholder {
+        color: #ffffff;
+      }
+
+      &:focus {
+        &::placeholder {
+          font-size: 0;
+        }
+      }
+    }
+
+    &Checkbox {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: math.div(17, 14);
+      color: #999999;
+      cursor: pointer;
+
+      @media (max-width: 570px) {
+        font-size: 12px;
+      }
+
+      @media (max-width: 400px) {
+        line-height: 2;
+      }
+
+      &.error {
+        span {
+          color: #f52456;
+        }
+
+        a {
+          color: #f52456;
+        }
+      }
+
+      input {
+        position: absolute;
+        width: 0;
+        height: 0;
+        opacity: 0;
+        visibility: hidden;
+
+        &:checked + span::before {
+          border: 2px solid #f52456;
+        }
+
+        &:checked + span::after {
+          content: "";
+          position: absolute;
+          background-image: url("./images/done.svg");
+          left: 3px;
+          top: 4px;
+          width: 12px;
+          height: 9px;
+        }
+      }
+
+      span {
+        position: relative;
+        padding-left: 30px;
+
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 15px;
+          height: 15px;
+          border: 2px solid #a5a5a5;
+          background-color: transparent;
+          border-radius: 2px;
+        }
+
+        a {
+          color: #999999;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &Button {
+      width: 48px;
+      height: 48px;
+      background-color: #f52456;
+      background-image: url("./images/arrow-button.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      box-shadow: 0px 0px 28px 10px rgba(245, 36, 86, 0.39);
+      border-radius: 50%;
+      margin-bottom: 98px;
+      transition: all 0.3s;
+
+      @media (max-width: 570px) {
+        width: 100%;
+        border-radius: 10px;
+        margin: 0;
+      }
+
+      &:hover {
+        background-color: #971735;
+      }
+    }
+  }
+}
+
+@keyframes underlined {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
