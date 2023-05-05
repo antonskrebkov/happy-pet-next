@@ -4,14 +4,16 @@ import styles from "./Friend.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Thumbs } from "swiper";
 import "swiper/scss";
-import sliderPet1 from "@/components/home-new-slider/images/01.png";
 
 import Image from "next/image";
 import { Accordion, AccordionItem as Item } from "@szhsin/react-accordion";
 import chevronDown from "./chevron-down.svg";
+import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
+
+import friend1 from "@/components/friends-catalog/images/01.png";
 
 export default function Friend() {
-  const AccordionItem = ({ header, ...rest }) => (
+  const AccordionItem = ({ header, ...rest }: any) => (
     <Item
       {...rest}
       header={
@@ -34,31 +36,42 @@ export default function Friend() {
     />
   );
 
+  const breadcrumbs = [
+    {
+      link: "/",
+      title: "Головна",
+    },
+    {
+      link: "/friends",
+      title: "Друзі",
+    },
+    {
+      link: "/friends/1234",
+      title: "1234",
+    },
+  ];
+
+  const friend = {
+    id: 1,
+    age: 2,
+    name: "Папуга Гриша",
+    shortDescription: "Папуга-балакун чудовий новий друг для всієї родини",
+    description:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque, laboriosam possimus tempore, quasi inventore rerum, explicabo laudantium totam voluptas quas quis dolorum est? Magnam, reiciendis. Hic aspernatur asperiores odio aliquid.",
+    category: "Parrot",
+    price: 900,
+    sex: "Male",
+    wc: true,
+    images: [friend1, friend1],
+  };
+
   const [thumbsSwiper, setThumbsSwiper] = useState();
 
   return (
     <Layout>
       <main className={styles.friend}>
         <div className={styles.container}>
-          <section className={styles.breadcrumbs}>
-            <ul className={styles.breadcrumbsList}>
-              <li className={styles.breadcrumbsItem}>
-                <a href="" className={styles.breadcrumbsLink}>
-                  Главная
-                </a>
-              </li>
-              <li className={styles.breadcrumbsItem}>
-                <a href="" className={styles.breadcrumbsLink}>
-                  Друзья
-                </a>
-              </li>
-              <li className={styles.breadcrumbsItem}>
-                <a href="" className={styles.breadcrumbsLink}>
-                  12345
-                </a>
-              </li>
-            </ul>
-          </section>
+          <Breadcrumbs breadcrumbs={breadcrumbs} />
           <section className={styles.wrapper}>
             <div className={styles.gallery}>
               <Swiper
@@ -75,13 +88,15 @@ export default function Friend() {
                 speed={400}
                 slidesPerView={1}
               >
-                <SwiperSlide>
-                  <Image
-                    src={sliderPet1}
-                    className={styles.gallerySliderItem}
-                    alt=""
-                  />
-                </SwiperSlide>
+                {friend.images.map((image, index) => (
+                  <SwiperSlide key={index}>
+                    <Image
+                      src={image}
+                      className={styles.gallerySliderItem}
+                      alt=""
+                    />
+                  </SwiperSlide>
+                ))}
               </Swiper>
               <Swiper
                 modules={[Thumbs]}
@@ -94,22 +109,24 @@ export default function Friend() {
                 slidesPerView={4}
                 spaceBetween={15}
               >
-                <SwiperSlide>
-                  <Image
-                    src={sliderPet1}
-                    className={styles.galleryThumbItem}
-                    alt=""
-                  />
-                </SwiperSlide>
+                {friend.images.map((image, index) => (
+                  <SwiperSlide key={index}>
+                    <Image
+                      src={image}
+                      className={styles.galleryThumbItem}
+                      alt=""
+                    />
+                  </SwiperSlide>
+                ))}
               </Swiper>
             </div>
             <div className={styles.info}>
-              <h2 className={styles.title}>Кролик Сниф</h2>
-              <p className={styles.shortId}>ID: 12345</p>
+              <h2 className={styles.title}>{friend.name}</h2>
+              <p className={styles.shortId}>ID: {friend.id}</p>
               <p className={styles.shortDescription}>
-                Кролик Сніф закохає всіх своїми вухами
+                {friend.shortDescription}
               </p>
-              <p className={styles.price}>900 ₴</p>
+              <p className={styles.price}>{friend.price} ₴</p>
               <button className={styles.add}>Додати у переноску</button>
               <Accordion
                 className={styles.details}
@@ -117,29 +134,26 @@ export default function Friend() {
                 transitionTimeout={200}
               >
                 <AccordionItem header="Опис">
-                  <p className={styles.detailsText}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Similique, error officia sint excepturi ducimus est,
-                    deleniti aliquid laborum inventore, ut voluptas cumque quia
-                    at nihil quae nisi! Corrupti, numquam iusto!
-                  </p>
+                  <p className={styles.detailsText}>{friend.description}</p>
                 </AccordionItem>
                 <AccordionItem header="Деталі">
                   <div className={styles.detailsRow}>
                     <p className={styles.detailsRowKey}>Вид</p>
-                    <p className={styles.detailsRowValue}>Гризун</p>
+                    <p className={styles.detailsRowValue}>{friend.category}</p>
                   </div>
                   <div className={styles.detailsRow}>
                     <p className={styles.detailsRowKey}>Вік</p>
-                    <p className={styles.detailsRowValue}>2 міс.</p>
+                    <p className={styles.detailsRowValue}>{friend.age} міс.</p>
                   </div>
                   <div className={styles.detailsRow}>
                     <p className={styles.detailsRowKey}>Стать</p>
-                    <p className={styles.detailsRowValue}>Він</p>
+                    <p className={styles.detailsRowValue}>{friend.sex}</p>
                   </div>
                   <div className={styles.detailsRow}>
                     <p className={styles.detailsRowKey}>Туалет</p>
-                    <p className={styles.detailsRowValue}>Так</p>
+                    <p className={styles.detailsRowValue}>
+                      {friend.wc ? "Так" : "Ні"}
+                    </p>
                   </div>
                 </AccordionItem>
               </Accordion>

@@ -23,7 +23,7 @@ interface FriendItemProps extends PropsWithChildren {
 
 const FriendItem: FC<FriendItemProps> = ({ friend, children }) => {
   return (
-    <Link href={"friend/" + friend.id} className={styles.item}>
+    <Link href={"friends/" + friend.id} className={styles.item}>
       <div className={styles.itemWrapper}>
         <div className={styles.itemHeader}>
           <div className={styles.itemHeaderTag}>

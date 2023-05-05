@@ -3,7 +3,7 @@ import Layout from "@/components/layout/Layout";
 import styles from "./Checkout.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-import bagPet from "src/components/screens/home/images/pets/07.png";
+import bagPet from "src/components/home-new-slider/images/01.png";
 import remove from "./remove.svg";
 
 export default function Checkout() {

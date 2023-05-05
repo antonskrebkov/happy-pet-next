@@ -2,9 +2,12 @@ import React from "react";
 import Layout from "@/components/layout/Layout";
 import styles from "./Application.module.scss";
 import Image from "next/image";
-import orderPet from "src/components/screens/home/images/pets/07.png";
+import orderPet from "src/components/home-new-slider/images/01.png";
+
 import Link from "next/link";
 import { useRouter } from "next/router";
+import ApplicationInput from "@/components/UI/application-input/ApplicationInput";
+import Modal from "@/components/UI/modal/Modal";
 
 export default function Application() {
   const router = useRouter();
@@ -27,79 +30,41 @@ export default function Application() {
                 <h2 className={styles.formTitle}>
                   Введіть свої персональні дані:
                 </h2>
-                <div className={styles.formWrapper}>
-                  <input
-                    className={styles.formInput}
-                    type="text"
-                    placeholder="Імʼя"
-                  />
-                  <div className={styles.formInputLabel}>Імʼя</div>
-                  <div className={styles.formInputValidation}>
-                    Введіть своє імʼя
-                  </div>
-                </div>
-                <div className={styles.formWrapper}>
-                  <input
-                    className={styles.formInput}
-                    type="text"
-                    placeholder="Прізвище"
-                  />
-                  <div className={styles.formInputLabel}>Прізвище</div>
-                  <div className={styles.formInputValidation}>
-                    Введіть своє прізвище
-                  </div>
-                </div>
-                <div className={styles.formWrapper}>
-                  <input
-                    className={styles.formInput}
-                    type="number"
-                    placeholder="Повних років"
-                  />
-                  <div className={styles.formInputLabel}>Повних років</div>
-                  <div className={styles.formInputValidation}>
-                    Введіть свій вік
-                  </div>
-                </div>
-                <div className={styles.formWrapper}>
-                  <input
-                    className={styles.formInput}
-                    type="text"
-                    placeholder="Місто/Село"
-                  />
-                  <div className={styles.formInputLabel}>Місто/Село</div>
-                  <div className={styles.formInputValidation}>
-                    Введіть своє місто/cело
-                  </div>
-                </div>
+                <ApplicationInput
+                  type="text"
+                  value="Імʼя"
+                  validationMessage="Введіть своє імʼя"
+                />
+                <ApplicationInput
+                  type="text"
+                  value="Прізвище"
+                  validationMessage="Введіть своє прізвище"
+                />
+                <ApplicationInput
+                  type="number"
+                  value="Повних років"
+                  validationMessage="Введіть свій вік"
+                />
+                <ApplicationInput
+                  type="text"
+                  value="Місто/Село"
+                  validationMessage="Введіть своє місто/cело"
+                />
               </div>
               <div className={styles.formBox}>
                 <h2 className={styles.formTitle}>
                   Введіть свої контактні дані:
                 </h2>
-                <div className={styles.formWrapper}>
-                  <input
-                    className={`${styles.formInput} ${styles.error}`}
-                    type="mail"
-                    placeholder="Ел. пошта"
-                  />
-                  <div className={styles.formInputLabel}>Ел. пошта</div>
-                  <div
-                    className={`${styles.formInputValidation} ${styles.error}`}
-                  >
-                    Введіть свою ел. пошту
-                  </div>
-                </div>
-                <div className={styles.formWrapper}>
-                  <input
-                    className={styles.formInput}
-                    type="tel"
-                    placeholder="Номер телефона"
-                  />
-                  <div className={styles.formInputLabel}>Номер телефона</div>
-                  <div className={styles.formInputValidation}>
-                    Введіть свій номер телефона
-                  </div>
-                </div>
+                <ApplicationInput
+                  type="mail"
+                  value="Ел. пошта"
+                  validationMessage="Введіть свою ел. пошту"
+                />
+                <ApplicationInput
+                  type="tel"
+                  value="Номер телефона"
+                  validationMessage="Введіть свій номер телефона"
+                />
               </div>
               <label htmlFor="formPersonalData" className={styles.formCheckbox}>
                 <input id="formPersonalData" type="checkbox" />
@@ -143,14 +108,12 @@ export default function Application() {
           </div>
         </div>
         {success ? (
-          <div className={styles.modal}>
-            <div className={styles.modalContent}>
-              <h2 className={styles.modalTitle}>Ваша заявка прийнята!</h2>
-              <Link href="/" className={styles.modalLink}>
-                Повернутися на головну
-              </Link>
-            </div>
-          </div>
+          <Modal>
+            <h2 className={styles.modalTitle}>Ваша заявка прийнята!</h2>
+            <Link href="/" className={styles.modalLink}>
+              Повернутися на головну
+            </Link>
+          </Modal>
         ) : (
           ""
         )}
