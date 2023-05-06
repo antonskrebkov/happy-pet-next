@@ -208,8 +208,22 @@
 .modal {
   &Title {
     font-size: 21px;
+    @media (max-width: 420px) {
+      font-size: 16px;
+    }
   }
   &Link {
-    text-decoration: underline;
+    padding: 10px 12px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 10px;
+    transition: background-color 0.2s;
+    font-size: 18px;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    @media (max-width: 420px) {
+      font-size: 14px;
+    }
   }
 }

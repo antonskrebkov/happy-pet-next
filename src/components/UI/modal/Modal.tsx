@@ -1,14 +1,17 @@
-import { FC, PropsWithChildren, useEffect } from "react";
+import { FC, PropsWithChildren, useState, useEffect } from "react";
 import styles from "./Modal.module.scss";
 
 const Modal: FC<PropsWithChildren> = ({ children }) => {
-  const menuShow = false;
+  const [menuShow, setMenuShow] = useState<boolean>(false);
 
   useEffect(() => {
     menuShow
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "scroll");
-  }, [menuShow]);
+    return function cleanup() {
+      setMenuShow(false);
+    };
+  }, []);
 
   return (
     <div className={styles.modal}>

@@ -389,12 +389,11 @@
       border-bottom: 1px solid rgba(153, 153, 153, 0.38);
     }
 
+    &Link {
+    }
+
     &Image {
-      img {
-        width: 90px;
-        height: 90px;
-        object-fit: cover;
-      }
+      object-fit: contain;
     }
 
     &Content {

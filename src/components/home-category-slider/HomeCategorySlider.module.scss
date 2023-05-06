@@ -55,6 +55,7 @@
         height: 10px;
         cursor: pointer;
         width: 67px;
+        transition: all 0.2s;
       }
     }
   }
@@ -212,51 +213,6 @@
     @media (max-width: 1365px) {
       right: 15px;
       top: calc(50% - 30px);
-    }
-  }
-
-  &ScrollbarBox {
-    max-width: 500px;
-    margin: 0 0 0 -10px;
-    z-index: 1;
-
-    @media (max-width: 1365px) {
-      max-width: 750px;
-      margin: auto;
-    }
-
-    @media (max-width: 899px) {
-      max-width: 500px;
-    }
-
-    @media (max-width: 639px) {
-      max-width: 250px;
-    }
-  }
-  &ScrollbarWrapper {
-    position: relative;
-    width: 272px;
-    height: 11px;
-    margin: 0 auto;
-
-    @media (max-width: 639px) {
-      width: 220px;
-    }
-  }
-
-  &Scrollbar {
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.1);
-    height: 6px;
-    cursor: pointer;
-
-    > div {
-      position: absolute;
-      height: 11px;
-      top: -2.5px;
-      background-color: #646464;
-      border-radius: 10px;
-      cursor: pointer;
     }
   }
 }

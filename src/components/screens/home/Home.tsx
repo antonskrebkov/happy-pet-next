@@ -11,6 +11,8 @@ import Modal from "@/components/UI/modal/Modal";
 import styles from "./Home.module.scss";
 
 const Home: FC = () => {
+  const modal = false;
+
   return (
     <Layout>
       <main>
@@ -21,10 +23,14 @@ const Home: FC = () => {
         <HomeGallery />
         <HomeAbout />
         <Questions />
-        <Modal>
-          <h2 className={styles.modalTitle}>Ваше повідомлення надіслано!</h2>
-          <button className={styles.modalButton}>Готово</button>
-        </Modal>
+        {modal ? (
+          <Modal>
+            <h2 className={styles.modalTitle}>Ваше повідомлення надіслано!</h2>
+            <button className={styles.modalButton}>Готово</button>
+          </Modal>
+        ) : (
+          ""
+        )}
       </main>
     </Layout>
   );

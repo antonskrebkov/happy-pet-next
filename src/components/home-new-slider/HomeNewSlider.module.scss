@@ -186,22 +186,3 @@
     }
   }
 }
-
-.pagination-new {
-  &__items {
-    .swiper-pagination-bullet {
-      background: rgba(0, 0, 0, 0.13);
-      width: 16px;
-      height: 16px;
-
-      @media (max-width: 1199px) {
-        width: 10px;
-        height: 10px;
-      }
-
-      &.swiper-pagination-bullet-active {
-        background: rgba(0, 0, 0, 0.69);
-      }
-    }
-  }
-}

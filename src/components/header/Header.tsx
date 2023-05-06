@@ -139,12 +139,14 @@ const Header: FC = () => {
                 <div className={styles.cartTop}>В переноске</div>
                 <ul className={styles.cartItems}>
                   <li className={styles.cartItem}>
-                    <a href="" className={styles.cartItemImage}>
-                      <img
-                        src="https://localhost:3002/assets/images/reptiles/turtle-nina/05.png"
+                    <Link href="/friends/1" className={styles.cartItemImage}>
+                      <Image
+                        width={90}
+                        height={90}
+                        src="http://localhost:3002/assets/images/reptiles/turtle-nina/05.png"
                         alt=""
                       />
-                    </a>
+                    </Link>
                     <div className={styles.cartItemContent}>
                       <a href="" className={styles.cartItemTitle}>
                         Кролик Сниф
@@ -165,12 +167,14 @@ const Header: FC = () => {
                     </button>
                   </li>
                   <li className={styles.cartItem}>
-                    <a href="" className={styles.cartItemImage}>
-                      <img
-                        src="https://localhost:3002/assets/images/reptiles/turtle-nina/05.png"
+                    <Link href="/friends/1" className={styles.cartItemImage}>
+                      <Image
+                        width={90}
+                        height={90}
+                        src="http://localhost:3002/assets/images/reptiles/turtle-nina/05.png"
                         alt=""
                       />
-                    </a>
+                    </Link>
                     <div className={styles.cartItemContent}>
                       <a href="" className={styles.cartItemTitle}>
                         Кролик Сниф
