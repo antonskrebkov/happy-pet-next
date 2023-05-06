@@ -7,23 +7,23 @@ const HomeGallery: FC = () => {
   const galleryColumns = [
     {
       id: 1,
-      firstLink: "http://localhost:3002/assets/images/gallery/01.jpg",
+      firstLink: "https://i.imgur.com/AYRkqVc.jpg",
       firstSize: styles.galleryImgS,
-      secondLink: "http://localhost:3002/assets/images/gallery/02.jpg",
+      secondLink: "https://i.imgur.com/RPxU498.jpg",
       secondSize: styles.galleryImgL,
     },
     {
       id: 2,
-      firstLink: "http://localhost:3002/assets/images/gallery/03.jpg",
+      firstLink: "https://i.imgur.com/uerbOsM.jpg",
       firstSize: styles.galleryImgL,
-      secondLink: "http://localhost:3002/assets/images/gallery/04.jpg",
+      secondLink: "https://i.imgur.com/Dle9I9o.jpg",
       secondSize: styles.galleryImgS,
     },
     {
       id: 3,
-      firstLink: "http://localhost:3002/assets/images/gallery/05.jpg",
+      firstLink: "https://i.imgur.com/sos1IEW.jpg",
       firstSize: styles.galleryImgM,
-      secondLink: "http://localhost:3002/assets/images/gallery/06.jpg",
+      secondLink: "https://i.imgur.com/85OO3SM.jpg",
       secondSize: styles.galleryImgM,
     },
   ];

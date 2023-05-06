@@ -4,13 +4,10 @@ import styles from "./Friend.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Thumbs } from "swiper";
 import "swiper/scss";
-
 import Image from "next/image";
 import { Accordion, AccordionItem as Item } from "@szhsin/react-accordion";
-import chevronDown from "./chevron-down.svg";
+import chevronDown from "./icons/chevron-down.svg";
 import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
-
-import friend1 from "@/components/friends-catalog/images/01.png";
 
 export default function Friend() {
   const AccordionItem = ({ header, ...rest }: any) => (
@@ -62,13 +59,20 @@ export default function Friend() {
     price: 900,
     sex: "Male",
     wc: true,
-    images: [friend1, friend1],
+    images: [
+      "https://i.imgur.com/QZNsBsl.jpg",
+      "https://i.imgur.com/emiRG6T.jpg",
+    ],
   };
 
   const [thumbsSwiper, setThumbsSwiper] = useState();
 
   return (
-    <Layout>
+    <Layout
+      title={friend.name}
+      description={`${friend.name}. ${friend.shortDescription}`}
+      keywords={friend.name}
+    >
       <main className={styles.friend}>
         <div className={styles.container}>
           <Breadcrumbs breadcrumbs={breadcrumbs} />
@@ -91,7 +95,9 @@ export default function Friend() {
                 {friend.images.map((image, index) => (
                   <SwiperSlide key={index}>
                     <Image
-                      src={image}
+                      src="https://i.imgur.com/tqalXMP.jpg"
+                      width={450}
+                      height={450}
                       className={styles.gallerySliderItem}
                       alt=""
                     />
@@ -112,7 +118,9 @@ export default function Friend() {
                 {friend.images.map((image, index) => (
                   <SwiperSlide key={index}>
                     <Image
-                      src={image}
+                      src="https://i.imgur.com/tqalXMP.jpg"
+                      width={150}
+                      height={150}
                       className={styles.galleryThumbItem}
                       alt=""
                     />

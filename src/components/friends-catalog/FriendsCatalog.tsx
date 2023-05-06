@@ -3,7 +3,6 @@ import styles from "./FriendsCatalog.module.scss";
 import Image from "next/image";
 import FriendItem from "../UI/friend-item/FriendItem";
 import cart from "./images/cart.svg";
-import friend1 from "./images/01.png";
 
 const FriendsCatalog: FC = () => {
   const catalogItems = [
@@ -18,7 +17,10 @@ const FriendsCatalog: FC = () => {
       price: 900,
       sex: "male",
       wc: true,
-      images: [friend1, friend1],
+      images: [
+        "https://i.imgur.com/AHquTH8.jpg",
+        "https://i.imgur.com/AHquTH8.jpg",
+      ],
     },
     {
       id: 2,
@@ -31,7 +33,10 @@ const FriendsCatalog: FC = () => {
       price: 900,
       sex: "male",
       wc: true,
-      images: [friend1, friend1],
+      images: [
+        "https://i.imgur.com/Szth7H3.jpg",
+        "https://i.imgur.com/Szth7H3.jpg",
+      ],
     },
     {
       id: 3,
@@ -44,7 +49,11 @@ const FriendsCatalog: FC = () => {
       price: 900,
       sex: "male",
       wc: false,
-      images: [friend1, friend1, friend1],
+      images: [
+        "https://i.imgur.com/gU73Jd6.jpg",
+        "https://i.imgur.com/gU73Jd6.jpg",
+        "https://i.imgur.com/gU73Jd6.jpg",
+      ],
     },
     {
       id: 4,
@@ -57,7 +66,10 @@ const FriendsCatalog: FC = () => {
       price: 1000,
       sex: "male",
       wc: false,
-      images: [friend1, friend1],
+      images: [
+        "https://i.imgur.com/XdsLZid.jpg",
+        "https://i.imgur.com/XdsLZid.jpg",
+      ],
     },
   ];
 

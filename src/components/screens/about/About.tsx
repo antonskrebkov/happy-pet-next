@@ -1,7 +1,7 @@
 import Layout from "@/components/layout/Layout";
 import React from "react";
 import styles from "./About.module.scss";
-import chevronDown from "./chevron-down.svg";
+import chevronDown from "./icons/chevron-down.svg";
 import { Accordion, AccordionItem as Item } from "@szhsin/react-accordion";
 import Image from "next/image";
 
@@ -30,7 +30,11 @@ const AccordionItem = ({ header, ...rest }) => (
 
 export default function About() {
   return (
-    <Layout>
+    <Layout
+      title="About"
+      description="Частный приют для животных «Happy pet» был основан в 2014 году в селе Фасова, Макаровского района, Киевской области на базе общественной организации «Зооцентр «Ковчег» Оноприенко Галиной Федоровной и построен за ее собственные средства. Галина Федоровна является владельцем приюта и его директором."
+      keywords="Оноприенко Галина Федоровна"
+    >
       <main className={styles.about}>
         <div className={styles.container}>
           <section className={styles.info}>

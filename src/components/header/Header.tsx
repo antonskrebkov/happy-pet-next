@@ -143,7 +143,7 @@ const Header: FC = () => {
                       <Image
                         width={90}
                         height={90}
-                        src="http://localhost:3002/assets/images/reptiles/turtle-nina/05.png"
+                        src="https://i.imgur.com/tqalXMP.jpg"
                         alt=""
                       />
                     </Link>
@@ -171,7 +171,7 @@ const Header: FC = () => {
                       <Image
                         width={90}
                         height={90}
-                        src="http://localhost:3002/assets/images/reptiles/turtle-nina/05.png"
+                        src="https://i.imgur.com/tqalXMP.jpg"
                         alt=""
                       />
                     </Link>

@@ -5,17 +5,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "node_modules/swiper/modules/scrollbar/scrollbar.scss";
 import "swiper/scss";
 import styles from "./HomeCategorySlider.module.scss";
-import category1 from "./images/01.png";
-import category2 from "./images/02.png";
-import category3 from "./images/03.png";
-import category4 from "./images/04.png";
-import category5 from "./images/05.png";
-import category6 from "./images/06.png";
 
 interface ISliderItem {
   id: number;
   title: string;
-  src: StaticImageData;
+  link: string;
+  imageLink: string;
   className: string;
 }
 
@@ -24,37 +19,43 @@ const HomeCategorySlider: FC = () => {
     {
       id: 1,
       title: "Обезьяны",
-      src: category1,
+      link: "/",
+      imageLink: "https://i.imgur.com/agxE50Y.png",
       className: styles.sliderItemCategoryMonkey,
     },
     {
       id: 2,
       title: "Рептилии",
-      src: category2,
+      link: "/",
+      imageLink: "https://i.imgur.com/Nr7bo6n.png",
       className: styles.sliderItemCategoryReptile,
     },
     {
       id: 3,
       title: "Грызуны",
-      src: category3,
+      link: "/",
+      imageLink: "https://i.imgur.com/ovZEhW9.png",
       className: styles.sliderItemCategoryRodent,
     },
     {
       id: 4,
       title: "Кошки",
-      src: category4,
+      link: "/",
+      imageLink: "https://i.imgur.com/6nPbXz3.png",
       className: styles.sliderItemCategoryCat,
     },
     {
       id: 5,
       title: "Собаки",
-      src: category5,
+      link: "/",
+      imageLink: "https://i.imgur.com/frdo1M5.png",
       className: styles.sliderItemCategoryDog,
     },
     {
       id: 6,
       title: "Попугаи",
-      src: category6,
+      link: "/",
+      imageLink: "https://i.imgur.com/wrH12RE.png",
       className: styles.sliderItemCategoryParrot,
     },
   ];
@@ -120,7 +121,12 @@ const HomeCategorySlider: FC = () => {
                   {sliderItem.title}
                 </div>
                 <div className={styles.sliderItemImg}>
-                  <Image src={sliderItem.src} alt="" />
+                  <Image
+                    src={sliderItem.imageLink}
+                    width={127}
+                    height={136}
+                    alt=""
+                  />
                 </div>
               </a>
             </SwiperSlide>

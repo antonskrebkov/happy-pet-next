@@ -393,7 +393,10 @@
     }
 
     &Image {
-      object-fit: contain;
+      > img {
+        border-radius: 10px;
+        object-fit: cover;
+      }
     }
 
     &Content {

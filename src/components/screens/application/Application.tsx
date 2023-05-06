@@ -2,8 +2,6 @@ import React from "react";
 import Layout from "@/components/layout/Layout";
 import styles from "./Application.module.scss";
 import Image from "next/image";
-import orderPet from "src/components/home-new-slider/images/01.png";
-
 import Link from "next/link";
 import { useRouter } from "next/router";
 import ApplicationInput from "@/components/UI/application-input/ApplicationInput";
@@ -14,7 +12,7 @@ export default function Application() {
   const success = false;
 
   return (
-    <Layout>
+    <Layout title="Application">
       <main className={styles.application}>
         <div className={styles.container}>
           <button
@@ -80,7 +78,9 @@ export default function Application() {
                 <li className={styles.orderItem}>
                   <Image
                     className={styles.orderItemImage}
-                    src={orderPet}
+                    width={100}
+                    height={100}
+                    src="https://i.imgur.com/zO4PEZL.jpg"
                     alt=""
                   ></Image>
                   <div className={styles.orderItemBody}>
@@ -91,7 +91,9 @@ export default function Application() {
                 <li className={styles.orderItem}>
                   <Image
                     className={styles.orderItemImage}
-                    src={orderPet}
+                    width={100}
+                    height={100}
+                    src="https://i.imgur.com/AHquTH8.jpg"
                     alt=""
                   ></Image>
                   <div className={styles.orderItemBody}>

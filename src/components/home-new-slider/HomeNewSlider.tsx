@@ -4,7 +4,6 @@ import { Navigation, Pagination } from "swiper";
 import "swiper/scss";
 import styles from "./HomeNewSlider.module.scss";
 import "node_modules/swiper/modules/pagination/pagination.scss";
-import friend1 from "./images/01.png";
 import FriendItem from "../UI/friend-item/FriendItem";
 
 const HomeNewSlider: FC = () => {
@@ -23,7 +22,10 @@ const HomeNewSlider: FC = () => {
       price: 900,
       sex: "male",
       wc: true,
-      images: [friend1, friend1],
+      images: [
+        "https://i.imgur.com/AHquTH8.jpg",
+        "https://i.imgur.com/AHquTH8.jpg",
+      ],
     },
     {
       id: 2,
@@ -36,7 +38,10 @@ const HomeNewSlider: FC = () => {
       price: 900,
       sex: "male",
       wc: true,
-      images: [friend1, friend1],
+      images: [
+        "https://i.imgur.com/Szth7H3.jpg",
+        "https://i.imgur.com/Szth7H3.jpg",
+      ],
     },
     {
       id: 3,
@@ -49,7 +54,11 @@ const HomeNewSlider: FC = () => {
       price: 900,
       sex: "male",
       wc: false,
-      images: [friend1, friend1, friend1],
+      images: [
+        "https://i.imgur.com/gU73Jd6.jpg",
+        "https://i.imgur.com/gU73Jd6.jpg",
+        "https://i.imgur.com/gU73Jd6.jpg",
+      ],
     },
     {
       id: 4,
@@ -62,7 +71,10 @@ const HomeNewSlider: FC = () => {
       price: 1000,
       sex: "male",
       wc: false,
-      images: [friend1, friend1],
+      images: [
+        "https://i.imgur.com/XdsLZid.jpg",
+        "https://i.imgur.com/XdsLZid.jpg",
+      ],
     },
   ];
 

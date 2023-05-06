@@ -131,7 +131,8 @@
       margin-top: 26px;
       margin-bottom: 26px;
       height: 227px;
-      object-fit: contain;
+      object-fit: cover;
+      border-radius: 10px;
 
       @media (max-width: 1199px) {
         margin-top: 13px;

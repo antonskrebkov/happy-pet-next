@@ -29,7 +29,7 @@
   &:before {
     content: "";
     position: absolute;
-    background: url("./back-arrow.svg");
+    background: url("./icons/back-arrow.svg");
     background-repeat: no-repeat;
     width: 20px;
     height: 12px;
@@ -103,7 +103,7 @@
       &:checked + span::after {
         content: "";
         position: absolute;
-        background-image: url("./done.svg");
+        background-image: url("./icons/done.svg");
         left: 3px;
         top: 4px;
         width: 12px;
@@ -174,10 +174,14 @@
     margin-bottom: 10px;
     &Image {
       border-radius: 10px;
+      // border: 1px solid #ccc;
       margin-right: 10px;
       object-fit: cover;
-      width: 100px;
-      height: 100px;
+
+      @media (max-width: 500px) {
+        width: 80px;
+        height: 80px;
+      }
     }
     &Body {
       display: flex;

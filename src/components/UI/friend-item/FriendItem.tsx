@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren } from "react";
 import Link from "next/link";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import wc from "./images/wc.svg";
 import styles from "./FriendItem.module.scss";
 
@@ -14,7 +14,7 @@ interface IFriend {
   price: number;
   sex: string;
   wc: boolean;
-  images: StaticImageData[];
+  images: string[];
 }
 
 interface FriendItemProps extends PropsWithChildren {
@@ -43,7 +43,13 @@ const FriendItem: FC<FriendItemProps> = ({ friend, children }) => {
           </div>
         </div>
         <div className={styles.itemBody}>
-          <Image src={friend.images[0]} alt="" className={styles.itemBodyImg} />
+          <Image
+            src={friend.images[0]}
+            width={248}
+            height={248}
+            alt=""
+            className={styles.itemBodyImg}
+          />
           <div className={styles.itemBodyInfo}>
             <div className={styles.itemBodyInfoTitle}>{friend.name}</div>
             <div className={styles.itemBodyInfoText}>

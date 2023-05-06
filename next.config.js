@@ -5,7 +5,7 @@ const path = require("path");
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["localhost", "localhost:3002"],
+    domains: ["i.imgur.com"],
   },
   sassOptions: {
     fiber: false,

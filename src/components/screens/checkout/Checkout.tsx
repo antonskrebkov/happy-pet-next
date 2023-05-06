@@ -3,12 +3,11 @@ import Layout from "@/components/layout/Layout";
 import styles from "./Checkout.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-import bagPet from "src/components/home-new-slider/images/01.png";
-import remove from "./remove.svg";
+import remove from "./icons/remove.svg";
 
 export default function Checkout() {
   return (
-    <Layout>
+    <Layout title="Checkout">
       <main className={styles.checkout}>
         <div className={styles.container}>
           <div className={styles.bag}>
@@ -17,7 +16,12 @@ export default function Checkout() {
               <ul className={styles.bagItems}>
                 <li className={styles.bagItem}>
                   <Link className={styles.bagItemImage} href="">
-                    <Image src={bagPet} alt="" />
+                    <Image
+                      src="https://i.imgur.com/rM7wZjz.jpg"
+                      width={140}
+                      height={140}
+                      alt=""
+                    />
                   </Link>
                   <div className={styles.bagItemBody}>
                     <div className={styles.bagItemRow}>
@@ -36,7 +40,12 @@ export default function Checkout() {
                 </li>
                 <li className={styles.bagItem}>
                   <Link className={styles.bagItemImage} href="">
-                    <Image src={bagPet} alt="" />
+                    <Image
+                      src="https://i.imgur.com/8X0ezCP.jpg"
+                      width={140}
+                      height={140}
+                      alt=""
+                    />
                   </Link>
                   <div className={styles.bagItemBody}>
                     <div className={styles.bagItemRow}>
@@ -55,7 +64,12 @@ export default function Checkout() {
                 </li>
                 <li className={styles.bagItem}>
                   <Link className={styles.bagItemImage} href="">
-                    <Image src={bagPet} alt="" />
+                    <Image
+                      src="https://i.imgur.com/zO4PEZL.jpg"
+                      width={140}
+                      height={140}
+                      alt=""
+                    />
                   </Link>
                   <div className={styles.bagItemBody}>
                     <div className={styles.bagItemRow}>

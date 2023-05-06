@@ -14,7 +14,11 @@ const Home: FC = () => {
   const modal = false;
 
   return (
-    <Layout>
+    <Layout
+      title="Home"
+      description="Твой новый друг с доставкой на дом. Онлайн-магазин домашних животных подарит тебе нового друга в несколько кликов. Действуй!"
+      keywords="Домашнее животное"
+    >
       <main>
         <HomeMain />
         <HomeCategorySlider />

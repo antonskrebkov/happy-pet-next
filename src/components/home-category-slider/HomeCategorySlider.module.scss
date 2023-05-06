@@ -46,6 +46,9 @@
       margin: 0 auto;
       cursor: pointer;
       background-color: rgba(0, 0, 0, 0.1);
+      @media (max-width: 400px) {
+        width: 220px;
+      }
       > div {
         position: absolute;
         transform: translate3d(0px, 0px, 0px);

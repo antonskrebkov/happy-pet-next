@@ -20,7 +20,11 @@ const Friends: FC = () => {
   ];
 
   return (
-    <Layout>
+    <Layout
+      title="Friends"
+      description="Выбрать друга"
+      keywords="Друзья, животные, питомцы"
+    >
       <main className={styles.friends}>
         <Breadcrumbs breadcrumbs={breadcrumbs} />
         <FriendsChoose />

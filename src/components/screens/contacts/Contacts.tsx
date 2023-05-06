@@ -10,22 +10,12 @@ interface IConfirmation {
 }
 
 export default function Contacts() {
-  const [isSelectActive, setIsSelectActive] = useState(false);
-
-  const [confirmation, setConfirmation] = useState<IConfirmation>({
-    isPersonalDataChecked: false,
-    isPrivacyPolicyChecked: false,
-  });
-
-  const options = [
-    { value: "Тема 1", label: "Тема 1" },
-    { value: "Тема 2", label: "Тема 2" },
-    { value: "Тема 3", label: "Тема 3" },
-    { value: "Тема 4", label: "Тема 4" },
-  ];
-
   return (
-    <Layout>
+    <Layout
+      title="Contacts"
+      description="+(38) 067 345 2774, happypet@gmail.com, с. Фасова, Київська область, Благодійна допомога, snezhana.bv@gmail.com"
+      keywords="контакты, связаться"
+    >
       <main className={styles.contacts}>
         <section className={styles.info}>
           <div className={styles.infoContainer}>
