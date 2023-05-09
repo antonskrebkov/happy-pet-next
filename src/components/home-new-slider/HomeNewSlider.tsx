@@ -5,78 +5,13 @@ import "swiper/scss";
 import styles from "./HomeNewSlider.module.scss";
 import "node_modules/swiper/modules/pagination/pagination.scss";
 import FriendItem from "../UI/friend-item/FriendItem";
+import { friendsAPI } from "@/services/Friends.service";
 
 const HomeNewSlider: FC = () => {
   const buttonPrev = useRef<HTMLButtonElement | null>(null);
   const buttonNext = useRef<HTMLButtonElement | null>(null);
 
-  const sliderItems = [
-    {
-      id: 1,
-      age: 2,
-      name: "Папуга Гриша",
-      shortDescription: "Папуга-балакун чудовий новий друг для всієї родини",
-      description:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque, laboriosam possimus tempore, quasi inventore rerum, explicabo laudantium totam voluptas quas quis dolorum est? Magnam, reiciendis. Hic aspernatur asperiores odio aliquid.",
-      category: "parrot",
-      price: 900,
-      sex: "male",
-      wc: true,
-      images: [
-        "https://i.imgur.com/AHquTH8.jpg",
-        "https://i.imgur.com/AHquTH8.jpg",
-      ],
-    },
-    {
-      id: 2,
-      age: 2,
-      name: "Папуга Гриша",
-      shortDescription: "Папуга-балакун чудовий новий друг для всієї родини",
-      description:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque, laboriosam possimus tempore, quasi inventore rerum, explicabo laudantium totam voluptas quas quis dolorum est? Magnam, reiciendis. Hic aspernatur asperiores odio aliquid.",
-      category: "parrot",
-      price: 900,
-      sex: "male",
-      wc: true,
-      images: [
-        "https://i.imgur.com/Szth7H3.jpg",
-        "https://i.imgur.com/Szth7H3.jpg",
-      ],
-    },
-    {
-      id: 3,
-      age: 2,
-      name: "Папуга Гриша",
-      shortDescription: "Папуга-балакун чудовий новий друг для всієї родини",
-      description:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque, laboriosam possimus tempore, quasi inventore rerum, explicabo laudantium totam voluptas quas quis dolorum est? Magnam, reiciendis. Hic aspernatur asperiores odio aliquid.",
-      category: "parrot",
-      price: 900,
-      sex: "male",
-      wc: false,
-      images: [
-        "https://i.imgur.com/gU73Jd6.jpg",
-        "https://i.imgur.com/gU73Jd6.jpg",
-        "https://i.imgur.com/gU73Jd6.jpg",
-      ],
-    },
-    {
-      id: 4,
-      age: 12,
-      name: "Папуга Гриша",
-      shortDescription: "Папуга-балакун чудовий новий друг для всієї родини",
-      description:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque, laboriosam possimus tempore, quasi inventore rerum, explicabo laudantium totam voluptas quas quis dolorum est? Magnam, reiciendis. Hic aspernatur asperiores odio aliquid.",
-      category: "parrot",
-      price: 1000,
-      sex: "male",
-      wc: false,
-      images: [
-        "https://i.imgur.com/XdsLZid.jpg",
-        "https://i.imgur.com/XdsLZid.jpg",
-      ],
-    },
-  ];
+  const { data: friends } = friendsAPI.useGetFriendsQuery("");
 
   return (
     <section className={styles.new}>
@@ -128,16 +63,15 @@ const HomeNewSlider: FC = () => {
               },
             }}
           >
-            {sliderItems.map((sliderItem) => (
-              <SwiperSlide key={sliderItem.id}>
-                <FriendItem friend={sliderItem}>
-                  <div className={styles.itemFooterPrice}>
-                    {sliderItem.price}
-                  </div>
-                  <div className={styles.itemFooterBadge}></div>
-                </FriendItem>
-              </SwiperSlide>
-            ))}
+            {friends &&
+              friends.map((friend) => (
+                <SwiperSlide key={friend.id}>
+                  <FriendItem friend={friend}>
+                    <div className={styles.itemFooterPrice}>{friend.price}</div>
+                    <div className={styles.itemFooterBadge}></div>
+                  </FriendItem>
+                </SwiperSlide>
+              ))}
           </Swiper>
           <div className={styles.newNavigation}>
             <button ref={buttonPrev} className={styles.newButtonPrev}></button>

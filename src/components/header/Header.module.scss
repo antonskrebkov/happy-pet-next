@@ -142,15 +142,16 @@
     font-weight: 400;
     font-size: 15px;
     line-height: 18px;
-    padding: 7px 0;
+    padding: 6px;
+    border-radius: 8px;
+    transition: all 0.2s;
 
     &.active {
       font-weight: 700;
     }
 
     &:hover {
-      border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-      padding-bottom: 6px;
+      background-color: rgba(0, 0, 0, 0.12);
     }
   }
 }

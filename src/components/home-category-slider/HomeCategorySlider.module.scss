@@ -79,30 +79,7 @@
       margin-bottom: 12px;
       overflow: visible;
       transition: all 0.3s;
-
-      &Monkey {
-        color: #904817;
-      }
-
-      &Reptile {
-        color: #35cef8;
-      }
-
-      &Rodent {
-        color: #9250fe;
-      }
-
-      &Cat {
-        color: #f52557;
-      }
-
-      &Dog {
-        color: #f07530;
-      }
-
-      &Parrot {
-        color: #55bc31;
-      }
+      color: #904817;
 
       &::after {
         content: "";
