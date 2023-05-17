@@ -5,13 +5,14 @@ import "swiper/scss";
 import styles from "./HomeNewSlider.module.scss";
 import "node_modules/swiper/modules/pagination/pagination.scss";
 import FriendItem from "../UI/friend-item/FriendItem";
-import { friendsAPI } from "@/services/Friends.service";
+import { IFriend } from "@/interfaces/IFriend";
+interface HomeNewSliderProps {
+  friends: IFriend[] | undefined;
+}
 
-const HomeNewSlider: FC = () => {
+const HomeNewSlider: FC<HomeNewSliderProps> = ({ friends }) => {
   const buttonPrev = useRef<HTMLButtonElement | null>(null);
   const buttonNext = useRef<HTMLButtonElement | null>(null);
-
-  const { data: friends } = friendsAPI.useGetFriendsQuery("");
 
   return (
     <section className={styles.new}>

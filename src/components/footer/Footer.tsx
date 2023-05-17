@@ -1,6 +1,7 @@
 import { FC } from "react";
 import styles from "./footer.module.scss";
 import Image from "next/image";
+import Link from "next/link";
 
 import twitter from "./icons/twitter.svg";
 import fb from "./icons/fb.svg";
@@ -57,9 +58,9 @@ const Footer: FC = () => {
           </a>
         </div>
         <div className={styles.bottom}>
-          <a href="" className={styles.bottomLogo}>
+          <Link href="/" className={styles.bottomLogo}>
             Happy pet
-          </a>
+          </Link>
           <div className={styles.bottomRights}>2022 © Все права защищены</div>
           <div className={styles.bottomSupport}>
             Если ты нашел на сайте ошибки, сообщи нам support@happypet.ua

@@ -1,12 +1,21 @@
-import { FC } from "react";
+import { FC, Dispatch, SetStateAction, useEffect } from "react";
 import Select from "react-select";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import styles from "./FriendsSort.module.scss";
+import { addSort } from "@/store/querySlice";
+import { friendsAPI } from "@/services/Friends.service";
+import { IFriend } from "@/interfaces/IFriend";
+import { IOption } from "@/interfaces/IOption";
 
-const FriendsSort: FC = () => {
+interface FriendsSortProps {
+  handle: (newOption: IOption) => Promise<void>;
+}
+
+const FriendsSort: FC<FriendsSortProps> = ({ handle }) => {
   const sortOptions = [
-    { value: "по новизне", label: "по новизне" },
-    { value: "по возрастанию цены", label: "по возрастанию цены" },
-    { value: "по убыванию цены", label: "по убыванию цены" },
+    { value: { sortBy: "id", order: "desc" }, label: "по новизне" },
+    { value: { sortBy: "price", order: "asc" }, label: "по возрастанию цены" },
+    { value: { sortBy: "price", order: "desc" }, label: "по убыванию цены" },
   ];
 
   return (
@@ -38,9 +47,10 @@ const FriendsSort: FC = () => {
                 height: "20px",
               }),
               menu: () => ({
-                position: "fixed",
-                zIndex: 2,
+                position: "absolute",
+                zIndex: 1,
                 marginTop: 10,
+                width: "180px",
               }),
               menuList: (baseStyles) => ({
                 ...baseStyles,
@@ -63,6 +73,7 @@ const FriendsSort: FC = () => {
             isSearchable={false}
             options={sortOptions}
             defaultValue={sortOptions[0]}
+            onChange={(option: IOption) => handle(option)}
           ></Select>
         </div>
       </div>

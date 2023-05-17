@@ -11,14 +11,16 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import queryReducer from "./querySlice";
 
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: ["friendsAPI"],
+  blacklist: ["friendsAPI", "query"],
 };
 
 const rootReducer = combineReducers({
+  query: queryReducer,
   [friendsAPI.reducerPath]: friendsAPI.reducer,
 });
 

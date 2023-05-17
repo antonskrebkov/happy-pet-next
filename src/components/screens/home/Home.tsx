@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import Layout from "@/components/layout/Layout";
 import HomeMain from "@/components/home-main/HomeMain";
 import HomeChoise from "@/components/home-choise/HomeChoise";
@@ -8,10 +8,13 @@ import HomeGallery from "@/components/home-gallery/HomeGallery";
 import HomeAbout from "@/components/home-about/HomeAbout";
 import Questions from "@/components/questions/Questions";
 import Modal from "@/components/UI/modal/Modal";
+import { friendsAPI } from "@/services/Friends.service";
 import styles from "./Home.module.scss";
 
 const Home: FC = () => {
   const modal = false;
+
+  const { data: friends } = friendsAPI.useGetNewestFriendsQuery();
 
   return (
     <Layout
@@ -23,7 +26,7 @@ const Home: FC = () => {
         <HomeMain />
         <HomeCategorySlider />
         <HomeChoise />
-        <HomeNewSlider />
+        <HomeNewSlider friends={friends} />
         <HomeGallery />
         <HomeAbout />
         <Questions />

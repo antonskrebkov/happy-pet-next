@@ -45,7 +45,7 @@ const FilterSelect: FC<FilterSelectProps> = ({ options, placeholder }) => {
         }),
         menu: () => ({
           position: "relative",
-          zIndex: 2,
+          zIndex: 1,
         }),
         menuList: (baseStyles) => ({
           ...baseStyles,

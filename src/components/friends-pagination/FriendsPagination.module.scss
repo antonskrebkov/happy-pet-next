@@ -1,0 +1,34 @@
+.pagination {
+  margin-bottom: 50px;
+  display: flex;
+  &Container {
+    max-width: 1200px;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+  &Items {
+    display: flex;
+  }
+  &Item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 41px;
+    width: 41px;
+    font-weight: 500;
+    border-radius: 50%;
+    margin: 0 5px;
+    background-color: #f4cb38;
+    transition: background-color 0.2s;
+    &Active {
+      border: 2.5px solid #000;
+    }
+    &Disabled {
+      pointer-events: none;
+      cursor: pointer;
+    }
+    &:hover {
+      background-color: #daae0e;
+    }
+  }
+}
