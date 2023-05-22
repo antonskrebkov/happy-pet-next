@@ -13,16 +13,18 @@ export const querySlice = createSlice({
   initialState,
   reducers: {
     addNewFilter(state, action) {
+      let changed = false;
       state.filter.forEach((filterItem) => {
         if (filterItem.key === action.payload.key) {
           filterItem.value = action.payload.value;
-          return;
+          changed = true;
         }
       });
-      state.filter.push(action.payload);
+      if (!changed) {
+        state.filter = [...state.filter, action.payload];
+      }
     },
     addSort(state, action: PayloadAction<ISort>) {
-      console.log(action.payload);
       if (JSON.stringify(state.sort) !== JSON.stringify(action.payload)) {
         state.sort = action.payload;
       }

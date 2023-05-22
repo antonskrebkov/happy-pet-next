@@ -12,9 +12,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
     gap: 35px;
-    @media (max-width: 969px) {
-      justify-items: center;
-    }
   }
 }
 

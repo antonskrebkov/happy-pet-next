@@ -8,7 +8,7 @@ import { IFriend } from "@/interfaces/IFriend";
 import { IOption } from "@/interfaces/IOption";
 
 interface FriendsSortProps {
-  handle: (newOption: IOption) => Promise<void>;
+  handle: (newOption: IOption) => void;
 }
 
 const FriendsSort: FC<FriendsSortProps> = ({ handle }) => {

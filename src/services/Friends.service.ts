@@ -1,8 +1,4 @@
-import {
-  createApi,
-  fetchBaseQuery,
-  FetchBaseQueryMeta,
-} from "@reduxjs/toolkit/dist/query/react";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 import { IFriend } from "@/interfaces/IFriend";
 import { ICategory } from "@/interfaces/ICategory";
 import IQuery from "@/interfaces/IQuery";
@@ -24,7 +20,13 @@ export const friendsAPI = createApi({
       IQuery
     >({
       query: ({ filter, sort, page }) =>
-        `/friends${`?_sort=${sort.sortBy}&_order=${sort.order}&_page=${page}&_limit=6`}`,
+        `/friends?_sort=${sort.sortBy}&_order=${sort.order}${
+          filter.length
+            ? filter
+                .map((filterItem) => `&${filterItem.key}=${filterItem.value}`)
+                .join("")
+            : ""
+        }&_page=${page}&_limit=6`,
       transformResponse(apiResponse: IFriend[], meta, arg) {
         return {
           apiResponse,

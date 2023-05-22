@@ -1,43 +1,68 @@
 import { FC } from "react";
 import FilterSelect from "../UI/filter-select/FilterSelect";
 import styles from "./FriendsFilter.module.scss";
+import { IFilter } from "@/interfaces/IQuery";
 
-const FriendsFilter: FC = () => {
+interface FriendsFilterProps {
+  handle: (newOption: IFilter) => void;
+}
+
+const FriendsFilter: FC<FriendsFilterProps> = ({ handle }) => {
   const kindOptions = [
-    { value: "Черепаха", label: "Черепаха" },
-    { value: "Кот", label: "Кот" },
-    { value: "Кролик", label: "Кролик" },
-    { value: "Собака", label: "Собака" },
-    { value: "Обезьяна", label: "Обезьяна" },
-    { value: "Попугай", label: "Попугай" },
+    { value: "reptile", label: "Рептилии" },
+    { value: "cat", label: "Коты" },
+    { value: "rodent", label: "Грызуны" },
+    { value: "dog", label: "Собаки" },
+    { value: "monkey", label: "Обезьяны" },
+    { value: "parrot", label: "Попугаи" },
   ];
   const sexOptions = [
-    { value: "Мальчик", label: "Мальчик" },
-    { value: "Девочка", label: "Девочка" },
+    { value: "male", label: "Мальчик" },
+    { value: "female", label: "Девочка" },
   ];
   const ageOptions = [
     { value: "< 12 месяцев", label: "< 12 месяцев" },
     { value: "> 12 месяцев", label: "> 12 месяцев" },
   ];
   const wcOptions = [
-    { value: "Да", label: "Да" },
-    { value: "Нет", label: "Нет" },
+    { value: "true", label: "Да" },
+    { value: "false", label: "Нет" },
   ];
 
   return (
     <section className={styles.filter}>
       <div className={styles.filterContainer}>
         <div className={styles.filterFriend}>
-          <FilterSelect options={kindOptions} placeholder="Питомец" />
+          <FilterSelect
+            name="category"
+            options={kindOptions}
+            placeholder="Питомец"
+            handle={handle}
+          />
         </div>
         <div className={styles.filterFriend}>
-          <FilterSelect options={sexOptions} placeholder="Пол" />
+          <FilterSelect
+            name="sex"
+            options={sexOptions}
+            placeholder="Пол"
+            handle={handle}
+          />
         </div>
         <div className={styles.filterFriend}>
-          <FilterSelect options={ageOptions} placeholder="Возраст" />
+          <FilterSelect
+            name="age"
+            options={ageOptions}
+            placeholder="Возраст"
+            handle={handle}
+          />
         </div>
         <div className={styles.filterFriend}>
-          <FilterSelect options={wcOptions} placeholder="Туалет" />
+          <FilterSelect
+            name="wc"
+            options={wcOptions}
+            placeholder="Туалет"
+            handle={handle}
+          />
         </div>
       </div>
     </section>

@@ -1,24 +1,24 @@
 import { FC } from "react";
-import styles from "./FriendsPagination.module.scss";
-
 import Image from "next/image";
 import prev from "./images/arrow-left.svg";
 import next from "./images/arrow-right.svg";
 import IQuery from "@/interfaces/IQuery";
+import styles from "./FriendsPagination.module.scss";
 
+import { usePagination } from "@/hooks/usePagination";
 interface FriendsPaginationProps {
   queryParams: IQuery;
   totalPages: number;
-  pagesArray: number[];
-  handle: (page: number) => Promise<void>;
+  handle: (page: number) => void;
 }
 
 const FriendsPagination: FC<FriendsPaginationProps> = ({
   queryParams,
   totalPages,
-  pagesArray,
   handle,
 }) => {
+  const pagesArray = usePagination(totalPages);
+
   return (
     <section className={styles.pagination}>
       <div className={styles.paginationContainer}>

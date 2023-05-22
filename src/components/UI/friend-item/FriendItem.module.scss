@@ -3,6 +3,8 @@
 .item {
   max-width: 370px;
   height: 571px;
+  margin: auto;
+  width: 100%;
   background-color: #fff;
   box-shadow: 0 0 9px rgb(89, 71, 38, 0.2);
   border-radius: 20px;
@@ -131,7 +133,7 @@
       margin-top: 26px;
       margin-bottom: 26px;
       height: 227px;
-      object-fit: cover;
+      object-fit: contain;
       border-radius: 10px;
 
       @media (max-width: 1199px) {

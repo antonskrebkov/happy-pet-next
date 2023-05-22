@@ -1,17 +1,24 @@
+import { IFilter } from "@/interfaces/IQuery";
 import { FC } from "react";
 import Select from "react-select";
-
 interface IOption {
   value: string;
   label: string;
 }
 
 interface FilterSelectProps {
+  name: string;
   options: IOption[];
   placeholder: string;
+  handle: (newOption: IFilter) => void;
 }
 
-const FilterSelect: FC<FilterSelectProps> = ({ options, placeholder }) => {
+const FilterSelect: FC<FilterSelectProps> = ({
+  name,
+  options,
+  placeholder,
+  handle,
+}) => {
   return (
     <Select
       styles={{
@@ -67,8 +74,10 @@ const FilterSelect: FC<FilterSelectProps> = ({ options, placeholder }) => {
         }),
       }}
       placeholder={placeholder}
+      name={name}
       isSearchable={false}
       options={options}
+      onChange={(option: IOption) => handle({ key: name, value: option.value })}
     />
   );
 };
