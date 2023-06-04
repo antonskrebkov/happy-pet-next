@@ -1,0 +1,69 @@
+.cartItem {
+  display: flex;
+  position: relative;
+  padding-right: 15px;
+
+  &:not(:first-child) {
+    margin-top: 12px;
+  }
+
+  &:not(:last-child) {
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(153, 153, 153, 0.38);
+  }
+
+  &Link {
+  }
+
+  &Image {
+    > img {
+      border-radius: 10px;
+      object-fit: contain;
+    }
+  }
+
+  &Content {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &Title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 17px;
+  }
+
+  &Id {
+    font-size: 14px;
+    line-height: 15px;
+    color: #777777;
+  }
+
+  &Info {
+    display: flex;
+    gap: 5px;
+    color: #777777;
+    font-size: 14px;
+    line-height: 15px;
+  }
+
+  &Kind {
+  }
+
+  &Age {
+  }
+
+  &Price {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+  }
+
+  &Delete {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}

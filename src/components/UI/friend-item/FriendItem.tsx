@@ -23,7 +23,7 @@ interface FriendItemProps extends PropsWithChildren {
 
 const FriendItem: FC<FriendItemProps> = ({ friend, children }) => {
   return (
-    <Link href={"friends/" + friend.id} className={styles.item}>
+    <div className={styles.item}>
       <div className={styles.itemWrapper}>
         <div className={styles.itemHeader}>
           <div className={styles.itemHeaderTag}>
@@ -43,15 +43,22 @@ const FriendItem: FC<FriendItemProps> = ({ friend, children }) => {
           </div>
         </div>
         <div className={styles.itemBody}>
-          <Image
-            src={friend.images[0]}
-            width={248}
-            height={248}
-            alt=""
-            className={styles.itemBodyImg}
-          />
+          <Link href={"friends/" + friend.id}>
+            <Image
+              src={friend.images[0]}
+              width={248}
+              height={248}
+              alt=""
+              className={styles.itemBodyImg}
+            />
+          </Link>
           <div className={styles.itemBodyInfo}>
-            <div className={styles.itemBodyInfoTitle}>{friend.name}</div>
+            <Link
+              href={"friends/" + friend.id}
+              className={styles.itemBodyInfoTitle}
+            >
+              {friend.name}
+            </Link>
             <div className={styles.itemBodyInfoText}>
               {friend.shortDescription}
             </div>
@@ -64,7 +71,7 @@ const FriendItem: FC<FriendItemProps> = ({ friend, children }) => {
         </div>
       </div>
       <div className={styles.itemFooter}>{children}</div>
-    </Link>
+    </div>
   );
 };
 export default FriendItem;

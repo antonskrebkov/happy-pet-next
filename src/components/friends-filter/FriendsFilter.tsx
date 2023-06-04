@@ -1,14 +1,25 @@
-import { FC } from "react";
+import { FC, useRef, useState } from "react";
 import FilterSelect from "../UI/filter-select/FilterSelect";
 import styles from "./FriendsFilter.module.scss";
-import { IFilter } from "@/interfaces/IQuery";
+import IQuery, { IFilter } from "@/interfaces/IQuery";
 
 interface FriendsFilterProps {
   handle: (newOption: IFilter) => void;
+  handleReset: () => void;
+  queryParams: IQuery;
 }
 
-const FriendsFilter: FC<FriendsFilterProps> = ({ handle }) => {
-  const kindOptions = [
+interface IOption {
+  value: string;
+  label: string;
+}
+
+const FriendsFilter: FC<FriendsFilterProps> = ({
+  handle,
+  handleReset,
+  queryParams,
+}) => {
+  const categoryOptions = [
     { value: "reptile", label: "Рептилии" },
     { value: "cat", label: "Коты" },
     { value: "rodent", label: "Грызуны" },
@@ -29,13 +40,17 @@ const FriendsFilter: FC<FriendsFilterProps> = ({ handle }) => {
     { value: "false", label: "Нет" },
   ];
 
+  const resetAndClear = () => {
+    handleReset();
+  };
+
   return (
     <section className={styles.filter}>
       <div className={styles.filterContainer}>
         <div className={styles.filterFriend}>
           <FilterSelect
             name="category"
-            options={kindOptions}
+            options={categoryOptions}
             placeholder="Питомец"
             handle={handle}
           />
@@ -64,6 +79,13 @@ const FriendsFilter: FC<FriendsFilterProps> = ({ handle }) => {
             handle={handle}
           />
         </div>
+        {queryParams.filter.length ? (
+          <button className={styles.filterReset} onClick={resetAndClear}>
+            Скасувати
+          </button>
+        ) : (
+          ""
+        )}
       </div>
     </section>
   );

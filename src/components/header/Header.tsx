@@ -1,9 +1,8 @@
 import { FC, useEffect, useRef, useState } from "react";
 import Select from "react-select";
 import styles from "./header.module.scss";
-import Image from "next/image";
-import deleteIcon from "./icons/delete.svg";
 import Link from "next/link";
+import Cart from "../cart/Cart";
 import { useRouter } from "next/router";
 
 const Header: FC = () => {
@@ -15,7 +14,6 @@ const Header: FC = () => {
   ];
 
   const [isScroll, setIsScroll] = useState(false);
-  const [cartIsOpen, setCartIsOpen] = useState(false);
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
 
   const headerEl = useRef(null);
@@ -122,89 +120,7 @@ const Header: FC = () => {
                 isSearchable={false}
               />
             </div>
-            <div
-              className={styles.cart}
-              onClick={() => setCartIsOpen(!cartIsOpen)}
-            >
-              <span className={styles.cartBadge}>0</span>
-              <span>0 ₴</span>
-              <div
-                className={
-                  cartIsOpen
-                    ? `${styles.cartBody} ${styles.cartActive}`
-                    : styles.cartBody
-                }
-                onClick={(e) => e.stopPropagation()}
-              >
-                <div className={styles.cartTop}>В переноске</div>
-                <ul className={styles.cartItems}>
-                  <li className={styles.cartItem}>
-                    <Link href="/friends/1" className={styles.cartItemImage}>
-                      <Image
-                        width={90}
-                        height={90}
-                        src="https://i.imgur.com/tqalXMP.jpg"
-                        alt=""
-                      />
-                    </Link>
-                    <div className={styles.cartItemContent}>
-                      <a href="" className={styles.cartItemTitle}>
-                        Кролик Сниф
-                      </a>
-                      <div className={styles.cartItemId}>
-                        ID: <span>204958566</span>
-                      </div>
-                      <div className={styles.cartItemInfo}>
-                        <div className={styles.cartItemKind}>Грызун</div>
-                        <div className={styles.cartItemAge}>
-                          <span>3</span> мес.
-                        </div>
-                      </div>
-                      <div className={styles.cartItemPrice}>900 ₴</div>
-                    </div>
-                    <button className={styles.cartItemDelete}>
-                      <Image src={deleteIcon} alt="" />
-                    </button>
-                  </li>
-                  <li className={styles.cartItem}>
-                    <Link href="/friends/1" className={styles.cartItemImage}>
-                      <Image
-                        width={90}
-                        height={90}
-                        src="https://i.imgur.com/tqalXMP.jpg"
-                        alt=""
-                      />
-                    </Link>
-                    <div className={styles.cartItemContent}>
-                      <a href="" className={styles.cartItemTitle}>
-                        Кролик Сниф
-                      </a>
-                      <div className={styles.cartItemId}>
-                        ID: <span>204958566</span>
-                      </div>
-                      <div className={styles.cartItemInfo}>
-                        <div className={styles.cartItemKind}>Грызун</div>
-                        <div className={styles.cartItemAge}>
-                          <span>3</span> мес.
-                        </div>
-                      </div>
-                      <div className={styles.cartItemPrice}>900 ₴</div>
-                    </div>
-                    <button className={styles.cartItemDelete}>
-                      <Image src={deleteIcon} alt="" />
-                    </button>
-                  </li>
-                </ul>
-                <div className={styles.cartBottom}>
-                  <div className={styles.cartTotal}>
-                    Вместе: <span>0 ₴</span>
-                  </div>
-                  <Link href="/checkout" className={styles.cartCheckout}>
-                    Оформить заказ
-                  </Link>
-                </div>
-              </div>
-            </div>
+            <Cart />
           </div>
           <nav className={styles.mobileMenu}>
             <button

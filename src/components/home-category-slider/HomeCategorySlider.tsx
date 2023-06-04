@@ -5,13 +5,24 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "node_modules/swiper/modules/scrollbar/scrollbar.scss";
 import "swiper/scss";
 import styles from "./HomeCategorySlider.module.scss";
+import { useAppDispatch } from "@/store/hooks";
+import { addNewFilter } from "@/store/slices/querySlice";
 import { friendsAPI } from "@/services/Friends.service";
+import { capitalizeInPlural } from "@/utils/categories";
+import Link from "next/link";
 
 const HomeCategorySlider: FC = () => {
   const buttonPrev = useRef<HTMLButtonElement | null>(null);
   const buttonNext = useRef<HTMLButtonElement | null>(null);
 
   const { data: categories } = friendsAPI.useGetCategoriesQuery("");
+
+  const dispatch = useAppDispatch();
+
+  const handleClick = (e: React.SyntheticEvent<EventTarget>, value: string) => {
+    e.preventDefault();
+    dispatch(addNewFilter({ key: "category", value }));
+  };
 
   return (
     <section className={styles.slider}>
@@ -64,10 +75,13 @@ const HomeCategorySlider: FC = () => {
         >
           {categories &&
             categories.map((category) => (
-              <SwiperSlide key={category.id}>
-                <a href="" className={styles.sliderItem}>
+              <SwiperSlide
+                key={category.id}
+                onClick={(e) => handleClick(e, category.title)}
+              >
+                <Link href="/friends" className={styles.sliderItem}>
                   <div className={styles.sliderItemCategory}>
-                    {category.title}
+                    {capitalizeInPlural(category.title)}
                   </div>
                   <div className={styles.sliderItemImg}>
                     <Image
@@ -77,7 +91,7 @@ const HomeCategorySlider: FC = () => {
                       alt=""
                     />
                   </div>
-                </a>
+                </Link>
               </SwiperSlide>
             ))}
         </Swiper>

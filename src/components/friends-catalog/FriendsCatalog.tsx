@@ -2,39 +2,55 @@ import { FC } from "react";
 import styles from "./FriendsCatalog.module.scss";
 import Image from "next/image";
 import FriendItem from "../UI/friend-item/FriendItem";
-import cart from "./images/cart.svg";
 import { IFriend } from "@/interfaces/IFriend";
-import querySlice from "@/store/querySlice";
+import Loader from "../UI/loader/Loader";
+import { useAppDispatch } from "@/store/hooks";
+import { addToCart } from "@/store/slices/cartSlice";
 import { useAppSelector } from "@/store/hooks";
+
 interface FriendsCatalogProps {
   friends: IFriend[] | undefined;
+  isLoading: boolean;
 }
 
-const FriendsCatalog: FC<FriendsCatalogProps> = ({ friends }) => {
-  const sortBy = useAppSelector((state) => state.query.sort.sortBy);
-  const order = useAppSelector((state) => state.query.sort.order);
+const FriendsCatalog: FC<FriendsCatalogProps> = ({ friends, isLoading }) => {
+  const dispatch = useAppDispatch();
+
+  const cartList = useAppSelector((state) => state.cart);
+
+  if (isLoading) {
+    return (
+      <div className={styles.catalogLoaderWrapper}>
+        <Loader />
+      </div>
+    );
+  }
+  if (friends && friends.length === 0) {
+    return (
+      <h1 style={{ textAlign: "center", fontSize: "24px", margin: "50px 0" }}>
+        Нічого не знайдено
+      </h1>
+    );
+  }
 
   return (
     <section className={styles.catalog}>
       <div className={styles.catalogContainer}>
         <div className={styles.catalogItems}>
-          <div className={styles.catalogItems}>
-            {friends?.length === 0 ? (
-              <h1 style={{ textAlign: "center", fontSize: "24px" }}>
-                Нічого не знайдено
-              </h1>
-            ) : (
-              friends &&
-              friends.map((friend) => (
-                <FriendItem key={friend.id} friend={friend}>
-                  <div className={styles.itemFooterPrice}>{friend.price}</div>
-                  <button className={styles.itemFooterAdd}>
-                    <Image src={cart} alt="" />
-                  </button>
-                </FriendItem>
-              ))
-            )}
-          </div>
+          {friends &&
+            friends.map((friend) => (
+              <FriendItem key={friend.id} friend={friend}>
+                <div className={styles.itemFooterPrice}>{friend.price}</div>
+                <button
+                  className={
+                    cartList.find((cartItem) => cartItem.id === friend.id)
+                      ? `${styles.itemFooterAdd} ${styles.inCart}`
+                      : styles.itemFooterAdd
+                  }
+                  onClick={() => dispatch(addToCart(friend))}
+                ></button>
+              </FriendItem>
+            ))}
         </div>
       </div>
     </section>

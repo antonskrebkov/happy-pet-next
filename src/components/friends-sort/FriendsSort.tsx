@@ -2,7 +2,7 @@ import { FC, Dispatch, SetStateAction, useEffect } from "react";
 import Select from "react-select";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import styles from "./FriendsSort.module.scss";
-import { addSort } from "@/store/querySlice";
+import { addSort } from "@/store/slices/querySlice";
 import { friendsAPI } from "@/services/Friends.service";
 import { IFriend } from "@/interfaces/IFriend";
 import { IOption } from "@/interfaces/IOption";

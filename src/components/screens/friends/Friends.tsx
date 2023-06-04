@@ -8,7 +8,12 @@ import FriendsCatalog from "@/components/friends-catalog/FriendsCatalog";
 import FriendsPagination from "@/components/friends-pagination/FriendsPagination";
 import { friendsAPI } from "@/services/Friends.service";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { addNewFilter, addSort, paginate } from "@/store/querySlice";
+import {
+  addNewFilter,
+  addSort,
+  paginate,
+  resetFilter,
+} from "@/store/slices/querySlice";
 import IQuery, { IFilter } from "@/interfaces/IQuery";
 import { IOption } from "@/interfaces/IOption";
 import { getPagesQuantity } from "@/utils/pages";
@@ -24,7 +29,7 @@ const Friends: FC = () => {
   const dispatch = useAppDispatch();
   const queryParams = useAppSelector((state) => state.query);
 
-  const [getFriends] = friendsAPI.useGetFriendsMutation();
+  const [getFriends, { isLoading }] = friendsAPI.useGetFriendsMutation();
 
   useEffect(() => {
     getFriends(queryParams)
@@ -34,6 +39,11 @@ const Friends: FC = () => {
         setTotalCount(res.totalCount);
         setTotalPages(getPagesQuantity(res.totalCount, 6));
       });
+    return () => {
+      dispatch(addSort({ sortBy: "id", order: "desc" }));
+      dispatch(resetFilter());
+      dispatch(paginate(1));
+    };
   }, []);
 
   useEffect(() => {
@@ -55,8 +65,14 @@ const Friends: FC = () => {
     setIsQuerySubmitted(true);
   };
 
+  const handleResetFilter = () => {
+    dispatch(resetFilter());
+    setIsQuerySubmitted(true);
+  };
+
   const handleSortFriends = (newOption: IOption) => {
     dispatch(addSort(newOption.value));
+    dispatch(paginate(1));
     setIsQuerySubmitted(true);
   };
 
@@ -65,17 +81,6 @@ const Friends: FC = () => {
     setIsQuerySubmitted(true);
   };
 
-  const breadcrumbs = [
-    {
-      link: "/",
-      title: "Головна",
-    },
-    {
-      link: "/friends",
-      title: "Друзі",
-    },
-  ];
-
   return (
     <Layout
       title="Friends"
@@ -83,15 +88,20 @@ const Friends: FC = () => {
       keywords="Друзья, животные, питомцы"
     >
       <main className={styles.friends}>
-        <Breadcrumbs breadcrumbs={breadcrumbs} />
+        <Breadcrumbs />
         <FriendsChoose quantity={totalCount} />
-        <FriendsFilter handle={handleFilterFriends} />
+        <FriendsFilter
+          handle={handleFilterFriends}
+          handleReset={handleResetFilter}
+          queryParams={queryParams}
+        />
         <FriendsSort handle={handleSortFriends} />
-        <FriendsCatalog friends={friends} />
+        <FriendsCatalog friends={friends} isLoading={isLoading} />
         {totalCount > 6 ? (
           <FriendsPagination
             queryParams={queryParams}
             totalPages={totalPages}
+            isLoading={isLoading}
             handle={handleChangePage}
           />
         ) : (

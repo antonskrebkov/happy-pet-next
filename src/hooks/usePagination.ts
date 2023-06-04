@@ -6,7 +6,6 @@ export const usePagination = (totalPages: number) => {
     for (let i = 1; i <= totalPages; i++) {
       pagesArray.push(i);
     }
-    console.log("====PAGES UPDATED====");
     return pagesArray;
   }, [totalPages]);
   return updatedPagesArray;

@@ -36,6 +36,12 @@ export const friendsAPI = createApi({
       },
       invalidatesTags: ["Friends"],
     }),
+    // getFriendsByCategory: build.mutation<IFriend, string>({
+    //   query: (id) => `/friends/${id}`,
+    // }),
+    getFriend: build.query<IFriend, string>({
+      query: (id) => `/friends/${id}`,
+    }),
     getCategories: build.query<ICategory[], string>({
       query: () => "/categories",
       // providesTags: () => ["Friends"],
@@ -46,5 +52,6 @@ export const friendsAPI = createApi({
 export const {
   useGetNewestFriendsQuery,
   useGetFriendsMutation,
+  useGetFriendQuery,
   useGetCategoriesQuery,
 } = friendsAPI;

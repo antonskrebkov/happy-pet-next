@@ -2,37 +2,37 @@
   "categories": [
     {
       "id": 1,
-      "title": "Мавпи",
+      "title": "monkey",
       "link": "/",
       "imageLink": "https://i.imgur.com/agxE50Y.png"
     },
     {
       "id": 2,
-      "title": "Рептилії",
+      "title": "reptile",
       "link": "/",
       "imageLink": "https://i.imgur.com/Nr7bo6n.png"
     },
     {
       "id": 3,
-      "title": "Гризуны",
+      "title": "rodent",
       "link": "/",
       "imageLink": "https://i.imgur.com/ovZEhW9.png"
     },
     {
       "id": 4,
-      "title": "Коти",
+      "title": "cat",
       "link": "/",
       "imageLink": "https://i.imgur.com/6nPbXz3.png"
     },
     {
       "id": 5,
-      "title": "Собаки",
+      "title": "dog",
       "link": "/",
       "imageLink": "https://i.imgur.com/frdo1M5.png"
     },
     {
       "id": 6,
-      "title": "Папуги",
+      "title": "parrot",
       "link": "/",
       "imageLink": "https://i.imgur.com/wrH12RE.png"
     }
@@ -42,6 +42,7 @@
       "id": 1,
       "name": "Папуга Гриша",
       "age": 2,
+      "ageStatus": "kid",
       "shortDescription": "Папуга-балакун чудовий новий друг для всієї родини",
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque, laboriosam possimus tempore, quasi inventore rerum, explicabo laudantium totam voluptas quas quis dolorum est? Magnam, reiciendis. Hic aspernatur asperiores odio aliquid.",
       "category": "parrot",
@@ -58,6 +59,7 @@
       "id": 2,
       "name": "Доберман Василь",
       "age": 4,
+      "ageStatus": "kid",
       "shortDescription": "Відмінний новий друг для всієї родини, охороняє та обожнює",
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque, laboriosam possimus tempore, quasi inventore rerum, explicabo laudantium totam voluptas quas quis dolorum est? Magnam, reiciendis. Hic aspernatur asperiores odio aliquid.",
       "category": "dog",
@@ -77,6 +79,7 @@
       "id": 3,
       "name": "Висловуха кішка Кіра",
       "age": 7,
+      "ageStatus": "kid",
       "shortDescription": "Прекрасна подруга на дощові холодні часи",
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque, laboriosam possimus tempore, quasi inventore rerum, explicabo laudantium totam voluptas quas quis dolorum est? Magnam, reiciendis. Hic aspernatur asperiores odio aliquid.",
       "category": "cat",
@@ -93,6 +96,7 @@
       "id": 4,
       "name": "Шимпанзе Роза",
       "age": 7,
+      "ageStatus": "kid",
       "shortDescription": "Домашній вихованець для тих, кому не хочеться нудьгувати",
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque, laboriosam possimus tempore, quasi inventore rerum, explicabo laudantium totam voluptas quas quis dolorum est? Magnam, reiciendis. Hic aspernatur asperiores odio aliquid.",
       "category": "monkey",
@@ -108,6 +112,7 @@
       "id": 5,
       "name": "Черепаха Ніна",
       "age": 12,
+      "ageStatus": "adult",
       "shortDescription": "Домашній вихованець для тих, хто постійно не вдома",
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque, laboriosam possimus tempore, quasi inventore rerum, explicabo laudantium totam voluptas quas quis dolorum est? Magnam, reiciendis. Hic aspernatur asperiores odio aliquid.",
       "category": "reptile",
@@ -120,6 +125,7 @@
       "id": 6,
       "name": "Девон-рекс Чічі",
       "age": 8,
+      "ageStatus": "kid",
       "shortDescription": "Доброзичливий кіт Чичі полюбляє пеститись і гуляти на вулиці",
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque, laboriosam possimus tempore, quasi inventore rerum, explicabo laudantium totam voluptas quas quis dolorum est? Magnam, reiciendis. Hic aspernatur asperiores odio aliquid.",
       "category": "cat",
@@ -135,6 +141,7 @@
       "id": 7,
       "name": "Кролик Сніф",
       "age": 3,
+      "ageStatus": "kid",
       "shortDescription": "Кролик Сніф закохає всіх своїми вухами",
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque, laboriosam possimus tempore, quasi inventore rerum, explicabo laudantium totam voluptas quas quis dolorum est? Magnam, reiciendis. Hic aspernatur asperiores odio aliquid.",
       "category": "rodent",

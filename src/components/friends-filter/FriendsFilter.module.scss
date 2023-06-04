@@ -26,4 +26,12 @@
       width: 100%;
     }
   }
+  &Reset {
+    padding: 3px;
+    border-radius: 5px;
+    transition: all 0.2s;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.12);
+    }
+  }
 }

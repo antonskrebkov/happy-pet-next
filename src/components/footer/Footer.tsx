@@ -50,9 +50,13 @@ const Footer: FC = () => {
               </li>
             ))}
           </ul>
-          <div className={styles.topLocation}>
+          <a
+            href="https://www.google.com/maps/place/Prytulok+Dlya+Tvaryn+%22Best+Frends%22/@50.371835,29.754216,14z/data=!4m6!3m5!1s0x472b45953c01657f:0x18759bfd64a35353!8m2!3d50.3718353!4d29.7542159!16s%2Fg%2F11g0qxqg3t?hl=ru&entry=ttu"
+            target="_blank"
+            className={styles.topLocation}
+          >
             с. Фасова, Киевская область, hello@happypet.ua
-          </div>
+          </a>
           <a href="tel:+380673452774" className={styles.topPhone}>
             +(38) 067 345 2774
           </a>

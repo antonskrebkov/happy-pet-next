@@ -1,4 +1,5 @@
 @use "sass:math";
+@import "@/styles/mixins";
 
 .catalog {
   margin: 30px 0 50px;
@@ -8,10 +9,29 @@
     margin: 0 auto;
   }
 
+  &LoaderWrapper {
+    padding-top: 100px;
+    margin: 50px 0;
+  }
+
   &Items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-    gap: 35px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    @media (max-width: 1099px) {
+      gap: 20px;
+    }
+    @media (max-width: 999px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+    @media (max-width: 799px) {
+      gap: 20px;
+    }
+    @media (max-width: 699px) {
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
   }
 }
 
@@ -45,15 +65,29 @@
     width: 41px;
     height: 41px;
     background-color: #32b71d;
+    background-image: url("./images/cart.svg");
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    transition: all 0.3s;
+    transition: all 0.4s;
 
     &:hover {
       transform: scale(1.2);
       background-color: darken(#32b71d, 10%);
+    }
+
+    &.inCart {
+      background-color: #fff;
+      background-image: url("./images/inCart.svg");
+      cursor: pointer;
+      pointer-events: none;
+      &:hover {
+        transform: scale(1);
+        background-color: #fff;
+      }
     }
   }
 }

@@ -9,15 +9,21 @@ import { usePagination } from "@/hooks/usePagination";
 interface FriendsPaginationProps {
   queryParams: IQuery;
   totalPages: number;
+  isLoading: boolean;
   handle: (page: number) => void;
 }
 
 const FriendsPagination: FC<FriendsPaginationProps> = ({
   queryParams,
   totalPages,
+  isLoading,
   handle,
 }) => {
   const pagesArray = usePagination(totalPages);
+
+  if (isLoading) {
+    return "";
+  }
 
   return (
     <section className={styles.pagination}>

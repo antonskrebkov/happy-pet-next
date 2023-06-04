@@ -1,6 +1,7 @@
 export interface IFriend {
   id: number;
   age: number;
+  ageStatus: string;
   name: string;
   shortDescription: string;
   description: string;

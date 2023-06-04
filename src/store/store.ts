@@ -11,7 +11,8 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import queryReducer from "./querySlice";
+import queryReducer from "./slices/querySlice";
+import cartReducer from "./slices/cartSlice";
 
 const persistConfig = {
   key: "root",
@@ -21,6 +22,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   query: queryReducer,
+  cart: cartReducer,
   [friendsAPI.reducerPath]: friendsAPI.reducer,
 });
 
