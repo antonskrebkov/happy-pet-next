@@ -2,10 +2,13 @@ import React from "react";
 import Layout from "@/components/layout/Layout";
 import styles from "./Checkout.module.scss";
 import Link from "next/link";
-import Image from "next/image";
-import remove from "./icons/remove.svg";
+import { useAppSelector } from "@/store/hooks";
+import CheckoutItem from "@/components/checkout-item/CheckoutItem";
+import { summarize } from "@/utils/sum";
 
 export default function Checkout() {
+  const cartList = useAppSelector((state) => state.cart);
+
   return (
     <Layout title="Checkout">
       <main className={styles.checkout}>
@@ -13,80 +16,15 @@ export default function Checkout() {
           <div className={styles.bag}>
             <h2 className={styles.bagTitle}>В переноске</h2>
             <div className={styles.bagBody}>
-              <ul className={styles.bagItems}>
-                <li className={styles.bagItem}>
-                  <Link className={styles.bagItemImage} href="">
-                    <Image
-                      src="https://i.imgur.com/rM7wZjz.jpg"
-                      width={140}
-                      height={140}
-                      alt=""
-                    />
-                  </Link>
-                  <div className={styles.bagItemBody}>
-                    <div className={styles.bagItemRow}>
-                      <Link className={styles.bagItemTitle} href="">
-                        Висловуха кішка Кіра
-                      </Link>
-                      <div className={styles.bagItemPrice}>900 ₴</div>
-                    </div>
-                    <div className={styles.bagItemId}>ID: 123</div>
-                    <div className={styles.bagItemKind}>Грызун</div>
-                    <div className={styles.bagItemAge}>3 месяца</div>
-                    <button className={styles.bagItemDelete}>
-                      <Image src={remove} alt=""></Image>
-                    </button>
-                  </div>
-                </li>
-                <li className={styles.bagItem}>
-                  <Link className={styles.bagItemImage} href="">
-                    <Image
-                      src="https://i.imgur.com/8X0ezCP.jpg"
-                      width={140}
-                      height={140}
-                      alt=""
-                    />
-                  </Link>
-                  <div className={styles.bagItemBody}>
-                    <div className={styles.bagItemRow}>
-                      <Link className={styles.bagItemTitle} href="">
-                        Кролик Сниф
-                      </Link>
-                      <div className={styles.bagItemPrice}>900 ₴</div>
-                    </div>
-                    <div className={styles.bagItemId}>ID: 123</div>
-                    <div className={styles.bagItemKind}>Грызун</div>
-                    <div className={styles.bagItemAge}>3 месяца</div>
-                    <button className={styles.bagItemDelete}>
-                      <Image src={remove} alt=""></Image>
-                    </button>
-                  </div>
-                </li>
-                <li className={styles.bagItem}>
-                  <Link className={styles.bagItemImage} href="">
-                    <Image
-                      src="https://i.imgur.com/zO4PEZL.jpg"
-                      width={140}
-                      height={140}
-                      alt=""
-                    />
-                  </Link>
-                  <div className={styles.bagItemBody}>
-                    <div className={styles.bagItemRow}>
-                      <Link className={styles.bagItemTitle} href="">
-                        Кролик Сниф
-                      </Link>
-                      <div className={styles.bagItemPrice}>900 ₴</div>
-                    </div>
-                    <div className={styles.bagItemId}>ID: 123</div>
-                    <div className={styles.bagItemKind}>Грызун</div>
-                    <div className={styles.bagItemAge}>3 месяца</div>
-                    <button className={styles.bagItemDelete}>
-                      <Image src={remove} alt=""></Image>
-                    </button>
-                  </div>
-                </li>
-              </ul>
+              {cartList.length ? (
+                <ul className={styles.bagItems}>
+                  {cartList.map((cartItem) => (
+                    <CheckoutItem key={cartItem.id} friend={cartItem} />
+                  ))}
+                </ul>
+              ) : (
+                <p>Переноска порожня</p>
+              )}
             </div>
           </div>
           <div className={styles.summary}>
@@ -94,15 +32,23 @@ export default function Checkout() {
             <div className={styles.summaryBody}>
               <div className={styles.summaryRow}>
                 <div className={styles.summaryText}>Проміжний підсумок</div>
-                <div className={styles.summaryPrice}>900 ₴</div>
+                <div className={styles.summaryPrice}>
+                  {summarize(cartList)} ₴
+                </div>
               </div>
               <div className={styles.summarySum}>
                 <div className={styles.summarySumText}>Всього</div>
-                <div className={styles.summarySumPrice}>900 ₴</div>
+                <div className={styles.summarySumPrice}>
+                  {summarize(cartList)} ₴
+                </div>
               </div>
               <div className={styles.summarySubmit}>
                 <Link
-                  className={styles.summarySubmitButton}
+                  className={
+                    cartList.length
+                      ? styles.summarySubmitButton
+                      : `${styles.summarySubmitButton} ${styles.disabled}`
+                  }
                   href="/checkout/application"
                 >
                   Залишити заявку
