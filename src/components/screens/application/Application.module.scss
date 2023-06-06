@@ -134,6 +134,9 @@
     }
   }
   &Button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     padding: 20px 12px;
     color: #757575;
@@ -141,6 +144,7 @@
     font-weight: 500;
     border-radius: 30px;
     margin-top: 30px;
+    transition: background-color 0.4s;
     cursor: default;
     pointer-events: none;
     &.active {
@@ -148,7 +152,6 @@
       color: #fff;
       background-color: #000;
       pointer-events: all;
-      transition: background-color 0.2s;
       &:hover {
         background-color: rgba(#000, 0.8);
       }
@@ -168,31 +171,6 @@
     }
   }
   &Items {
-  }
-  &Item {
-    display: flex;
-    margin-bottom: 10px;
-    &Image {
-      border-radius: 10px;
-      // border: 1px solid #ccc;
-      margin-right: 10px;
-      object-fit: cover;
-
-      @media (max-width: 500px) {
-        width: 80px;
-        height: 80px;
-      }
-    }
-    &Body {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    &Title {
-      font-weight: 600;
-    }
-    &Price {
-    }
   }
   &Total {
     display: flex;

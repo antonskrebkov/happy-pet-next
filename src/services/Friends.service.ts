@@ -1,18 +1,17 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 import { IFriend } from "@/interfaces/IFriend";
-import { ICategory } from "@/interfaces/ICategory";
 import IQuery from "@/interfaces/IQuery";
 
 export const friendsAPI = createApi({
   reducerPath: "friendsAPI",
   baseQuery: fetchBaseQuery({
     // baseUrl: "https://64564f9d5f9a4f236140736d.mockapi.io",
-    baseUrl: "http://localhost:3002",
+    baseUrl: "http://localhost:3002/friends",
   }),
   tagTypes: ["Friends"],
   endpoints: (build) => ({
     getNewestFriends: build.query<IFriend[], void>({
-      query: () => `/friends?_sort=id&_order=desc&_page=1&_limit=6`,
+      query: () => `?_sort=id&_order=desc&_page=1&_limit=6`,
       // `/friends?sortBy=${sortBy}&order=${order}&page=${page}&limit=${limit}`
     }),
     getFriends: build.mutation<
@@ -20,7 +19,7 @@ export const friendsAPI = createApi({
       IQuery
     >({
       query: ({ filter, sort, page }) =>
-        `/friends?_sort=${sort.sortBy}&_order=${sort.order}${
+        `?_sort=${sort.sortBy}&_order=${sort.order}${
           filter.length
             ? filter
                 .map((filterItem) => `&${filterItem.key}=${filterItem.value}`)
@@ -40,11 +39,7 @@ export const friendsAPI = createApi({
     //   query: (id) => `/friends/${id}`,
     // }),
     getFriend: build.query<IFriend, string>({
-      query: (id) => `/friends/${id}`,
-    }),
-    getCategories: build.query<ICategory[], string>({
-      query: () => "/categories",
-      // providesTags: () => ["Friends"],
+      query: (id) => `/${id}`,
     }),
   }),
 });
@@ -53,5 +48,4 @@ export const {
   useGetNewestFriendsQuery,
   useGetFriendsMutation,
   useGetFriendQuery,
-  useGetCategoriesQuery,
 } = friendsAPI;

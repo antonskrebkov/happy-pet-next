@@ -6,6 +6,7 @@ import styles from "./CheckoutItem.module.scss";
 import { IFriend } from "@/interfaces/IFriend";
 import { useAppDispatch } from "@/store/hooks";
 import { removeFromCart } from "@/store/slices/cartSlice";
+import { formatPrice } from "@/utils/price";
 
 interface CheckoutItemProps {
   friend: IFriend;
@@ -24,7 +25,7 @@ const CheckoutItem: FC<CheckoutItemProps> = ({ friend }) => {
           <Link className={styles.bagItemTitle} href={"/friends/" + friend.id}>
             {friend.name}
           </Link>
-          <div className={styles.bagItemPrice}>{friend.price} ₴</div>
+          <div className={styles.bagItemPrice}>{formatPrice(friend.price)}</div>
         </div>
         <div className={styles.bagItemId}>ID: {friend.id}</div>
         <div className={styles.bagItemKind}>Грызун</div>

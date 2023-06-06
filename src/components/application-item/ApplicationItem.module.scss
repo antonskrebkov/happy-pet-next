@@ -1,0 +1,25 @@
+.orderItem {
+  display: flex;
+  margin-bottom: 10px;
+  &Image {
+    border-radius: 10px;
+    // border: 1px solid #ccc;
+    margin-right: 10px;
+    object-fit: contain;
+
+    @media (max-width: 500px) {
+      width: 80px;
+      height: 80px;
+    }
+  }
+  &Body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  &Title {
+    font-weight: 600;
+  }
+  &Price {
+  }
+}

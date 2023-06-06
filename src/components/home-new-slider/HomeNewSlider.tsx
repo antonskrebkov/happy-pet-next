@@ -6,6 +6,8 @@ import styles from "./HomeNewSlider.module.scss";
 import "node_modules/swiper/modules/pagination/pagination.scss";
 import FriendItem from "../UI/friend-item/FriendItem";
 import { IFriend } from "@/interfaces/IFriend";
+import { formatPrice } from "@/utils/price";
+
 interface HomeNewSliderProps {
   friends: IFriend[] | undefined;
 }
@@ -68,7 +70,9 @@ const HomeNewSlider: FC<HomeNewSliderProps> = ({ friends }) => {
               friends.map((friend) => (
                 <SwiperSlide key={friend.id}>
                   <FriendItem friend={friend}>
-                    <div className={styles.itemFooterPrice}>{friend.price}</div>
+                    <div className={styles.itemFooterPrice}>
+                      {formatPrice(friend.price)}
+                    </div>
                     <div className={styles.itemFooterBadge}></div>
                   </FriendItem>
                 </SwiperSlide>

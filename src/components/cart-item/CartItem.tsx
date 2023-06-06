@@ -7,6 +7,7 @@ import { useAppDispatch } from "@/store/hooks";
 import { IFriend } from "@/interfaces/IFriend";
 import { removeFromCart } from "@/store/slices/cartSlice";
 import { capitalize } from "@/utils/categories";
+import { formatPrice } from "@/utils/price";
 
 interface CartItemProps {
   friend: IFriend;
@@ -16,7 +17,6 @@ const CartItem: FC<CartItemProps> = ({ friend }) => {
   const dispatch = useAppDispatch();
 
   const handleDelete = (friend: IFriend) => {
-    console.log("DELETED");
     dispatch(removeFromCart(friend));
   };
 
@@ -40,7 +40,7 @@ const CartItem: FC<CartItemProps> = ({ friend }) => {
             <span>{friend.age}</span> мес.
           </div>
         </div>
-        <div className={styles.cartItemPrice}>{friend.price} ₴</div>
+        <div className={styles.cartItemPrice}>{formatPrice(friend.price)}</div>
       </div>
       <button
         className={styles.cartItemDelete}

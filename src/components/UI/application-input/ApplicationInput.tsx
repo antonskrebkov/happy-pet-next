@@ -1,22 +1,45 @@
-import { FC } from "react";
+import { FC, ChangeEvent, useState } from "react";
 import styles from "./ApplicationInput.module.scss";
 
 interface ApplicationInputProps {
+  value: string | number;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   type: string;
-  value: string;
+  placeholder: string;
+  isValid: boolean;
   validationMessage: string;
 }
 
 const ApplicationInput: FC<ApplicationInputProps> = ({
-  type,
   value,
+  onChange,
+  type,
+  placeholder,
+  isValid,
   validationMessage,
 }) => {
+  const [isDirty, setIsDirty] = useState(false);
+
   return (
     <div className={styles.wrapper}>
-      <input className={styles.input} type={type} placeholder={value} />
-      <div className={styles.inputLabel}>{value}</div>
-      <div className={styles.inputValidation}>{validationMessage}</div>
+      <input
+        className={styles.input}
+        type={type}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        onBlur={() => setIsDirty(true)}
+      />
+      <div className={styles.inputLabel}>{placeholder}</div>
+      <div
+        className={
+          isDirty && !isValid
+            ? `${styles.inputValidation} ${styles.error}`
+            : styles.inputValidation
+        }
+      >
+        {validationMessage}
+      </div>
     </div>
   );
 };

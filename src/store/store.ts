@@ -1,4 +1,7 @@
 import { friendsAPI } from "@/services/Friends.service";
+import { categoriesAPI } from "@/services/Categories.service";
+import { applicationsAPI } from "@/services/Applications.service";
+import { questionsAPI } from "@/services/Questions.service";
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import {
   persistStore,
@@ -17,13 +20,16 @@ import cartReducer from "./slices/cartSlice";
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: ["friendsAPI", "query"],
+  whitelist: ["cart"],
 };
 
 const rootReducer = combineReducers({
   query: queryReducer,
   cart: cartReducer,
   [friendsAPI.reducerPath]: friendsAPI.reducer,
+  [categoriesAPI.reducerPath]: categoriesAPI.reducer,
+  [applicationsAPI.reducerPath]: applicationsAPI.reducer,
+  [questionsAPI.reducerPath]: questionsAPI.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -35,7 +41,12 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(friendsAPI.middleware),
+    }).concat([
+      friendsAPI.middleware,
+      categoriesAPI.middleware,
+      applicationsAPI.middleware,
+      questionsAPI.middleware,
+    ]),
 });
 
 export const persistor = persistStore(store);

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useAppSelector } from "@/store/hooks";
 import CheckoutItem from "@/components/checkout-item/CheckoutItem";
 import { summarize } from "@/utils/sum";
+import { formatPrice } from "@/utils/price";
 
 export default function Checkout() {
   const cartList = useAppSelector((state) => state.cart);
@@ -33,13 +34,13 @@ export default function Checkout() {
               <div className={styles.summaryRow}>
                 <div className={styles.summaryText}>Проміжний підсумок</div>
                 <div className={styles.summaryPrice}>
-                  {summarize(cartList)} ₴
+                  {formatPrice(summarize(cartList))}
                 </div>
               </div>
               <div className={styles.summarySum}>
                 <div className={styles.summarySumText}>Всього</div>
                 <div className={styles.summarySumPrice}>
-                  {summarize(cartList)} ₴
+                  {formatPrice(summarize(cartList))}
                 </div>
               </div>
               <div className={styles.summarySubmit}>

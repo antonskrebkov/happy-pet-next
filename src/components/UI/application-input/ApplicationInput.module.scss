@@ -1,5 +1,6 @@
 .wrapper {
   position: relative;
+  padding-top: 10px;
   & + .formWrapper {
     margin-top: 15px;
   }
@@ -34,7 +35,7 @@
     background-color: #fff;
     padding: 2px;
     left: 15px;
-    top: -10px;
+    top: 1px;
     position: absolute;
     font-size: 13px;
   }
@@ -43,7 +44,8 @@
     color: red;
     font-size: 13px;
     padding-top: 4px;
-    padding-left: 16px;
+    padding: 4px 0 4px 16px;
+    transition: opacity 0.3s;
     &.error {
       opacity: 1;
     }

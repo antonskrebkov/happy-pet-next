@@ -4,9 +4,9 @@ import Image from "next/image";
 import FriendItem from "../UI/friend-item/FriendItem";
 import { IFriend } from "@/interfaces/IFriend";
 import Loader from "../UI/loader/Loader";
-import { useAppDispatch } from "@/store/hooks";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { addToCart } from "@/store/slices/cartSlice";
-import { useAppSelector } from "@/store/hooks";
+import { formatPrice } from "@/utils/price";
 
 interface FriendsCatalogProps {
   friends: IFriend[] | undefined;
@@ -40,7 +40,9 @@ const FriendsCatalog: FC<FriendsCatalogProps> = ({ friends, isLoading }) => {
           {friends &&
             friends.map((friend) => (
               <FriendItem key={friend.id} friend={friend}>
-                <div className={styles.itemFooterPrice}>{friend.price}</div>
+                <div className={styles.itemFooterPrice}>
+                  {formatPrice(friend.price)}
+                </div>
                 <button
                   className={
                     cartList.find((cartItem) => cartItem.id === friend.id)

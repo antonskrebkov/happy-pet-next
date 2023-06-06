@@ -5,6 +5,7 @@ import Link from "next/link";
 import { IFriend } from "@/interfaces/IFriend";
 import CartItem from "../cart-item/CartItem";
 import { summarize } from "@/utils/sum";
+import { formatPrice } from "@/utils/price";
 
 const Cart: FC = () => {
   const [cartIsOpen, setCartIsOpen] = useState(false);
@@ -14,7 +15,7 @@ const Cart: FC = () => {
   return (
     <div className={styles.cart} onClick={() => setCartIsOpen(!cartIsOpen)}>
       <span className={styles.cartBadge}>{cartList.length}</span>
-      <span>{summarize(cartList)} ₴</span>
+      <span className={styles.cartBadgeTotal}>{summarize(cartList)}</span>
       <div
         className={
           cartIsOpen
@@ -38,7 +39,7 @@ const Cart: FC = () => {
         ) : (
           <div className={styles.cartBottom}>
             <div className={styles.cartTotal}>
-              Вместе: <span>{summarize(cartList)} ₴</span>
+              Вместе: <span>{formatPrice(summarize(cartList))}</span>
             </div>
             <Link href="/checkout" className={styles.cartCheckout}>
               Оформить заказ

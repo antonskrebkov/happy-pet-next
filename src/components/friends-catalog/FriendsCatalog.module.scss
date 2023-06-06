@@ -46,20 +46,6 @@
     @media (max-width: 1199px) {
       font-size: 18px;
     }
-
-    &::after {
-      content: "₴";
-      position: absolute;
-      font-size: 22px;
-      line-height: math.div(27, 22);
-      font-weight: 700;
-      color: #000;
-      padding-left: 5px;
-
-      @media (max-width: 1199px) {
-        font-size: 18px;
-      }
-    }
   }
   &Add {
     width: 41px;

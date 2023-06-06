@@ -7,7 +7,7 @@ import "swiper/scss";
 import styles from "./HomeCategorySlider.module.scss";
 import { useAppDispatch } from "@/store/hooks";
 import { addNewFilter } from "@/store/slices/querySlice";
-import { friendsAPI } from "@/services/Friends.service";
+import { categoriesAPI } from "@/services/Categories.service";
 import { capitalizeInPlural } from "@/utils/categories";
 import Link from "next/link";
 
@@ -15,7 +15,7 @@ const HomeCategorySlider: FC = () => {
   const buttonPrev = useRef<HTMLButtonElement | null>(null);
   const buttonNext = useRef<HTMLButtonElement | null>(null);
 
-  const { data: categories } = friendsAPI.useGetCategoriesQuery("");
+  const { data: categories } = categoriesAPI.useGetCategoriesQuery("");
 
   const dispatch = useAppDispatch();
 
