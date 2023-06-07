@@ -190,6 +190,7 @@
 .modal {
   &Title {
     font-size: 21px;
+    margin-bottom: 20px;
     @media (max-width: 420px) {
       font-size: 16px;
     }

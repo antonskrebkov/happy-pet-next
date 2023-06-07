@@ -15,6 +15,7 @@ const Modal: FC<PropsWithChildren> = ({ children }) => {
 
   return (
     <div className={styles.modal}>
+      <div className={styles.modalClose}></div>
       <div className={styles.modalContent}>{children}</div>
     </div>
   );

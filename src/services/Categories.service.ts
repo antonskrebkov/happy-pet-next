@@ -4,8 +4,8 @@ import { ICategory } from "@/interfaces/ICategory";
 export const categoriesAPI = createApi({
   reducerPath: "categoriesAPI",
   baseQuery: fetchBaseQuery({
-    // baseUrl: "https://64564f9d5f9a4f236140736d.mockapi.io",
-    baseUrl: "http://localhost:3002/categories",
+    baseUrl: "https://64807757f061e6ec4d4954e4.mockapi.io/categories",
+    // baseUrl: "http://localhost:3002/categories",
   }),
   endpoints: (build) => ({
     getCategories: build.query<ICategory[], string>({

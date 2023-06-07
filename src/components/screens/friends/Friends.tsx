@@ -36,8 +36,10 @@ const Friends: FC = () => {
       .unwrap()
       .then((res) => {
         setFriends(res.apiResponse);
-        setTotalCount(res.totalCount);
-        setTotalPages(getPagesQuantity(res.totalCount, 6));
+        // setTotalCount(res.totalCount);
+        // setTotalPages(getPagesQuantity(res.totalCount, 6));
+        setTotalCount(7);
+        setTotalPages(getPagesQuantity(7, 6));
       });
     return () => {
       dispatch(addSort({ sortBy: "id", order: "desc" }));
@@ -52,8 +54,10 @@ const Friends: FC = () => {
         .unwrap()
         .then((res) => {
           setFriends(res.apiResponse);
-          setTotalCount(res.totalCount);
-          setTotalPages(getPagesQuantity(res.totalCount, 6));
+          // setTotalCount(res.totalCount);
+          // setTotalPages(getPagesQuantity(res.totalCount, 6));
+          setTotalCount(7);
+          setTotalPages(getPagesQuantity(7, 6));
         });
       setIsQuerySubmitted(false);
     }

@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import Layout from "@/components/layout/Layout";
 import HomeMain from "@/components/home-main/HomeMain";
 import HomeChoise from "@/components/home-choise/HomeChoise";
@@ -12,8 +12,20 @@ import { friendsAPI } from "@/services/Friends.service";
 import styles from "./Home.module.scss";
 
 const Home: FC = () => {
-  const modal = false;
+  const [data, setData] = useState(true);
 
+  useEffect(() => {
+    const storedData = sessionStorage.getItem("notification");
+    if (storedData) {
+      setData(JSON.parse(storedData));
+    }
+  }, []);
+
+  const handleSaveData = () => {
+    const newData = false;
+    setData(newData);
+    sessionStorage.setItem("notification", JSON.stringify(newData));
+  };
   const { data: friends } = friendsAPI.useGetNewestFriendsQuery();
 
   return (
@@ -30,13 +42,18 @@ const Home: FC = () => {
         <HomeGallery />
         <HomeAbout />
         <Questions />
-        {modal ? (
+        {data && (
           <Modal>
-            <h2 className={styles.modalTitle}>Ваше повідомлення надіслано!</h2>
-            <button className={styles.modalButton}>Готово</button>
+            <h2 className={styles.modalTitle}>
+              Due to the reduced functionality of the Mockapi.io service which
+              is used as a backend in this project, functions such as
+              multifiltering and pagination in its correct form are
+              unfortunately not available.
+            </h2>
+            <button className={styles.modalButton} onClick={handleSaveData}>
+              Understood
+            </button>
           </Modal>
-        ) : (
-          ""
         )}
       </main>
     </Layout>
