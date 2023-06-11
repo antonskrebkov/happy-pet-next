@@ -90,7 +90,7 @@
       transform: translateY(-50%);
       width: 22px;
       height: 26px;
-      background-image: url("./icons/location.svg");
+      background-image: url("/location.svg");
     }
   }
 
@@ -115,7 +115,7 @@
       transform: translateY(-50%);
       width: 20px;
       height: 20px;
-      background-image: url("./icons/phone.svg");
+      background-image: url("/footer-phone.svg");
     }
   }
 }
@@ -150,7 +150,7 @@
       transform: translateY(-50%);
       width: 72px;
       height: 72px;
-      background-image: url("./icons/logo.svg");
+      background-image: url("/footer-logo.svg");
     }
 
     &:focus,

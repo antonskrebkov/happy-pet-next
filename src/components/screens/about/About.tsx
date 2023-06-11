@@ -1,7 +1,7 @@
 import Layout from "@/components/layout/Layout";
 import React from "react";
 import styles from "./About.module.scss";
-import chevronDown from "./icons/chevron-down.svg";
+import chevronDown from "public/chevron-down.svg";
 import { Accordion, AccordionItem as Item } from "@szhsin/react-accordion";
 import Image from "next/image";
 

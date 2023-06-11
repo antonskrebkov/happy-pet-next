@@ -51,7 +51,7 @@
     width: 41px;
     height: 41px;
     background-color: #32b71d;
-    background-image: url("./images/cart.svg");
+    background-image: url("/cart.svg");
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
@@ -67,7 +67,7 @@
 
     &.inCart {
       background-color: #fff;
-      background-image: url("./images/inCart.svg");
+      background-image: url("/inCart.svg");
       cursor: pointer;
       pointer-events: none;
       &:hover {

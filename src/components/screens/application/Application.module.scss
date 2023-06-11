@@ -29,7 +29,7 @@
   &:before {
     content: "";
     position: absolute;
-    background: url("./icons/back-arrow.svg");
+    background: url("/back-arrow.svg");
     background-repeat: no-repeat;
     width: 20px;
     height: 12px;
@@ -103,7 +103,7 @@
       &:checked + span::after {
         content: "";
         position: absolute;
-        background-image: url("./icons/done.svg");
+        background-image: url("/done.svg");
         left: 3px;
         top: 4px;
         width: 12px;

@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import remove from "./icons/remove.svg";
+import remove from "public/remove.svg";
 import styles from "./CheckoutItem.module.scss";
 import { IFriend } from "@/interfaces/IFriend";
 import { useAppDispatch } from "@/store/hooks";

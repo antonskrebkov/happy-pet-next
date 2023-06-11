@@ -71,7 +71,7 @@
   &::before {
     content: "";
     position: absolute;
-    background: url("./icons/logo.svg");
+    background: url("/header-logo.svg");
     width: 46px;
     height: 48px;
     left: 0;
@@ -107,7 +107,7 @@
       position: absolute;
       height: 17px;
       width: 17px;
-      background: url("./icons/phone.svg");
+      background: url("/header-phone.svg");
       left: 0;
       top: 50%;
       transform: translateY(-50%);

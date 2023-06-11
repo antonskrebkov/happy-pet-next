@@ -102,7 +102,7 @@
   }
 
   &ButtonPrev {
-    background-image: url("./images/arrow-left.svg");
+    background-image: url("/slider-arrow-left.svg");
     left: -70px;
 
     @media (max-width: 1365px) {
@@ -111,7 +111,7 @@
   }
 
   &ButtonNext {
-    background-image: url("./images/arrow-right.svg");
+    background-image: url("/slider-arrow-right.svg");
     right: -70px;
 
     @media (max-width: 1365px) {
@@ -162,7 +162,7 @@
   &Badge {
     width: 29px;
     height: 29px;
-    background: url("./images/paw.svg");
+    background: url("/paw.svg");
 
     @media (max-width: 1199px) {
       width: 18px;

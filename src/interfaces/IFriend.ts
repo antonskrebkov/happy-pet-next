@@ -1,5 +1,5 @@
 export interface IFriend {
-  id: number;
+  id: string;
   age: number;
   ageStatus: string;
   name: string;

@@ -1,7 +1,7 @@
 import { IFriend } from "./IFriend";
 
 export interface IApplication {
-  id: number;
+  id: string;
   date: string;
   firstName: string;
   surname: string;

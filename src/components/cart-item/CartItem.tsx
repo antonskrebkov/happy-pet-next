@@ -2,7 +2,7 @@ import { FC } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./CartItem.module.scss";
-import deleteIcon from "./icons/delete.svg";
+import deleteIcon from "public/delete.svg";
 import { useAppDispatch } from "@/store/hooks";
 import { IFriend } from "@/interfaces/IFriend";
 import { removeFromCart } from "@/store/slices/cartSlice";

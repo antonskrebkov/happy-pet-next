@@ -45,7 +45,8 @@ export const friendsAPI = createApi({
       invalidatesTags: ["Friends"],
     }),
     // getFriendsByCategory: build.mutation<IFriend, string>({
-    //   query: (id) => `/friends/${id}`,
+    //   // query: (id) => `/${id}`,
+    //   query: (id) => `?id=${id}`,
     // }),
     getFriend: build.query<IFriend, string>({
       query: (id) => `/${id}`,

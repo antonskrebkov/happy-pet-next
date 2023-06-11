@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"npm run server\" \"next dev\"",
+    "deploy": "gh-pages -d build",
     "server": "json-server -w server/db.json -p 3002",
     "build": "next build",
     "start": "next start",

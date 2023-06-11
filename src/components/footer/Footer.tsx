@@ -3,15 +3,15 @@ import styles from "./footer.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 
-import twitter from "./icons/twitter.svg";
-import fb from "./icons/fb.svg";
-import inst from "./icons/inst.svg";
-import tg from "./icons/tg.svg";
+import twitter from "public/twitter.svg";
+import fb from "public/fb.svg";
+import inst from "public/inst.svg";
+import tg from "public/tg.svg";
 
 const Footer: FC = () => {
   const socialItems = [
     {
-      link: "https://twitter.com/yasochka6",
+      link: "https://twitter.com/dogshelt",
       imageLink: twitter,
     },
     {
@@ -23,7 +23,7 @@ const Footer: FC = () => {
       imageLink: inst,
     },
     {
-      link: "https://t.me/s/Rostok_Pitomnik",
+      link: "https://t.me/uanimalsorg",
       imageLink: tg,
     },
   ];
@@ -65,7 +65,7 @@ const Footer: FC = () => {
           <Link href="/" className={styles.bottomLogo}>
             Happy pet
           </Link>
-          <div className={styles.bottomRights}>2022 © Все права защищены</div>
+          <div className={styles.bottomRights}>2023 © Все права защищены</div>
           <div className={styles.bottomSupport}>
             Если ты нашел на сайте ошибки, сообщи нам support@happypet.ua
           </div>

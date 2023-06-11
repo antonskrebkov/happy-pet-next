@@ -1,21 +1,9 @@
 import { FC, PropsWithChildren } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import wc from "./images/wc.svg";
+import wc from "public/wc.svg";
 import styles from "./FriendItem.module.scss";
-
-interface IFriend {
-  id: number;
-  age: number;
-  name: string;
-  shortDescription: string;
-  description: string;
-  category: string;
-  price: number;
-  sex: string;
-  wc: boolean;
-  images: string[];
-}
+import { IFriend } from "@/interfaces/IFriend";
 
 interface FriendItemProps extends PropsWithChildren {
   friend: IFriend;

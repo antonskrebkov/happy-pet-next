@@ -23,10 +23,6 @@
     &Active {
       border: 2.5px solid #000;
     }
-    &Disabled {
-      pointer-events: none;
-      cursor: pointer;
-    }
     &:hover {
       background-color: #daae0e;
     }

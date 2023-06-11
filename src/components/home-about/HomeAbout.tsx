@@ -2,7 +2,7 @@ import { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./HomeAbout.module.scss";
-import about from "./images/about.jpeg";
+import about from "public/about.jpeg";
 
 const HomeAbout: FC = () => {
   return (

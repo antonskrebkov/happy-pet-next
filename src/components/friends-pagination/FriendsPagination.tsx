@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Image from "next/image";
-import prev from "./images/arrow-left.svg";
-import next from "./images/arrow-right.svg";
+import prev from "public/pagination-arrow-left.svg";
+import next from "public/pagination-arrow-right.svg";
 import IQuery from "@/interfaces/IQuery";
 import styles from "./FriendsPagination.module.scss";
 
@@ -29,20 +29,14 @@ const FriendsPagination: FC<FriendsPaginationProps> = ({
     <section className={styles.pagination}>
       <div className={styles.paginationContainer}>
         <div className={styles.paginationItems}>
-          <button
-            className={
-              queryParams.page === 1
-                ? `${styles.paginationItem} ${styles.paginationItemDisabled}`
-                : styles.paginationItem
-            }
-            onClick={
-              queryParams.page === 1
-                ? () => handle(1)
-                : () => handle(queryParams.page - 1)
-            }
-          >
-            <Image src={prev} alt="" />
-          </button>
+          {queryParams.page !== 1 && (
+            <button
+              className={styles.paginationItem}
+              onClick={() => handle(queryParams.page - 1)}
+            >
+              <Image src={prev} alt="" />
+            </button>
+          )}
           {pagesArray.map((page: number) => (
             <button
               className={
@@ -56,20 +50,14 @@ const FriendsPagination: FC<FriendsPaginationProps> = ({
               {page}
             </button>
           ))}
-          <button
-            className={
-              queryParams.page === totalPages
-                ? `${styles.paginationItem} ${styles.paginationItemDisabled}`
-                : styles.paginationItem
-            }
-            onClick={
-              queryParams.page === totalPages
-                ? () => handle(totalPages)
-                : () => handle(queryParams.page + 1)
-            }
-          >
-            <Image src={next} alt="" />
-          </button>
+          {queryParams.page !== totalPages && (
+            <button
+              className={styles.paginationItem}
+              onClick={() => handle(queryParams.page + 1)}
+            >
+              <Image src={next} alt="" />
+            </button>
+          )}
         </div>
       </div>
     </section>

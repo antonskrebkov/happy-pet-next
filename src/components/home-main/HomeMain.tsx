@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import pets from "./images/pets.png";
+import pets from "public/pets.png";
 import styles from "./HomeMain.module.scss";
 
 const HomeMain: FC = () => {

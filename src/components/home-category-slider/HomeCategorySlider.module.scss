@@ -84,7 +84,7 @@
       &::after {
         content: "";
         position: absolute;
-        background: url("./images/cart-arrow.svg");
+        background: url("/link-arrow.svg");
         background-size: contain;
         background-repeat: no-repeat;
         width: 13px;
@@ -175,7 +175,7 @@
   }
 
   &ButtonPrev {
-    background-image: url("./images/arrow-left.svg");
+    background-image: url("/slider-arrow-left.svg");
     top: 40%;
     left: -40px;
 
@@ -186,7 +186,7 @@
   }
 
   &ButtonNext {
-    background-image: url("./images/arrow-right.svg");
+    background-image: url("/slider-arrow-right.svg");
     top: 40%;
     right: 54%;
 

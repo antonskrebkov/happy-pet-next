@@ -1,37 +1,37 @@
 {
   "categories": [
     {
-      "id": 1,
+      "id": "1",
       "title": "monkey",
       "link": "/",
       "imageLink": "https://i.imgur.com/agxE50Y.png"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "reptile",
       "link": "/",
       "imageLink": "https://i.imgur.com/Nr7bo6n.png"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "rodent",
       "link": "/",
       "imageLink": "https://i.imgur.com/ovZEhW9.png"
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "cat",
       "link": "/",
       "imageLink": "https://i.imgur.com/6nPbXz3.png"
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "dog",
       "link": "/",
       "imageLink": "https://i.imgur.com/frdo1M5.png"
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "parrot",
       "link": "/",
       "imageLink": "https://i.imgur.com/wrH12RE.png"
@@ -39,7 +39,7 @@
   ],
   "friends": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Папуга Гриша",
       "age": 2,
       "ageStatus": "kid",
@@ -56,7 +56,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Доберман Василь",
       "age": 4,
       "ageStatus": "kid",
@@ -76,7 +76,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Висловуха кішка Кіра",
       "age": 7,
       "ageStatus": "kid",
@@ -93,7 +93,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Шимпанзе Роза",
       "age": 7,
       "ageStatus": "kid",
@@ -109,7 +109,7 @@
       ]
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Черепаха Ніна",
       "age": 12,
       "ageStatus": "adult",
@@ -119,12 +119,10 @@
       "price": 800,
       "sex": "female",
       "wc": false,
-      "images": [
-        "https://i.imgur.com/80O7hHy.png"
-      ]
+      "images": ["https://i.imgur.com/80O7hHy.png"]
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Девон-рекс Чічі",
       "age": 8,
       "ageStatus": "kid",
@@ -140,7 +138,7 @@
       ]
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Кролик Сніф",
       "age": 3,
       "ageStatus": "kid",
@@ -167,7 +165,7 @@
       "topic": "",
       "message": "asd",
       "date": "07/06/2023 00:44:34",
-      "id": 1
+      "id": "1"
     },
     {
       "name": "asd",
@@ -176,7 +174,7 @@
       "topic": "Задати питання",
       "message": "TEEEEEST",
       "date": "07/06/2023 00:48:09",
-      "id": 2
+      "id": "2"
     },
     {
       "name": "asd",
@@ -185,7 +183,7 @@
       "topic": "Адопція",
       "message": "asda",
       "date": "07/06/2023 00:48:36",
-      "id": 3
+      "id": "3"
     },
     {
       "name": "фывфы",
@@ -194,7 +192,7 @@
       "topic": "Допомога притулку",
       "message": "loremasdlkjasdlk",
       "date": "07/06/2023 12:43:59",
-      "id": 4
+      "id": "4"
     },
     {
       "name": "asd",
@@ -203,7 +201,7 @@
       "topic": "Адопція",
       "message": "asdasdasd",
       "date": "07/06/2023 14:48:54",
-      "id": 5
+      "id": "5"
     }
   ],
   "applications": [
@@ -234,7 +232,7 @@
         }
       ],
       "date": "07/06/2023 14:54:30",
-      "id": 1
+      "id": "1"
     },
     {
       "firstName": "fynj",
@@ -266,7 +264,7 @@
         }
       ],
       "date": "07/06/2023 15:08:01",
-      "id": 2
+      "id": "2"
     }
   ]
 }

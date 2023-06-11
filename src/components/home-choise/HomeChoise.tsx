@@ -1,9 +1,9 @@
 import { FC } from "react";
 import Image, { StaticImageData } from "next/image";
 import styles from "./HomeChoise.module.scss";
-import icon1 from "./images/01.svg";
-import icon2 from "./images/02.svg";
-import icon3 from "./images/03.svg";
+import icon1 from "public/choise-01.svg";
+import icon2 from "public/choise-02.svg";
+import icon3 from "public/choise-03.svg";
 
 interface IChoiseItem {
   id: number;

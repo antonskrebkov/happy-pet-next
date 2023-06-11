@@ -1,5 +1,5 @@
 export interface IQuestion {
-  id: number;
+  id: string;
   date: string;
   name: string;
   email: string;

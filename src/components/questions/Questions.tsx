@@ -14,7 +14,7 @@ import { IOption } from "@/interfaces/IOption";
 import Modal from "../UI/modal/Modal";
 import Link from "next/link";
 import DotsLoader from "../UI/dots-loader/DotsLoader";
-import arrowRight from "./images/arrow-button.svg";
+import arrowRight from "public/arrow-button.svg";
 import Image from "next/image";
 
 interface IConfirmation {

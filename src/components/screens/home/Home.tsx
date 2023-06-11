@@ -45,10 +45,10 @@ const Home: FC = () => {
         {data && (
           <Modal>
             <h2 className={styles.modalTitle}>
-              Due to the reduced functionality of the Mockapi.io service which
-              is used as a backend in this project, functions such as
-              multifiltering and pagination in its correct form are
-              unfortunately not available.
+              Due to reduced functionality of the Mockapi.io service which is
+              used as an API in this project, functions such as multifiltering
+              and pagination in its correct form are unfortunately not
+              available.
             </h2>
             <button className={styles.modalButton} onClick={handleSaveData}>
               Understood

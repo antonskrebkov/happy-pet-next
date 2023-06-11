@@ -6,12 +6,11 @@ import { Thumbs } from "swiper";
 import "swiper/scss";
 import Image from "next/image";
 import { Accordion, AccordionItem as Item } from "@szhsin/react-accordion";
-import chevronDown from "./icons/chevron-down.svg";
+import chevronDown from "public/chevron-down.svg";
 import { friendsAPI } from "@/services/Friends.service";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
 import { addToCart } from "@/store/slices/cartSlice";
-import { stat } from "fs";
 
 interface FriendsProps {
   id: string;
