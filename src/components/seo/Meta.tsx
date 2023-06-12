@@ -21,7 +21,7 @@ const Meta: FC<PropsWithChildren<IMeta>> = ({
           <meta
             name="keywords"
             content={
-              "Happy Pet, Хеппі пет, Хэппи пэт, Взять животное в семью, Новый питомец, Питомник, Помощь животным, Частный приют," +
+              "Happy pet, Хеппі пет, Хэппи пэт, Взяти тварину в сім'ю, Новий вихованець, Притулок для тварин, Допомога тваринам, Приватний притулок, Take animal to the family, New friend, Shelter for animals, Help for animals, Private shelter, " +
               keywords
             }
           />

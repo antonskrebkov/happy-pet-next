@@ -1,0 +1,10 @@
+{
+  "title": "Checkout",
+  "bag-title": "In pet carrier",
+  "bag-empty": "Carrier is empty",
+  "summary-title": "Bill",
+  "summary-text": "Subtotal",
+  "summary-sum-text": "Total",
+  "summary-submit": "Submit your application",
+  "bag-item-age": " months"
+}

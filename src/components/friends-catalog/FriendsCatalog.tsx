@@ -7,13 +7,18 @@ import Loader from "../UI/loader/Loader";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { addToCart } from "@/store/slices/cartSlice";
 import { formatPrice } from "@/utils/price";
-
+import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 interface FriendsCatalogProps {
   friends: IFriend[] | undefined;
   isLoading: boolean;
 }
 
 const FriendsCatalog: FC<FriendsCatalogProps> = ({ friends, isLoading }) => {
+  const { t } = useTranslation("friends");
+
+  const { locale } = useRouter();
+
   const dispatch = useAppDispatch();
 
   const cartList = useAppSelector((state) => state.cart);
@@ -28,7 +33,7 @@ const FriendsCatalog: FC<FriendsCatalogProps> = ({ friends, isLoading }) => {
   if (friends && friends.length === 0) {
     return (
       <h1 style={{ textAlign: "center", fontSize: "24px", margin: "50px 0" }}>
-        Нічого не знайдено
+        {t("nothing-found")}
       </h1>
     );
   }
@@ -41,7 +46,7 @@ const FriendsCatalog: FC<FriendsCatalogProps> = ({ friends, isLoading }) => {
             friends.map((friend) => (
               <FriendItem key={friend.id} friend={friend}>
                 <div className={styles.itemFooterPrice}>
-                  {formatPrice(friend.price)}
+                  {formatPrice(friend.price, locale)}
                 </div>
                 <button
                   className={

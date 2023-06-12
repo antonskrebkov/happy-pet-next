@@ -164,6 +164,10 @@
     font-size: 14px;
     line-height: math.div(17, 14);
     font-weight: 400;
+    > a {
+      color: #fff;
+      text-decoration: underline;
+    }
 
     @media (max-width: 980px) {
       text-align: center;

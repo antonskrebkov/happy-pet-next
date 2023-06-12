@@ -4,8 +4,9 @@ import NextNProgress from "nextjs-progressbar";
 import { Provider } from "react-redux";
 import { store, persistor } from "@/store/store";
 import { PersistGate } from "redux-persist/integration/react";
+import { appWithTranslation } from "next-i18next";
 
-export default function App({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps) => {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
@@ -14,4 +15,6 @@ export default function App({ Component, pageProps }: AppProps) {
       </PersistGate>
     </Provider>
   );
-}
+};
+
+export default appWithTranslation(App);

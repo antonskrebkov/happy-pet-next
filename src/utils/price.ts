@@ -1,5 +1,8 @@
-export const formatPrice = (price: number) => {
-  return price.toLocaleString("ua", {
+export const formatPrice = (
+  price: number,
+  locale: string | undefined = "ua"
+) => {
+  return price.toLocaleString(locale, {
     style: "currency",
     currency: "uah",
   });

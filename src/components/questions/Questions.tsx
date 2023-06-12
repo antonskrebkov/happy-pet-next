@@ -16,6 +16,7 @@ import Link from "next/link";
 import DotsLoader from "../UI/dots-loader/DotsLoader";
 import arrowRight from "public/arrow-button.svg";
 import Image from "next/image";
+import { useTranslation } from "next-i18next";
 
 interface IConfirmation {
   isPersonalDataChecked: boolean;
@@ -23,6 +24,8 @@ interface IConfirmation {
 }
 
 const Questions: FC = () => {
+  const { t } = useTranslation("questions");
+
   const [sendNewQuestion, { isLoading: isSending, isError, isSuccess }] =
     questionsAPI.useSendNewQuestionMutation();
 
@@ -37,9 +40,9 @@ const Questions: FC = () => {
   });
 
   const options = [
-    { value: "FirstTopic", label: "Задати питання" },
-    { value: "SecondTopic", label: "Адопція" },
-    { value: "ThirdTopic", label: "Допомога притулку" },
+    { value: "FirstTopic", label: t("questions-theme-1") },
+    { value: "SecondTopic", label: t("questions-theme-2") },
+    { value: "ThirdTopic", label: t("questions-theme-3") },
   ];
 
   const [question, setQuestion] = useState<IQuestion>({
@@ -88,7 +91,7 @@ const Questions: FC = () => {
           </h1>
         ) : (
           <>
-            <h2 className={styles.questionsTitle}>Есть вопросы? Задавайте!</h2>
+            <h2 className={styles.questionsTitle}>{t("questions-title")}</h2>
             <form action="#" className={styles.questionsForm}>
               <div className={styles.questionsFormColumn}>
                 <div className={styles.questionsFormRow}>
@@ -102,7 +105,7 @@ const Questions: FC = () => {
                           name: e.target.value,
                         })
                       }
-                      placeholder="Введите имя *"
+                      placeholder={t("questions-input-name")}
                       isValid={validateString(question.name)}
                     />
                   </div>
@@ -116,7 +119,7 @@ const Questions: FC = () => {
                           email: e.target.value,
                         })
                       }
-                      placeholder="Введите E-mail *"
+                      placeholder={t("questions-input-email")}
                       isValid={validateEmail(question.email)}
                     />
                   </div>
@@ -132,7 +135,7 @@ const Questions: FC = () => {
                           phone: e.target.value,
                         })
                       }
-                      placeholder="Введите телефон *"
+                      placeholder={t("questions-input-phone")}
                       isValid={validatePhone(question.phone)}
                     />
                   </div>
@@ -226,7 +229,7 @@ const Questions: FC = () => {
                           message: e.target.value,
                         })
                       }
-                      placeholder="Введите сообщение"
+                      placeholder={t("questions-input-message")}
                     ></textarea>
                     <span className={styles.questionsFormLine}></span>
                   </div>
@@ -251,9 +254,7 @@ const Questions: FC = () => {
                       }
                       checked={isConfirmed.isPersonalDataChecked}
                     />
-                    <span>
-                      Я согласен на обработку моих персональных данных
-                    </span>
+                    <span>{t("questions-personal-data")}</span>
                   </label>
                   <label
                     htmlFor="formPrivacyPolicy"
@@ -273,12 +274,13 @@ const Questions: FC = () => {
                       checked={isConfirmed.isPrivacyPolicyChecked}
                     />
                     <span>
-                      Я согласен с{" "}
+                      {t("questions-privacy-policy-1")}
+
                       <button
                         className={styles.questionsFormPrivacyPolicy}
                         onClick={handlePrivacyPolicyShow}
                       >
-                        Политикой конфиденциальности
+                        {t("questions-privacy-policy-2")}
                       </button>
                     </span>
                   </label>

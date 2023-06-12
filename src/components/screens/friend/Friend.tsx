@@ -11,12 +11,16 @@ import { friendsAPI } from "@/services/Friends.service";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
 import { addToCart } from "@/store/slices/cartSlice";
+import { formatPrice } from "@/utils/price";
+import { useRouter } from "next/router";
 
 interface FriendsProps {
   id: string;
 }
 
 const Friend: FC<FriendsProps> = ({ id }) => {
+  const { locale } = useRouter();
+
   const [thumbsSwiper, setThumbsSwiper] = useState();
   const { data: friend, isLoading } = friendsAPI.useGetFriendQuery(id);
 
@@ -120,7 +124,9 @@ const Friend: FC<FriendsProps> = ({ id }) => {
                 <p className={styles.shortDescription}>
                   {friend.shortDescription}
                 </p>
-                <p className={styles.price}>{friend.price} ₴</p>
+                <p className={styles.price}>
+                  {formatPrice(friend.price, locale)}
+                </p>
                 <button
                   className={
                     cartList.find((cartItem) => cartItem.id === friend.id)

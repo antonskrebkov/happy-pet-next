@@ -3,33 +3,26 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./HomeAbout.module.scss";
 import about from "public/about.jpeg";
+import { useTranslation } from "next-i18next";
 
 const HomeAbout: FC = () => {
+  const { t } = useTranslation("home");
+
   return (
     <section className={styles.about}>
       <div className={styles.aboutContainer}>
-        <h2 className={styles.aboutTitle}>О питомнике Happy Pet</h2>
+        <h2 className={styles.aboutTitle}>{t("about-title")}</h2>
         <div className={styles.aboutBody}>
           <div className={styles.aboutDescription}>
             <h3 className={styles.aboutDescriptionTitle}>
-              Мы - команда мечтателей
+              {t("about-description-title")}
             </h3>
             <div className={styles.aboutDescriptionText}>
-              <p>
-                Частный приют для животных «Happy pet» был основан в 2014 году в
-                селе Фасова, Макаровского района, Киевской области на базе
-                общественной организации «Зооцентр «Ковчег» Оноприенко Галиной
-                Федоровной и построен за ее собственные средства. Галина
-                Федоровна является владельцем приюта и его директором.
-              </p>
-              <p>
-                На данный момент в приюте проживают около 1000 животных: собаки,
-                коты, обезьяны, грызуны, попугаи и рептилии. Их количество
-                постепенно увеличивается.
-              </p>
+              <p>{t("about-description-text-1")}</p>
+              <p>{t("about-description-text-2")}</p>
             </div>
             <Link href="/about" className={styles.aboutDescriptionLink}>
-              Читать больше
+              {t("about-description-link")}
             </Link>
           </div>
           <div className={styles.aboutImg}>

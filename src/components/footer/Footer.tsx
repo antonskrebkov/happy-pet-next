@@ -2,13 +2,16 @@ import { FC } from "react";
 import styles from "./footer.module.scss";
 import Image from "next/image";
 import Link from "next/link";
-
+import { TFunction } from "next-i18next";
 import twitter from "public/twitter.svg";
 import fb from "public/fb.svg";
 import inst from "public/inst.svg";
 import tg from "public/tg.svg";
+import { useTranslation } from "next-i18next";
 
 const Footer: FC = () => {
+  const { t } = useTranslation("layout");
+
   const socialItems = [
     {
       link: "https://twitter.com/dogshelt",
@@ -55,7 +58,7 @@ const Footer: FC = () => {
             target="_blank"
             className={styles.topLocation}
           >
-            с. Фасова, Киевская область, hello@happypet.ua
+            {t("footer-location")}
           </a>
           <a href="tel:+380673452774" className={styles.topPhone}>
             +(38) 067 345 2774
@@ -65,9 +68,10 @@ const Footer: FC = () => {
           <Link href="/" className={styles.bottomLogo}>
             Happy pet
           </Link>
-          <div className={styles.bottomRights}>2023 © Все права защищены</div>
+          <div className={styles.bottomRights}> {t("footer-rights")}</div>
           <div className={styles.bottomSupport}>
-            Если ты нашел на сайте ошибки, сообщи нам support@happypet.ua
+            {t("footer-support")}
+            <a href="mailto:support@happypet.ua">support@happypet.ua</a>
           </div>
         </div>
       </div>

@@ -7,19 +7,24 @@ import "node_modules/swiper/modules/pagination/pagination.scss";
 import FriendItem from "../UI/friend-item/FriendItem";
 import { IFriend } from "@/interfaces/IFriend";
 import { formatPrice } from "@/utils/price";
+import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
 interface HomeNewSliderProps {
   friends: IFriend[] | undefined;
 }
 
 const HomeNewSlider: FC<HomeNewSliderProps> = ({ friends }) => {
+  const { locale } = useRouter();
+  const { t } = useTranslation("home");
+
   const buttonPrev = useRef<HTMLButtonElement | null>(null);
   const buttonNext = useRef<HTMLButtonElement | null>(null);
 
   return (
     <section className={styles.new}>
       <div className={styles.newContainer}>
-        <h2 className={styles.newTitle}>Последние поступления</h2>
+        <h2 className={styles.newTitle}>{t("new-title")}</h2>
         <div className={styles.newSlider}>
           <Swiper
             className={styles.newSwiper}
@@ -71,7 +76,7 @@ const HomeNewSlider: FC<HomeNewSliderProps> = ({ friends }) => {
                 <SwiperSlide key={friend.id}>
                   <FriendItem friend={friend}>
                     <div className={styles.itemFooterPrice}>
-                      {formatPrice(friend.price)}
+                      {formatPrice(friend.price, locale)}
                     </div>
                     <div className={styles.itemFooterBadge}></div>
                   </FriendItem>

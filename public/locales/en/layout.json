@@ -1,0 +1,17 @@
+{
+  "header-link-1": "Home",
+  "header-link-2": "Friends",
+  "header-link-3": "About",
+  "header-link-4": "Contacts",
+  "cart-top": "In pet carrier",
+  "cart-empty": "It's empty here...",
+  "cart-total": "Total: ",
+  "cart-month": " months",
+  "cart-checkout": "Checkout",
+  "footer-location": "Fasova village, Kyiv region, hello@happypet.ua",
+  "footer-rights": "2023 © All rights reserved",
+  "footer-support": "If you find errors on the site, please let us know ",
+  "modal-title": "Caution!",
+  "modal-text": "Due to reduced functionality of the Mockapi.io service which is used as an API in this project, functions such as multifiltering and pagination in its correct form are unfortunately not available.",
+  "modal-button": "Understood"
+}

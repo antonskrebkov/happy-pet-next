@@ -103,7 +103,7 @@
       &:checked + span::after {
         content: "";
         position: absolute;
-        background-image: url("/done.svg");
+        background-image: url("/application-done.svg");
         left: 3px;
         top: 4px;
         width: 12px;

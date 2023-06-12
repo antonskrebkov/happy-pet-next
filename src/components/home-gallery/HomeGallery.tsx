@@ -2,8 +2,10 @@ import { FC } from "react";
 import Image from "next/image";
 import Fancybox from "@/components/fancybox/Fancybox";
 import styles from "./HomeGallery.module.scss";
+import { useTranslation } from "next-i18next";
 
 const HomeGallery: FC = () => {
+  const { t } = useTranslation("home");
   const galleryColumns = [
     {
       id: 1,
@@ -31,7 +33,7 @@ const HomeGallery: FC = () => {
   return (
     <section className={styles.gallery}>
       <div className={styles.galleryContainer}>
-        <div className={styles.galleryTitle}>Мы любим поиграть</div>
+        <div className={styles.galleryTitle}>{t("gallery-title")}</div>
         <Fancybox>
           <div className={styles.galleryColumns}>
             {galleryColumns.map((galleryColumn) => (

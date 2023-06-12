@@ -1,12 +1,20 @@
 .modal {
   &Title {
-    padding: 10px;
+    padding: 5px;
+    font-size: 22px;
+    font-weight: 700;
+    @media (max-width: 420px) {
+      font-size: 20px;
+    }
+  }
+  &Text {
+    padding: 3px 8px;
     font-size: 18px;
     font-weight: 500;
-    margin-bottom: 15px;
+    margin-bottom: 3px;
     @media (max-width: 420px) {
       padding: 5px;
-      margin-bottom: 25px;
+      margin-bottom: 15px;
       font-size: 16px;
     }
   }

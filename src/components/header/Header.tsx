@@ -4,14 +4,21 @@ import styles from "./header.module.scss";
 import Link from "next/link";
 import Cart from "../cart/Cart";
 import { useRouter } from "next/router";
+import { setLocaleOptions } from "@/utils/localeOptions";
+import { IDefaultOption } from "@/interfaces/IDefaultOption";
+import { useTranslation } from "next-i18next";
 
-const Header: FC = () => {
+interface HeaderProps {
+  handleLocale: (locale: string) => void;
+  locales: string[] | undefined;
+  locale: string | undefined;
+}
+
+const Header: FC<HeaderProps> = ({ handleLocale, locales, locale }) => {
+  const { t } = useTranslation("layout");
   const { pathname } = useRouter();
 
-  const options = [
-    { value: "UA", label: "UA" },
-    { value: "EN", label: "EN" },
-  ];
+  const localeOptions: IDefaultOption[] = setLocaleOptions(locales);
 
   const [isScroll, setIsScroll] = useState(false);
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
@@ -19,10 +26,10 @@ const Header: FC = () => {
   const headerEl = useRef(null);
 
   const menuItems = [
-    { link: "/", title: "Головна" },
-    { link: "/friends", title: "Друзі" },
-    { link: "/about", title: "Про нас" },
-    { link: "/contacts", title: "Контакти" },
+    { link: "/", title: t("header-link-1") },
+    { link: "/friends", title: t("header-link-2") },
+    { link: "/about", title: t("header-link-3") },
+    { link: "/contacts", title: t("header-link-4") },
   ];
 
   useEffect(() => {
@@ -93,6 +100,7 @@ const Header: FC = () => {
                   }),
                   singleValue: () => ({
                     color: "#000",
+                    textTransform: "uppercase",
                   }),
                   indicatorSeparator: () => ({
                     display: "none",
@@ -112,15 +120,19 @@ const Header: FC = () => {
                   option: (baseStyles) => ({
                     ...baseStyles,
                     fontSize: "14px",
+                    textTransform: "uppercase",
                     cursor: "pointer",
                   }),
                 }}
-                options={options}
-                defaultValue={options[0]}
+                options={localeOptions}
+                defaultValue={{ value: locale, label: locale }}
+                onChange={(option: IDefaultOption) => {
+                  handleLocale(option.value);
+                }}
                 isSearchable={false}
               />
             </div>
-            <Cart />
+            <Cart t={t} />
           </div>
           <nav className={styles.mobileMenu}>
             <button

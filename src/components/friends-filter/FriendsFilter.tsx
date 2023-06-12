@@ -2,6 +2,7 @@ import { FC, useRef, useState } from "react";
 import FilterSelect from "../UI/filter-select/FilterSelect";
 import styles from "./FriendsFilter.module.scss";
 import IQuery, { IFilter } from "@/interfaces/IQuery";
+import { useTranslation } from "next-i18next";
 
 interface FriendsFilterProps {
   handle: (newOption: IFilter) => void;
@@ -9,35 +10,32 @@ interface FriendsFilterProps {
   queryParams: IQuery;
 }
 
-interface IOption {
-  value: string;
-  label: string;
-}
-
 const FriendsFilter: FC<FriendsFilterProps> = ({
   handle,
   handleReset,
   queryParams,
 }) => {
+  const { t } = useTranslation("friends");
+
   const categoryOptions = [
-    { value: "reptile", label: "Рептилии" },
-    { value: "cat", label: "Коты" },
-    { value: "rodent", label: "Грызуны" },
-    { value: "dog", label: "Собаки" },
-    { value: "monkey", label: "Обезьяны" },
-    { value: "parrot", label: "Попугаи" },
+    { value: "reptile", label: t("filter-category-1") },
+    { value: "cat", label: t("filter-category-2") },
+    { value: "rodent", label: t("filter-category-3") },
+    { value: "dog", label: t("filter-category-4") },
+    { value: "monkey", label: t("filter-category-5") },
+    { value: "parrot", label: t("filter-category-6") },
   ];
   const sexOptions = [
-    { value: "male", label: "Мальчик" },
-    { value: "female", label: "Девочка" },
+    { value: "male", label: t("filter-sex-1") },
+    { value: "female", label: t("filter-sex-2") },
   ];
   const ageOptions = [
-    { value: "< 12 месяцев", label: "< 12 месяцев" },
-    { value: "> 12 месяцев", label: "> 12 месяцев" },
+    { value: "< 12 месяцев", label: t("filter-age-1") },
+    { value: "> 12 месяцев", label: t("filter-age-2") },
   ];
   const wcOptions = [
-    { value: "true", label: "Да" },
-    { value: "false", label: "Нет" },
+    { value: "true", label: t("filter-wc-1") },
+    { value: "false", label: t("filter-wc-2") },
   ];
 
   const resetAndClear = () => {
@@ -51,7 +49,7 @@ const FriendsFilter: FC<FriendsFilterProps> = ({
           <FilterSelect
             name="category"
             options={categoryOptions}
-            placeholder="Питомец"
+            placeholder={t("filter-category-placeholder")}
             handle={handle}
           />
         </div>
@@ -59,7 +57,7 @@ const FriendsFilter: FC<FriendsFilterProps> = ({
           <FilterSelect
             name="sex"
             options={sexOptions}
-            placeholder="Пол"
+            placeholder={t("filter-sex-placeholder")}
             handle={handle}
           />
         </div>
@@ -67,7 +65,7 @@ const FriendsFilter: FC<FriendsFilterProps> = ({
           <FilterSelect
             name="age"
             options={ageOptions}
-            placeholder="Возраст"
+            placeholder={t("filter-age-placeholder")}
             handle={handle}
           />
         </div>
@@ -75,7 +73,7 @@ const FriendsFilter: FC<FriendsFilterProps> = ({
           <FilterSelect
             name="wc"
             options={wcOptions}
-            placeholder="Туалет"
+            placeholder={t("filter-wc-placeholder")}
             handle={handle}
           />
         </div>

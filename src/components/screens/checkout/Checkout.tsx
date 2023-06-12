@@ -6,16 +6,22 @@ import { useAppSelector } from "@/store/hooks";
 import CheckoutItem from "@/components/checkout-item/CheckoutItem";
 import { summarize } from "@/utils/sum";
 import { formatPrice } from "@/utils/price";
+import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
 export default function Checkout() {
+  const { t } = useTranslation("checkout");
+
+  const { locale } = useRouter();
+
   const cartList = useAppSelector((state) => state.cart);
 
   return (
-    <Layout title="Checkout">
+    <Layout title={t("title")}>
       <main className={styles.checkout}>
         <div className={styles.container}>
           <div className={styles.bag}>
-            <h2 className={styles.bagTitle}>В переноске</h2>
+            <h2 className={styles.bagTitle}>{t("bag-title")}</h2>
             <div className={styles.bagBody}>
               {cartList.length ? (
                 <ul className={styles.bagItems}>
@@ -24,23 +30,25 @@ export default function Checkout() {
                   ))}
                 </ul>
               ) : (
-                <p>Переноска порожня</p>
+                <p>{t("bag-empty")}</p>
               )}
             </div>
           </div>
           <div className={styles.summary}>
-            <h2 className={styles.summaryTitle}>Рахунок</h2>
+            <h2 className={styles.summaryTitle}>{t("summary-title")}</h2>
             <div className={styles.summaryBody}>
               <div className={styles.summaryRow}>
-                <div className={styles.summaryText}>Проміжний підсумок</div>
+                <div className={styles.summaryText}>{t("summary-text")}</div>
                 <div className={styles.summaryPrice}>
-                  {formatPrice(summarize(cartList))}
+                  {formatPrice(summarize(cartList), locale)}
                 </div>
               </div>
               <div className={styles.summarySum}>
-                <div className={styles.summarySumText}>Всього</div>
+                <div className={styles.summarySumText}>
+                  {t("summary-sum-text")}
+                </div>
                 <div className={styles.summarySumPrice}>
-                  {formatPrice(summarize(cartList))}
+                  {formatPrice(summarize(cartList), locale)}
                 </div>
               </div>
               <div className={styles.summarySubmit}>
@@ -52,7 +60,7 @@ export default function Checkout() {
                   }
                   href="/checkout/application"
                 >
-                  Залишити заявку
+                  {t("summary-submit")}
                 </Link>
               </div>
             </div>

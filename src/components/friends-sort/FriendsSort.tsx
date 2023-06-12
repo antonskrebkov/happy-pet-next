@@ -6,23 +6,25 @@ import { addSort } from "@/store/slices/querySlice";
 import { friendsAPI } from "@/services/Friends.service";
 import { IFriend } from "@/interfaces/IFriend";
 import { IOption } from "@/interfaces/IOption";
-
+import { useTranslation } from "next-i18next";
 interface FriendsSortProps {
   handle: (newOption: IOption) => void;
 }
 
 const FriendsSort: FC<FriendsSortProps> = ({ handle }) => {
+  const { t } = useTranslation("friends");
+
   const sortOptions = [
-    { value: { sortBy: "id", order: "desc" }, label: "по новизне" },
-    { value: { sortBy: "price", order: "asc" }, label: "по возрастанию цены" },
-    { value: { sortBy: "price", order: "desc" }, label: "по убыванию цены" },
+    { value: { sortBy: "id", order: "desc" }, label: t("sort-label-1") },
+    { value: { sortBy: "price", order: "asc" }, label: t("sort-label-2") },
+    { value: { sortBy: "price", order: "desc" }, label: t("sort-label-3") },
   ];
 
   return (
     <section className={styles.sort}>
       <div className={styles.sortContainer}>
         <div className={styles.sortBody}>
-          <div className={styles.sortLabel}>Сортировать</div>
+          <div className={styles.sortLabel}>{t("sort-label")}</div>
           <Select
             styles={{
               valueContainer: () => ({

@@ -8,6 +8,8 @@ import { IFriend } from "@/interfaces/IFriend";
 import { removeFromCart } from "@/store/slices/cartSlice";
 import { capitalize } from "@/utils/categories";
 import { formatPrice } from "@/utils/price";
+import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 
 interface CartItemProps {
   friend: IFriend;
@@ -15,6 +17,10 @@ interface CartItemProps {
 
 const CartItem: FC<CartItemProps> = ({ friend }) => {
   const dispatch = useAppDispatch();
+
+  const { t } = useTranslation("layout");
+
+  const { locale } = useRouter();
 
   const handleDelete = (friend: IFriend) => {
     dispatch(removeFromCart(friend));
@@ -37,10 +43,13 @@ const CartItem: FC<CartItemProps> = ({ friend }) => {
             {capitalize(friend.category)}
           </div>
           <div className={styles.cartItemAge}>
-            <span>{friend.age}</span> мес.
+            <span>{friend.age}</span>
+            {t("cart-month")}
           </div>
         </div>
-        <div className={styles.cartItemPrice}>{formatPrice(friend.price)}</div>
+        <div className={styles.cartItemPrice}>
+          {formatPrice(friend.price, locale)}
+        </div>
       </div>
       <button
         className={styles.cartItemDelete}

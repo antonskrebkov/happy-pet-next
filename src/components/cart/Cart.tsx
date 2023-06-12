@@ -6,8 +6,14 @@ import { IFriend } from "@/interfaces/IFriend";
 import CartItem from "../cart-item/CartItem";
 import { summarize } from "@/utils/sum";
 import { formatPrice } from "@/utils/price";
+import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 
 const Cart: FC = () => {
+  const { t } = useTranslation("layout");
+
+  const { locale } = useRouter();
+
   const [cartIsOpen, setCartIsOpen] = useState(false);
 
   const cartList = useAppSelector((state) => state.cart);
@@ -24,9 +30,9 @@ const Cart: FC = () => {
         }
         onClick={(e) => e.stopPropagation()}
       >
-        <div className={styles.cartTop}>В переноске</div>
+        <div className={styles.cartTop}>{t("cart-top")}</div>
         {cartList.length === 0 ? (
-          <p className={styles.cartEmpty}>Тут порожньо...</p>
+          <p className={styles.cartEmpty}>{t("cart-empty")}</p>
         ) : (
           <ul className={styles.cartItems}>
             {cartList.map((cartItem: IFriend) => (
@@ -39,10 +45,11 @@ const Cart: FC = () => {
         ) : (
           <div className={styles.cartBottom}>
             <div className={styles.cartTotal}>
-              Вместе: <span>{formatPrice(summarize(cartList))}</span>
+              {t("cart-total")}
+              <span>{formatPrice(summarize(cartList), locale)}</span>
             </div>
             <Link href="/checkout" className={styles.cartCheckout}>
-              Оформить заказ
+              {t("cart-checkout")}
             </Link>
           </div>
         )}

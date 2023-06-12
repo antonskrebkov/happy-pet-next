@@ -20,10 +20,13 @@ import {
   validatePhone,
 } from "@/utils/validation";
 import DotsLoader from "@/components/UI/dots-loader/DotsLoader";
+import { useTranslation } from "next-i18next";
 
 const Application: FC = () => {
   const [sendNewApplication, { isLoading: isSending, isError, isSuccess }] =
     applicationsAPI.useSendNewApplicationMutation();
+
+  const { t } = useTranslation("application");
 
   const router = useRouter();
 
@@ -63,7 +66,7 @@ const Application: FC = () => {
   };
 
   return (
-    <Layout title="Application">
+    <Layout title={t("title")}>
       <main className={styles.application}>
         <div className={styles.container}>
           <button
@@ -71,14 +74,12 @@ const Application: FC = () => {
             type="button"
             onClick={() => router.back()}
           >
-            Назад
+            {t("back")}
           </button>
           <div className={styles.wrapper}>
             <form className={styles.form}>
               <div className={styles.formBox}>
-                <h2 className={styles.formTitle}>
-                  Введіть свої персональні дані:
-                </h2>
+                <h2 className={styles.formTitle}>{t("form-title-1")}</h2>
                 <ApplicationInput
                   value={application.firstName.trim()}
                   onChange={(e) =>
@@ -88,9 +89,9 @@ const Application: FC = () => {
                     })
                   }
                   type="text"
-                  placeholder="Імʼя"
+                  placeholder={t("input-name-placeholder")}
                   isValid={validateString(application.firstName.trim())}
-                  validationMessage="Введіть коректно своє імʼя"
+                  validationMessage={t("input-name-validation")}
                 />
                 <ApplicationInput
                   value={application.surname.trim()}
@@ -101,9 +102,9 @@ const Application: FC = () => {
                     })
                   }
                   type="text"
-                  placeholder="Прізвище"
+                  placeholder={t("input-surname-placeholder")}
                   isValid={validateString(application.surname.trim())}
-                  validationMessage="Введіть коректно своє прізвище"
+                  validationMessage={t("input-surname-validation")}
                 />
                 <ApplicationInput
                   value={application.age.trim()}
@@ -114,9 +115,9 @@ const Application: FC = () => {
                     })
                   }
                   type="string"
-                  placeholder="Повних років"
+                  placeholder={t("input-age-placeholder")}
                   isValid={validateAge(application.age.trim())}
-                  validationMessage="Введіть коректно свій вік"
+                  validationMessage={t("input-age-validation")}
                 />
                 <ApplicationInput
                   value={application.city}
@@ -127,15 +128,13 @@ const Application: FC = () => {
                     })
                   }
                   type="text"
-                  placeholder="Місто/Село"
+                  placeholder={t("input-city-placeholder")}
                   isValid={validateString(application.city)}
-                  validationMessage="Введіть коректно своє місто/cело"
+                  validationMessage={t("input-city-validation")}
                 />
               </div>
               <div className={styles.formBox}>
-                <h2 className={styles.formTitle}>
-                  Введіть свої контактні дані:
-                </h2>
+                <h2 className={styles.formTitle}>{t("form-title-2")}</h2>
                 <ApplicationInput
                   value={application.email.trim()}
                   onChange={(e) =>
@@ -145,9 +144,9 @@ const Application: FC = () => {
                     })
                   }
                   type="mail"
-                  placeholder="Ел. пошта"
+                  placeholder={t("input-mail-placeholder")}
                   isValid={validateEmail(application.email.trim())}
-                  validationMessage="Введіть коректно свою ел. пошту"
+                  validationMessage={t("input-mail-validation")}
                 />
                 <ApplicationInput
                   value={application.phone.trim()}
@@ -158,9 +157,9 @@ const Application: FC = () => {
                     })
                   }
                   type="tel"
-                  placeholder="Номер телефона"
+                  placeholder={t("input-phone-placeholder")}
                   isValid={validatePhone(application.phone.trim())}
-                  validationMessage="Введіть коректно свій номер телефона"
+                  validationMessage={t("input-phone-validation")}
                 />
               </div>
               <label htmlFor="formPersonalData" className={styles.formCheckbox}>
@@ -170,7 +169,7 @@ const Application: FC = () => {
                   checked={isAgree}
                   onChange={() => setIsAgree(!isAgree)}
                 />
-                <span>Я згоден на обробку моїх персональних даних</span>
+                <span>{t("form-personal-data")}</span>
               </label>
               <button
                 className={
@@ -180,20 +179,22 @@ const Application: FC = () => {
                 }
                 onClick={handleApplicationSubmit}
               >
-                {isSending ? <DotsLoader /> : "Надіслати"}
+                {isSending ? <DotsLoader /> : t("form-button")}
               </button>
             </form>
             <section className={styles.order}>
-              <h2 className={styles.orderTitle}>У вашій переносці:</h2>
+              <h2 className={styles.orderTitle}>{t("order-title")}</h2>
               <ul className={styles.orderItems}>
                 {cartList.map((cartItem) => (
                   <ApplicationItem key={cartItem.id} friend={cartItem} />
                 ))}
               </ul>
               <div className={styles.orderTotal}>
-                <div className={styles.orderTotalTitle}>Всього</div>
+                <div className={styles.orderTotalTitle}>
+                  {t("order-total-title")}
+                </div>
                 <div className={styles.orderTotalPrice}>
-                  {formatPrice(summarize(cartList))}
+                  {formatPrice(summarize(cartList), router.locale)}
                 </div>
               </div>
             </section>
@@ -201,9 +202,9 @@ const Application: FC = () => {
         </div>
         {isSuccess ? (
           <Modal>
-            <h2 className={styles.modalTitle}>Ваша заявка прийнята!</h2>
+            <h2 className={styles.modalTitle}>{t("modal-success")}</h2>
             <Link href="/" className={styles.modalLink}>
-              Повернутися на головну
+              {t("modal-link")}
             </Link>
           </Modal>
         ) : (
@@ -211,9 +212,9 @@ const Application: FC = () => {
         )}
         {isError ? (
           <Modal>
-            <h2 className={styles.modalTitle}>Щось пішло не так...</h2>
+            <h2 className={styles.modalTitle}>{t("modal-error")}</h2>
             <Link href="/" className={styles.modalLink}>
-              Повернутися на головну
+              {t("modal-link")}
             </Link>
           </Modal>
         ) : (

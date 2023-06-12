@@ -19,8 +19,11 @@ import { IOption } from "@/interfaces/IOption";
 import { getPagesQuantity } from "@/utils/pages";
 import styles from "./Friends.module.scss";
 import { IFriend } from "@/interfaces/IFriend";
+import { useTranslation } from "next-i18next";
 
 const Friends: FC = () => {
+  const { t } = useTranslation("friends");
+
   const [friends, setFriends] = useState<IFriend[]>([]);
   const [totalCount, setTotalCount] = useState<number>(0);
   const [totalPages, setTotalPages] = useState<number>(0);
@@ -87,9 +90,9 @@ const Friends: FC = () => {
 
   return (
     <Layout
-      title="Friends"
-      description="Выбрать друга"
-      keywords="Друзья, животные, питомцы"
+      title={t("title")}
+      description={t("description")}
+      keywords={t("keywords")}
     >
       <main className={styles.friends}>
         <Breadcrumbs />

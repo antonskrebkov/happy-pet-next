@@ -7,12 +7,17 @@ import { IFriend } from "@/interfaces/IFriend";
 import { useAppDispatch } from "@/store/hooks";
 import { removeFromCart } from "@/store/slices/cartSlice";
 import { formatPrice } from "@/utils/price";
+import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
 interface CheckoutItemProps {
   friend: IFriend;
 }
 
 const CheckoutItem: FC<CheckoutItemProps> = ({ friend }) => {
+  const { t } = useTranslation("checkout");
+  const { locale } = useRouter();
+
   const dispatch = useAppDispatch();
 
   return (
@@ -25,11 +30,16 @@ const CheckoutItem: FC<CheckoutItemProps> = ({ friend }) => {
           <Link className={styles.bagItemTitle} href={"/friends/" + friend.id}>
             {friend.name}
           </Link>
-          <div className={styles.bagItemPrice}>{formatPrice(friend.price)}</div>
+          <div className={styles.bagItemPrice}>
+            {formatPrice(friend.price, locale)}
+          </div>
         </div>
         <div className={styles.bagItemId}>ID: {friend.id}</div>
-        <div className={styles.bagItemKind}>Грызун</div>
-        <div className={styles.bagItemAge}>3 месяца</div>
+        <div className={styles.bagItemKind}>{friend.category}</div>
+        <div className={styles.bagItemAge}>
+          {friend.age}
+          {t("bag-item-age")}
+        </div>
         <button
           className={styles.bagItemDelete}
           onClick={() => dispatch(removeFromCart(friend))}
