@@ -77,7 +77,9 @@ const FilterSelect: FC<FilterSelectProps> = ({
       name={name}
       isSearchable={false}
       options={options}
-      onChange={(option: IOption) => handle({ key: name, value: option.value })}
+      onChange={(option: IOption | null) =>
+        handle({ key: name, value: option!.value })
+      }
     />
   );
 };

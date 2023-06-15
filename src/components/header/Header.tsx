@@ -1,5 +1,5 @@
 import { FC, useEffect, useRef, useState } from "react";
-import Select from "react-select";
+import Select, { SingleValue } from "react-select";
 import styles from "./header.module.scss";
 import Link from "next/link";
 import Cart from "../cart/Cart";
@@ -9,7 +9,7 @@ import { IDefaultOption } from "@/interfaces/IDefaultOption";
 import { useTranslation } from "next-i18next";
 
 interface HeaderProps {
-  handleLocale: (locale: string) => void;
+  handleLocale: (locale: string | undefined) => void;
   locales: string[] | undefined;
   locale: string | undefined;
 }
@@ -126,13 +126,13 @@ const Header: FC<HeaderProps> = ({ handleLocale, locales, locale }) => {
                 }}
                 options={localeOptions}
                 defaultValue={{ value: locale, label: locale }}
-                onChange={(option: IDefaultOption) => {
-                  handleLocale(option.value);
-                }}
+                onChange={(option: SingleValue<IDefaultOption>) =>
+                  option && handleLocale(option!.value)
+                }
                 isSearchable={false}
               />
             </div>
-            <Cart t={t} />
+            <Cart />
           </div>
           <nav className={styles.mobileMenu}>
             <button

@@ -3,6 +3,7 @@ import Layout from "@/components/layout/Layout";
 import styles from "./Friend.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Thumbs } from "swiper";
+// import {} from "swiper/types/modules/thumbs"
 import "swiper/scss";
 import Image from "next/image";
 import { Accordion, AccordionItem as Item } from "@szhsin/react-accordion";
@@ -71,10 +72,7 @@ const Friend: FC<FriendsProps> = ({ friend }) => {
                 <Swiper
                   modules={[Thumbs]}
                   thumbs={{
-                    swiper:
-                      thumbsSwiper && !thumbsSwiper.destroyed
-                        ? thumbsSwiper
-                        : null,
+                    swiper: thumbsSwiper,
                   }}
                   className={styles.gallerySlider}
                   observer={true}
@@ -99,7 +97,7 @@ const Friend: FC<FriendsProps> = ({ friend }) => {
                   modules={[Thumbs]}
                   className={styles.galleryThumb}
                   watchSlidesProgress
-                  onSwiper={setThumbsSwiper}
+                  onSwiper={() => setThumbsSwiper}
                   observer={true}
                   observeParents={true}
                   speed={400}

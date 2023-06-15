@@ -10,8 +10,8 @@ const Contacts: FC = () => {
   return (
     <Layout
       title={t("title")}
-      description={t("description")}
-      keywords={t("keywords")}
+      description={`${t("description")}`}
+      keywords={`${t("keywords")}`}
     >
       <main className={styles.contacts}>
         <section className={styles.info}>

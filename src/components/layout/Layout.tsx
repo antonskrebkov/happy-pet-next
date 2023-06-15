@@ -15,7 +15,7 @@ const Layout: FC<PropsWithChildren<IMeta>> = ({
 }) => {
   const { locale, locales, push } = useRouter();
 
-  const handleLocale = (locale: string) => {
+  const handleLocale = (locale: string | undefined) => {
     push("/", undefined, { locale });
   };
 

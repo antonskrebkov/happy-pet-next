@@ -76,8 +76,8 @@ const Friends: FC<FriendsProps> = ({ data }) => {
     setIsQuerySubmitted(true);
   };
 
-  const handleSortFriends = (newOption: IOption) => {
-    dispatch(addSort(newOption.value));
+  const handleSortFriends = (newOption: IOption | null) => {
+    dispatch(addSort(newOption!.value));
     dispatch(paginate(1));
     setIsQuerySubmitted(true);
   };
@@ -90,8 +90,8 @@ const Friends: FC<FriendsProps> = ({ data }) => {
   return (
     <Layout
       title={t("title")}
-      description={t("description")}
-      keywords={t("keywords")}
+      description={`${t("description")}`}
+      keywords={`${t("keywords")}`}
     >
       <main className={styles.friends}>
         <Breadcrumbs />

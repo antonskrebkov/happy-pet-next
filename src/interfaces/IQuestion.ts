@@ -4,6 +4,6 @@ export interface IQuestion {
   name: string;
   email: string;
   phone: string;
-  topic: string;
+  topic: string | undefined;
   message: string;
 }

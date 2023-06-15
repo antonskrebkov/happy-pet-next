@@ -23,7 +23,7 @@ const Home: FC<HomeProps> = ({ categories, friends }) => {
     <Layout
       title={t("title")}
       description={`${t("main-block-title")}. ${t("main-block-text")}`}
-      keywords={t("keywords")}
+      keywords={`${t("keywords")}`}
     >
       <main>
         <HomeMain />

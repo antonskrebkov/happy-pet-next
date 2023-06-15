@@ -3,8 +3,10 @@ import Select from "react-select";
 import styles from "./FriendsSort.module.scss";
 import { IOption } from "@/interfaces/IOption";
 import { useTranslation } from "next-i18next";
+import SingleValue from "react-select/dist/declarations/src/components/SingleValue";
+import { ActionMeta } from "react-select";
 interface FriendsSortProps {
-  handle: (newOption: IOption) => void;
+  handle: (newValue: IOption | null) => void;
 }
 
 const FriendsSort: FC<FriendsSortProps> = ({ handle }) => {
@@ -71,7 +73,9 @@ const FriendsSort: FC<FriendsSortProps> = ({ handle }) => {
             isSearchable={false}
             options={sortOptions}
             defaultValue={sortOptions[0]}
-            onChange={(option: IOption) => handle(option)}
+            onChange={(option: IOption | null) => {
+              handle(option);
+            }}
           ></Select>
         </div>
       </div>

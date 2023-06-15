@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import Select from "react-select";
+import Select, { SingleValue } from "react-select";
 import styles from "./Questions.module.scss";
 import { IQuestion } from "@/interfaces/IQuestion";
 import { questionsAPI } from "@/services/Questions.service";
@@ -10,9 +10,8 @@ import {
   validatePhone,
 } from "@/utils/validation";
 import QuestionInput from "../UI/question-input/QuestionInput";
-import { IOption } from "@/interfaces/IOption";
+import { IDefaultOption } from "@/interfaces/IDefaultOption";
 import Modal from "../UI/modal/Modal";
-import Link from "next/link";
 import DotsLoader from "../UI/dots-loader/DotsLoader";
 import arrowRight from "public/arrow-button.svg";
 import Image from "next/image";
@@ -196,10 +195,10 @@ const Questions: FC = () => {
                         }}
                         options={options}
                         defaultValue={options[0]}
-                        onChange={(option: IOption) => {
+                        onChange={(option: SingleValue<IDefaultOption>) => {
                           setQuestion({
                             ...question,
-                            topic: option.label,
+                            topic: option!.label,
                           });
                         }}
                         isSearchable={false}
@@ -229,7 +228,7 @@ const Questions: FC = () => {
                           message: e.target.value,
                         })
                       }
-                      placeholder={t("questions-input-message")}
+                      placeholder={`${t("questions-input-message")}`}
                     ></textarea>
                     <span className={styles.questionsFormLine}></span>
                   </div>

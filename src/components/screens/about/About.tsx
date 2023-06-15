@@ -40,8 +40,8 @@ const About: FC = () => {
   return (
     <Layout
       title={t("title")}
-      description={t("text-1")}
-      keywords={t("keywords")}
+      description={`${t("text-1")}`}
+      keywords={`${t("keywords")}`}
     >
       <main className={styles.about}>
         <div className={styles.container}>
