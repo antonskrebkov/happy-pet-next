@@ -7,7 +7,6 @@ interface QuestionInputProps {
   type: string;
   placeholder: string;
   isValid: boolean;
-  validationMessage: string;
 }
 
 const QuestionInput: FC<QuestionInputProps> = ({
@@ -34,15 +33,6 @@ const QuestionInput: FC<QuestionInputProps> = ({
         onBlur={() => setIsDirty(true)}
       />
       <span className={styles.questionsFormLine}></span>
-      {/* <div
-        className={
-          isDirty && !isValid
-            ? `${styles.inputValidation} ${styles.error}`
-            : styles.inputValidation
-        }
-      >
-        {validationMessage}
-      </div> */}
     </>
   );
 };

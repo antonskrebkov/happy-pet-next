@@ -10,8 +10,5 @@
   "cart-checkout": "Checkout",
   "footer-location": "Fasova village, Kyiv region, hello@happypet.ua",
   "footer-rights": "2023 © All rights reserved",
-  "footer-support": "If you find errors on the site, please let us know ",
-  "modal-title": "Caution!",
-  "modal-text": "Due to reduced functionality of the Mockapi.io service which is used as an API in this project, functions such as multifiltering and pagination in its correct form are unfortunately not available.",
-  "modal-button": "Understood"
+  "footer-support": "If you find errors on the site, please let us know "
 }

@@ -1,5 +1,3 @@
-// Указывая значение в скобках в пикселях, оно автоматически конвертируется в значение слева от скобки
-
 // From px to %
 @function prc($pxOne, $pxTwo) {
   $result: math.div($pxOne, $pxTwo) * 100%;
@@ -8,13 +6,13 @@
 
 // From px to rem
 @function rem($px) {
-  $result: math.div($px, 16)+rem;
+  $result: math.div($px, 16) + rem;
   @return $result;
 }
 
 // From px to em
 @function em($px) {
-  $result: math.div($px, 16)+em;
+  $result: math.div($px, 16) + em;
   @return $result;
 }
 
@@ -22,7 +20,10 @@
   $addSize: $startSize - $minSize;
   #{$property}: $startSize + px;
 
-  @media(max-width: #{$widthFrom + px}) {
-    #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$widthTo}px) / #{$widthFrom - $widthTo}));
+  @media (max-width: #{$widthFrom + px}) {
+    #{$property}: calc(
+      #{$minSize + px} + #{$addSize} *
+        ((100vw - #{$widthTo}px) / #{$widthFrom - $widthTo})
+    );
   }
 }

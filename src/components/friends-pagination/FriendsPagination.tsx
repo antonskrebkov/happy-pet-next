@@ -22,7 +22,7 @@ const FriendsPagination: FC<FriendsPaginationProps> = ({
   const pagesArray = usePagination(totalPages);
 
   if (isLoading) {
-    return "";
+    return null;
   }
 
   return (

@@ -7,29 +7,31 @@ import "swiper/scss";
 import Image from "next/image";
 import { Accordion, AccordionItem as Item } from "@szhsin/react-accordion";
 import chevronDown from "public/chevron-down.svg";
-import { friendsAPI } from "@/services/Friends.service";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
 import { addToCart } from "@/store/slices/cartSlice";
 import { formatPrice } from "@/utils/price";
 import { useRouter } from "next/router";
+import { IFriend } from "@/interfaces/IFriend";
+import { useTranslation } from "next-i18next";
+import yes from "public/yes.svg";
+import no from "public/no.svg";
+import { capitalize } from "@/utils/categories";
 
 interface FriendsProps {
-  id: string;
+  friend: IFriend;
 }
 
-const Friend: FC<FriendsProps> = ({ id }) => {
+const Friend: FC<FriendsProps> = ({ friend }) => {
   const { locale } = useRouter();
 
+  const { t } = useTranslation("friend");
+
   const [thumbsSwiper, setThumbsSwiper] = useState();
-  const { data: friend, isLoading } = friendsAPI.useGetFriendQuery(id);
 
   const dispatch = useAppDispatch();
   const cartList = useAppSelector((state) => state.cart);
 
-  if (isLoading) {
-    return "";
-  }
   if (!friend) return <div>Missing friend!</div>;
   const AccordionItem = ({ header, ...rest }: any) => (
     <Item
@@ -119,10 +121,14 @@ const Friend: FC<FriendsProps> = ({ id }) => {
                 </Swiper>
               </div>
               <div className={styles.info}>
-                <h2 className={styles.title}>{friend.name}</h2>
+                <h2 className={styles.title}>
+                  {locale === "en" ? friend.name : friend.nameUA}
+                </h2>
                 <p className={styles.shortId}>ID: {friend.id}</p>
                 <p className={styles.shortDescription}>
-                  {friend.shortDescription}
+                  {locale === "en"
+                    ? friend.shortDescription
+                    : friend.shortDescriptionUA}
                 </p>
                 <p className={styles.price}>
                   {formatPrice(friend.price, locale)}
@@ -136,38 +142,60 @@ const Friend: FC<FriendsProps> = ({ id }) => {
                   onClick={() => dispatch(addToCart(friend))}
                 >
                   {cartList.find((cartItem) => cartItem.id === friend.id)
-                    ? "Додано у переноску"
-                    : "Додати у переноску"}
+                    ? t("cart-button-added")
+                    : t("cart-button-add")}
                 </button>
                 <Accordion
                   className={styles.details}
                   transition
                   transitionTimeout={200}
                 >
-                  <AccordionItem header="Опис">
-                    <p className={styles.detailsText}>{friend.description}</p>
+                  <AccordionItem header={t("accordion-item-1")}>
+                    <p className={styles.detailsText}>
+                      {locale === "en"
+                        ? friend.description
+                        : friend.descriptionUA}
+                    </p>
                   </AccordionItem>
-                  <AccordionItem header="Деталі">
+                  <AccordionItem header={t("accordion-item-2")}>
                     <div className={styles.detailsRow}>
-                      <p className={styles.detailsRowKey}>Вид</p>
+                      <p className={styles.detailsRowKey}>
+                        {t("details-key-1")}
+                      </p>
                       <p className={styles.detailsRowValue}>
-                        {friend.category}
+                        {capitalize(
+                          locale === "en" ? friend.category : friend.categoryUA
+                        )}
                       </p>
                     </div>
                     <div className={styles.detailsRow}>
-                      <p className={styles.detailsRowKey}>Вік</p>
+                      <p className={styles.detailsRowKey}>
+                        {t("details-key-2")}
+                      </p>
                       <p className={styles.detailsRowValue}>
-                        {friend.age} міс.
+                        {friend.age} {t("details-key-2-months")}
                       </p>
                     </div>
                     <div className={styles.detailsRow}>
-                      <p className={styles.detailsRowKey}>Стать</p>
-                      <p className={styles.detailsRowValue}>{friend.sex}</p>
+                      <p className={styles.detailsRowKey}>
+                        {t("details-key-3")}
+                      </p>
+                      <p className={styles.detailsRowValue}>
+                        {capitalize(
+                          locale === "en" ? friend.sex : friend.sexUA
+                        )}
+                      </p>
                     </div>
                     <div className={styles.detailsRow}>
-                      <p className={styles.detailsRowKey}>Туалет</p>
+                      <p className={styles.detailsRowKey}>
+                        {t("details-key-4")}
+                      </p>
                       <p className={styles.detailsRowValue}>
-                        {friend.wc ? "Так" : "Ні"}
+                        <Image
+                          className={styles.detailsRowValueImage}
+                          src={friend.wc ? yes : no}
+                          alt=""
+                        />
                       </p>
                     </div>
                   </AccordionItem>

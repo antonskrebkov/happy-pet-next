@@ -6,7 +6,6 @@ import { IMeta } from "../seo/meta.interface";
 import { useRouter } from "next/router";
 import Modal from "@/components/UI/modal/Modal";
 import styles from "./Layout.module.scss";
-import { useTranslation } from "next-i18next";
 
 const Layout: FC<PropsWithChildren<IMeta>> = ({
   title,
@@ -16,15 +15,14 @@ const Layout: FC<PropsWithChildren<IMeta>> = ({
 }) => {
   const { locale, locales, push } = useRouter();
 
-  const { t } = useTranslation("layout");
-
   const handleLocale = (locale: string) => {
     push("/", undefined, { locale });
   };
 
-  const [data, setData] = useState(true);
+  const [data, setData] = useState(false);
 
   useEffect(() => {
+    setData(true);
     const storedData = sessionStorage.getItem("notification");
     if (storedData) {
       setData(JSON.parse(storedData));
@@ -44,10 +42,14 @@ const Layout: FC<PropsWithChildren<IMeta>> = ({
       <Footer />
       {data && (
         <Modal>
-          <h1 className={styles.modalTitle}>{t("modal-title")}</h1>
-          <h2 className={styles.modalText}>{t("modal-text")}</h2>
+          <h1 className={styles.modalTitle}>Caution!</h1>
+          <p className={styles.modalText}>
+            Due to reduced functionality of the Mockapi.io service which is used
+            as an API in this project, functions such as multifiltering and
+            pagination in its correct form are unfortunately not available.
+          </p>
           <button className={styles.modalButton} onClick={handleSaveData}>
-            {t("modal-button")}
+            Understood
           </button>
         </Modal>
       )}

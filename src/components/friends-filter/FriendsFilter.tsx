@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from "react";
+import { FC } from "react";
 import FilterSelect from "../UI/filter-select/FilterSelect";
 import styles from "./FriendsFilter.module.scss";
 import IQuery, { IFilter } from "@/interfaces/IQuery";
@@ -77,12 +77,10 @@ const FriendsFilter: FC<FriendsFilterProps> = ({
             handle={handle}
           />
         </div>
-        {queryParams.filter.length ? (
+        {queryParams.filter.length > 0 && (
           <button className={styles.filterReset} onClick={resetAndClear}>
             Скасувати
           </button>
-        ) : (
-          ""
         )}
       </div>
     </section>

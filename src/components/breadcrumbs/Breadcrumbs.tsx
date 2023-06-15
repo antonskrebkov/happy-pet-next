@@ -24,8 +24,6 @@ const Breadcrumbs: FC = () => {
     [router.asPath]
   );
 
-  console.log(breadcrumbs);
-
   return (
     <section className={styles.breadcrumbs}>
       <div className={styles.breadcrumbsContainer}>

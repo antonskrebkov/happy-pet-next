@@ -1,11 +1,10 @@
-import React from "react";
-import Head from "next/head";
+import { FC } from "react";
 import Checkout from "@/components/screens/checkout/Checkout";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-export default function CheckoutPage() {
+const CheckoutPage: FC = () => {
   return <Checkout />;
-}
+};
 
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
@@ -14,3 +13,4 @@ export async function getStaticProps({ locale }: { locale: string }) {
     },
   };
 }
+export default CheckoutPage;

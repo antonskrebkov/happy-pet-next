@@ -1,11 +1,10 @@
+import { FC } from "react";
 import Layout from "@/components/layout/Layout";
-import React, { useState } from "react";
 import styles from "./Contacts.module.scss";
-import Select from "react-select";
 import Questions from "@/components/questions/Questions";
 import { useTranslation } from "next-i18next";
 
-export default function Contacts() {
+const Contacts: FC = () => {
   const { t } = useTranslation("contacts");
 
   return (
@@ -79,4 +78,6 @@ export default function Contacts() {
       </main>
     </Layout>
   );
-}
+};
+
+export default Contacts;

@@ -26,8 +26,6 @@
       font-size: 21px;
     }
   }
-  &Body {
-  }
   &Items {
     display: flex;
     flex-direction: column;
@@ -60,10 +58,7 @@
       margin-bottom: 12px;
     }
   }
-  &Text {
-  }
-  &Price {
-  }
+
   &Sum {
     display: flex;
     justify-content: space-between;
@@ -75,8 +70,7 @@
       padding: 12px 0;
       margin-bottom: 14px;
     }
-    &Text {
-    }
+
     &Price {
       font-weight: 500;
     }

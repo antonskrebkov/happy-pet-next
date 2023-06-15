@@ -28,7 +28,6 @@
     height: 420px;
   }
   @media (max-width: 999px) {
-    // @include adaptiveValue("max-width", 370, 320, 1200, 999);
     max-width: none;
     height: 420px;
   }
@@ -166,11 +165,11 @@
         font-size: 15px;
         line-height: math.div(21, 15);
         font-weight: 400;
-        margin-bottom: 15px;
+        margin: 5px 0 15px;
 
         @media (max-width: 1199px) {
           font-size: 13px;
-          margin-bottom: 10px;
+          margin: 5px 0 10px;
         }
       }
 
@@ -216,46 +215,5 @@
     justify-content: space-between;
     align-items: center;
     transition: all 0.3s;
-    // &Price {
-    //   position: relative;
-    //   font-size: 22px;
-    //   line-height: math.div(27, 22);
-    //   font-weight: 700;
-    //   color: #000;
-
-    //   @media (max-width: 1199px) {
-    //     font-size: 18px;
-    //   }
-
-    //   &::after {
-    //     content: "₴";
-    //     position: absolute;
-    //     font-size: 22px;
-    //     line-height: math.div(27, 22);
-    //     font-weight: 700;
-    //     color: #000;
-    //     padding-left: 5px;
-
-    //     @media (max-width: 1199px) {
-    //       font-size: 18px;
-    //     }
-    //   }
-    // }
-
-    // &Add {
-    //   width: 41px;
-    //   height: 41px;
-    //   background-color: #32b71d;
-    //   display: flex;
-    //   justify-content: center;
-    //   align-items: center;
-    //   border-radius: 50%;
-    //   transition: all 0.3s;
-
-    //   &:hover {
-    //     transform: scale(1.2);
-    //     background-color: darken(#32b71d, 10%);
-    //   }
-    // }
   }
 }

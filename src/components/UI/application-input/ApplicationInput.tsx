@@ -23,7 +23,9 @@ const ApplicationInput: FC<ApplicationInputProps> = ({
   return (
     <div className={styles.wrapper}>
       <input
-        className={styles.input}
+        className={
+          isDirty && !isValid ? `${styles.input} ${styles.error}` : styles.input
+        }
         type={type}
         value={value}
         onChange={onChange}

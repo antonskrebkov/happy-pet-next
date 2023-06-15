@@ -2,7 +2,6 @@ import { FC } from "react";
 import styles from "./footer.module.scss";
 import Image from "next/image";
 import Link from "next/link";
-import { TFunction } from "next-i18next";
 import twitter from "public/twitter.svg";
 import fb from "public/fb.svg";
 import inst from "public/inst.svg";

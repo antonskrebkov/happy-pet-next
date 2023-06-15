@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import { FC, useState } from "react";
 import Layout from "@/components/layout/Layout";
 import styles from "./Application.module.scss";
 import Link from "next/link";
@@ -186,7 +186,11 @@ const Application: FC = () => {
               <h2 className={styles.orderTitle}>{t("order-title")}</h2>
               <ul className={styles.orderItems}>
                 {cartList.map((cartItem) => (
-                  <ApplicationItem key={cartItem.id} friend={cartItem} />
+                  <ApplicationItem
+                    key={cartItem.id}
+                    friend={cartItem}
+                    locale={router.locale}
+                  />
                 ))}
               </ul>
               <div className={styles.orderTotal}>
@@ -200,25 +204,21 @@ const Application: FC = () => {
             </section>
           </div>
         </div>
-        {isSuccess ? (
+        {isSuccess && (
           <Modal>
             <h2 className={styles.modalTitle}>{t("modal-success")}</h2>
             <Link href="/" className={styles.modalLink}>
               {t("modal-link")}
             </Link>
           </Modal>
-        ) : (
-          ""
         )}
-        {isError ? (
+        {isError && (
           <Modal>
             <h2 className={styles.modalTitle}>{t("modal-error")}</h2>
             <Link href="/" className={styles.modalLink}>
               {t("modal-link")}
             </Link>
           </Modal>
-        ) : (
-          ""
         )}
       </main>
     </Layout>

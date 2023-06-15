@@ -12,6 +12,14 @@
   &LoaderWrapper {
     padding-top: 100px;
     margin: 50px 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  &NothingFound {
+    text-align: "center";
+    font-size: "24px";
+    margin: "50px 0";
   }
 
   &Items {

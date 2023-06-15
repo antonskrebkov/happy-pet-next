@@ -1,20 +1,51 @@
-import React from "react";
-import Head from "next/head";
+import { FC } from "react";
 import Friend from "@/components/screens/friend/Friend";
-import { useRouter } from "next/router";
-// import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { IFriend } from "@/interfaces/IFriend";
+import axios from "axios";
 
-export default function FriendPage() {
-  const router = useRouter();
-  const { id } = router.query;
-
-  return <Friend id={id} />;
+interface FriendPageProps {
+  friend: IFriend;
 }
 
-// export async function getStaticProps({ locale }: { locale: string }) {
-//   return {
-//     props: {
-//       ...(await serverSideTranslations(locale, ["friend", "layout"])),
-//     },
-//   };
-// }
+const FriendPage: FC<FriendPageProps> = ({ friend }) => {
+  return <Friend friend={friend} />;
+};
+
+export async function getStaticPaths() {
+  const friendsResponse = await axios.get(
+    "https://64807757f061e6ec4d4954e4.mockapi.io/friends"
+  );
+  const friends = await friendsResponse.data;
+  const paths = friends.map((friend: IFriend) => ({
+    params: { id: friend.id },
+  }));
+
+  return {
+    paths,
+    fallback: "blocking",
+  };
+}
+
+export async function getStaticProps({
+  locale,
+  params,
+}: {
+  locale: string;
+  params: { id: string };
+}) {
+  const friendResponse = await axios.get(
+    `https://64807757f061e6ec4d4954e4.mockapi.io/friends/${params.id}`
+  );
+
+  const friend = await friendResponse.data;
+
+  return {
+    props: {
+      friend,
+      ...(await serverSideTranslations(locale, ["friend", "layout"])),
+    },
+  };
+}
+
+export default FriendPage;

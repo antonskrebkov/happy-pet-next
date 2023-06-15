@@ -1,11 +1,10 @@
-import React from "react";
-import Head from "next/head";
+import { FC } from "react";
 import Contacts from "@/components/screens/contacts/Contacts";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-export default function ContactsPage() {
+const ContactsPage: FC = () => {
   return <Contacts />;
-}
+};
 
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
@@ -18,3 +17,4 @@ export async function getStaticProps({ locale }: { locale: string }) {
     },
   };
 }
+export default ContactsPage;

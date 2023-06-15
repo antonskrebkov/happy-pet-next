@@ -170,8 +170,6 @@
       font-size: 21px;
     }
   }
-  &Items {
-  }
   &Total {
     display: flex;
     justify-content: space-between;
@@ -179,8 +177,6 @@
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
 
-    &Title {
-    }
     &Price {
       font-weight: 500;
     }
@@ -191,6 +187,7 @@
   &Title {
     font-size: 21px;
     margin-bottom: 20px;
+    text-align: center;
     @media (max-width: 420px) {
       font-size: 16px;
     }

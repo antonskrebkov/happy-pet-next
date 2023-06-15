@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 import Layout from "@/components/layout/Layout";
 import styles from "./Checkout.module.scss";
 import Link from "next/link";
@@ -9,7 +9,7 @@ import { formatPrice } from "@/utils/price";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 
-export default function Checkout() {
+const Checkout: FC = () => {
   const { t } = useTranslation("checkout");
 
   const { locale } = useRouter();
@@ -26,7 +26,11 @@ export default function Checkout() {
               {cartList.length ? (
                 <ul className={styles.bagItems}>
                   {cartList.map((cartItem) => (
-                    <CheckoutItem key={cartItem.id} friend={cartItem} />
+                    <CheckoutItem
+                      key={cartItem.id}
+                      friend={cartItem}
+                      locale={locale}
+                    />
                   ))}
                 </ul>
               ) : (
@@ -69,4 +73,6 @@ export default function Checkout() {
       </main>
     </Layout>
   );
-}
+};
+
+export default Checkout;

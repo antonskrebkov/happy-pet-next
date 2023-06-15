@@ -9,5 +9,7 @@
   "details-key-3": "Sex",
   "details-key-4": "WC",
   "details-key-4-yes": "Yes",
-  "details-key-4-no": "No"
+  "details-key-4-no": "No",
+  "cart-button-add": "Add to pet carrier",
+  "cart-button-added": "Added to pet carrier"
 }

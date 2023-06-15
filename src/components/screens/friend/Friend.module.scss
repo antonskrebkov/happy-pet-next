@@ -125,6 +125,10 @@
       font-weight: 500;
     }
     &Value {
+      &Image {
+        width: 18px;
+        height: 18px;
+      }
     }
   }
 }

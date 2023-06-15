@@ -1,9 +1,8 @@
 import { FC } from "react";
 import styles from "./FriendsCatalog.module.scss";
-import Image from "next/image";
 import FriendItem from "../UI/friend-item/FriendItem";
 import { IFriend } from "@/interfaces/IFriend";
-import Loader from "../UI/loader/Loader";
+import DotsLoader from "../UI/dots-loader/DotsLoader";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { addToCart } from "@/store/slices/cartSlice";
 import { formatPrice } from "@/utils/price";
@@ -26,16 +25,12 @@ const FriendsCatalog: FC<FriendsCatalogProps> = ({ friends, isLoading }) => {
   if (isLoading) {
     return (
       <div className={styles.catalogLoaderWrapper}>
-        <Loader />
+        <DotsLoader />
       </div>
     );
   }
   if (friends && friends.length === 0) {
-    return (
-      <h1 style={{ textAlign: "center", fontSize: "24px", margin: "50px 0" }}>
-        {t("nothing-found")}
-      </h1>
-    );
+    return <h1 className={styles.catalogNothingFound}>{t("nothing-found")}</h1>;
   }
 
   return (
@@ -44,7 +39,7 @@ const FriendsCatalog: FC<FriendsCatalogProps> = ({ friends, isLoading }) => {
         <div className={styles.catalogItems}>
           {friends &&
             friends.map((friend) => (
-              <FriendItem key={friend.id} friend={friend}>
+              <FriendItem key={friend.id} friend={friend} locale={locale}>
                 <div className={styles.itemFooterPrice}>
                   {formatPrice(friend.price, locale)}
                 </div>

@@ -1,12 +1,17 @@
+import { FC } from "react";
 import Layout from "@/components/layout/Layout";
-import React from "react";
 import styles from "./About.module.scss";
 import chevronDown from "public/chevron-down.svg";
 import { Accordion, AccordionItem as Item } from "@szhsin/react-accordion";
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
 
-const AccordionItem = ({ header, ...rest }) => (
+interface IAccordionItem {
+  header: string;
+  children: JSX.Element | JSX.Element[];
+}
+
+const AccordionItem = ({ header, ...rest }: IAccordionItem) => (
   <Item
     {...rest}
     header={
@@ -29,7 +34,7 @@ const AccordionItem = ({ header, ...rest }) => (
   />
 );
 
-export default function About() {
+const About: FC = () => {
   const { t } = useTranslation("about");
 
   return (
@@ -104,4 +109,6 @@ export default function About() {
       </main>
     </Layout>
   );
-}
+};
+
+export default About;

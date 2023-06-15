@@ -10,10 +10,6 @@ export const friendsAPI = createApi({
   }),
   tagTypes: ["Friends"],
   endpoints: (build) => ({
-    getNewestFriends: build.query<IFriend[], void>({
-      // query: () => `?_sort=id&_order=desc&_page=1&_limit=6`,
-      query: () => `?sortBy=id&order=desc&page=1&limit=6`,
-    }),
     getFriends: build.mutation<
       { apiResponse: IFriend[]; totalCount: number },
       IQuery
@@ -44,18 +40,7 @@ export const friendsAPI = createApi({
       },
       invalidatesTags: ["Friends"],
     }),
-    // getFriendsByCategory: build.mutation<IFriend, string>({
-    //   // query: (id) => `/${id}`,
-    //   query: (id) => `?id=${id}`,
-    // }),
-    getFriend: build.query<IFriend, string>({
-      query: (id) => `/${id}`,
-    }),
   }),
 });
 
-export const {
-  useGetNewestFriendsQuery,
-  useGetFriendsMutation,
-  useGetFriendQuery,
-} = friendsAPI;
+export const { useGetFriendsMutation } = friendsAPI;

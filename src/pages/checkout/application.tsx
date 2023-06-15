@@ -1,11 +1,10 @@
-import React from "react";
-import Head from "next/head";
+import { FC } from "react";
 import Application from "@/components/screens/application/Application";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-export default function ApplicationPage() {
+const ApplicationPage: FC = () => {
   return <Application />;
-}
+};
 
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
@@ -14,3 +13,5 @@ export async function getStaticProps({ locale }: { locale: string }) {
     },
   };
 }
+
+export default ApplicationPage;

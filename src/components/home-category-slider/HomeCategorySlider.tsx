@@ -1,5 +1,5 @@
-import { FC, useRef, useState, useEffect } from "react";
-import Image, { StaticImageData } from "next/image";
+import { FC, useRef } from "react";
+import Image from "next/image";
 import { Navigation, Scrollbar } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "node_modules/swiper/modules/scrollbar/scrollbar.scss";
@@ -7,15 +7,20 @@ import "swiper/scss";
 import styles from "./HomeCategorySlider.module.scss";
 import { useAppDispatch } from "@/store/hooks";
 import { addNewFilter } from "@/store/slices/querySlice";
-import { categoriesAPI } from "@/services/Categories.service";
-import { capitalizeInPlural } from "@/utils/categories";
+import { capitalize, capitalizeInPlural } from "@/utils/categories";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { ICategory } from "@/interfaces/ICategory";
 
-const HomeCategorySlider: FC = () => {
+interface HomeCategorySliderProps {
+  categories: ICategory[];
+}
+
+const HomeCategorySlider: FC<HomeCategorySliderProps> = ({ categories }) => {
   const buttonPrev = useRef<HTMLButtonElement | null>(null);
   const buttonNext = useRef<HTMLButtonElement | null>(null);
 
-  const { data: categories } = categoriesAPI.useGetCategoriesQuery("");
+  const { locale } = useRouter();
 
   const dispatch = useAppDispatch();
 
@@ -77,11 +82,13 @@ const HomeCategorySlider: FC = () => {
             categories.map((category) => (
               <SwiperSlide
                 key={category.id}
-                onClick={(e) => handleClick(e, category.title)}
+                onClick={(e) => handleClick(e, category.titleEN)}
               >
                 <Link href="/friends" className={styles.sliderItem}>
                   <div className={styles.sliderItemCategory}>
-                    {capitalizeInPlural(category.title)}
+                    {locale === "en"
+                      ? capitalizeInPlural(category.titleEN)
+                      : capitalize(category.titleUA)}
                   </div>
                   <div className={styles.sliderItemImg}>
                     <Image

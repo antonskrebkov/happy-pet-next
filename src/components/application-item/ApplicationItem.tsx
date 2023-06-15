@@ -3,15 +3,13 @@ import Image from "next/image";
 import styles from "./ApplicationItem.module.scss";
 import { IFriend } from "@/interfaces/IFriend";
 import { formatPrice } from "@/utils/price";
-import { useRouter } from "next/router";
 
 interface ApplicationItemProps {
   friend: IFriend;
+  locale: string | undefined;
 }
 
-const ApplicationItem: FC<ApplicationItemProps> = ({ friend }) => {
-  const { locale } = useRouter();
-
+const ApplicationItem: FC<ApplicationItemProps> = ({ friend, locale }) => {
   return (
     <li className={styles.orderItem}>
       <Image
@@ -22,7 +20,9 @@ const ApplicationItem: FC<ApplicationItemProps> = ({ friend }) => {
         alt=""
       ></Image>
       <div className={styles.orderItemBody}>
-        <div className={styles.orderItemTitle}>{friend.name}</div>
+        <div className={styles.orderItemTitle}>
+          {locale === "en" ? friend.name : friend.nameUA}
+        </div>
         <div className={styles.orderItemPrice}>
           {formatPrice(friend.price, locale)}
         </div>

@@ -5,7 +5,6 @@ export const applicationsAPI = createApi({
   reducerPath: "applicationsAPI",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://648077e2f061e6ec4d4955d9.mockapi.io/applications",
-    // baseUrl: "http://localhost:3002/applications",
   }),
   tagTypes: ["Applications"],
   endpoints: (build) => ({

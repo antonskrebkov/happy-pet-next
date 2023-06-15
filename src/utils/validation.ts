@@ -1,6 +1,6 @@
 export const validateString = (string: string): boolean => {
   const stringRegex =
-    /^[а-яА-ЯґҐєЄіІїЇa-zA-Z''ʼ]+(?:[\s-][а-яА-ЯґҐєЄіІїЇa-zA-Z''ʼ]+)*$/;
+    /^[а-яА-ЯґҐєЄіІїЇa-zA-Z''ʼ.,]+(?:[\s-][а-яА-ЯґҐєЄіІїЇa-zA-Z''ʼ.,]+)*$/;
   return stringRegex.test(string);
 };
 

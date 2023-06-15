@@ -40,9 +40,7 @@ const Cart: FC = () => {
             ))}
           </ul>
         )}
-        {cartList.length === 0 ? (
-          ""
-        ) : (
+        {cartList.length !== 0 && (
           <div className={styles.cartBottom}>
             <div className={styles.cartTotal}>
               {t("cart-total")}

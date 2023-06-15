@@ -74,7 +74,7 @@ const HomeNewSlider: FC<HomeNewSliderProps> = ({ friends }) => {
             {friends &&
               friends.map((friend) => (
                 <SwiperSlide key={friend.id}>
-                  <FriendItem friend={friend}>
+                  <FriendItem friend={friend} locale={locale}>
                     <div className={styles.itemFooterPrice}>
                       {formatPrice(friend.price, locale)}
                     </div>

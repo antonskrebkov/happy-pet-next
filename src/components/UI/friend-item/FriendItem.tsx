@@ -7,9 +7,10 @@ import { IFriend } from "@/interfaces/IFriend";
 
 interface FriendItemProps extends PropsWithChildren {
   friend: IFriend;
+  locale: string | undefined;
 }
 
-const FriendItem: FC<FriendItemProps> = ({ friend, children }) => {
+const FriendItem: FC<FriendItemProps> = ({ friend, locale, children }) => {
   return (
     <div className={styles.item}>
       <div className={styles.itemWrapper}>
@@ -17,7 +18,9 @@ const FriendItem: FC<FriendItemProps> = ({ friend, children }) => {
           <div className={styles.itemHeaderTag}>
             <div className={styles.itemHeaderTagBadge}>
               <div className={styles.itemHeaderTagValue}>{friend.age}</div>
-              <div className={styles.itemHeaderTagText}>месяцев</div>
+              <div className={styles.itemHeaderTagText}>
+                {locale === "en" ? "months" : "місяців"}
+              </div>
             </div>
           </div>
           <div
@@ -45,14 +48,16 @@ const FriendItem: FC<FriendItemProps> = ({ friend, children }) => {
               href={"friends/" + friend.id}
               className={styles.itemBodyInfoTitle}
             >
-              {friend.name}
+              {locale === "en" ? friend.name : friend.nameUA}
             </Link>
             <div className={styles.itemBodyInfoText}>
-              {friend.shortDescription}
+              {locale === "en"
+                ? friend.shortDescription
+                : friend.shortDescriptionUA}
             </div>
             <div className={styles.itemBodyInfoTags}>
               <div className={styles.itemBodyInfoTagsAnimal}>
-                {friend.category}
+                {locale === "en" ? friend.category : friend.categoryUA}
               </div>
             </div>
           </div>

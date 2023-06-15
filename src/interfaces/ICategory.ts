@@ -1,6 +1,7 @@
 export interface ICategory {
   id: string;
-  title: string;
+  titleEN: string;
+  titleUA: string;
   link: string;
   imageLink: string;
 }

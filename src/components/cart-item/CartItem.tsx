@@ -20,7 +20,7 @@ const CartItem: FC<CartItemProps> = ({ friend }) => {
 
   const { t } = useTranslation("layout");
 
-  const { locale } = useRouter();
+  const { locale, pathname } = useRouter();
 
   const handleDelete = (friend: IFriend) => {
     dispatch(removeFromCart(friend));
@@ -28,19 +28,27 @@ const CartItem: FC<CartItemProps> = ({ friend }) => {
 
   return (
     <li className={styles.cartItem}>
-      <Link href={"friends/" + friend.id} className={styles.cartItemImage}>
+      <Link
+        href={pathname === "/friends/[id]" ? friend.id : "friends/" + friend.id}
+        className={styles.cartItemImage}
+      >
         <Image width={90} height={90} src={friend.images[0]} alt="" />
       </Link>
       <div className={styles.cartItemContent}>
-        <Link href={"friends/" + friend.id} className={styles.cartItemTitle}>
-          {friend.name}
+        <Link
+          href={
+            pathname === "/friends/[id]" ? friend.id : "friends/" + friend.id
+          }
+          className={styles.cartItemTitle}
+        >
+          {locale === "en" ? friend.name : friend.nameUA}
         </Link>
         <div className={styles.cartItemId}>
           ID: <span>{friend.id}</span>
         </div>
         <div className={styles.cartItemInfo}>
           <div className={styles.cartItemKind}>
-            {capitalize(friend.category)}
+            {capitalize(locale === "en" ? friend.category : friend.categoryUA)}
           </div>
           <div className={styles.cartItemAge}>
             <span>{friend.age}</span>

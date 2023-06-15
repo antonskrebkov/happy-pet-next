@@ -8,15 +8,15 @@ import { useAppDispatch } from "@/store/hooks";
 import { removeFromCart } from "@/store/slices/cartSlice";
 import { formatPrice } from "@/utils/price";
 import { useTranslation } from "next-i18next";
-import { useRouter } from "next/router";
+import { capitalize } from "@/utils/categories";
 
 interface CheckoutItemProps {
   friend: IFriend;
+  locale: string | undefined;
 }
 
-const CheckoutItem: FC<CheckoutItemProps> = ({ friend }) => {
+const CheckoutItem: FC<CheckoutItemProps> = ({ friend, locale }) => {
   const { t } = useTranslation("checkout");
-  const { locale } = useRouter();
 
   const dispatch = useAppDispatch();
 
@@ -28,14 +28,16 @@ const CheckoutItem: FC<CheckoutItemProps> = ({ friend }) => {
       <div className={styles.bagItemBody}>
         <div className={styles.bagItemRow}>
           <Link className={styles.bagItemTitle} href={"/friends/" + friend.id}>
-            {friend.name}
+            {locale === "en" ? friend.name : friend.nameUA}
           </Link>
           <div className={styles.bagItemPrice}>
             {formatPrice(friend.price, locale)}
           </div>
         </div>
         <div className={styles.bagItemId}>ID: {friend.id}</div>
-        <div className={styles.bagItemKind}>{friend.category}</div>
+        <div className={styles.bagItemKind}>
+          {capitalize(locale === "en" ? friend.category : friend.categoryUA)}
+        </div>
         <div className={styles.bagItemAge}>
           {friend.age}
           {t("bag-item-age")}

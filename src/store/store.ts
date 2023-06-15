@@ -1,5 +1,4 @@
 import { friendsAPI } from "@/services/Friends.service";
-import { categoriesAPI } from "@/services/Categories.service";
 import { applicationsAPI } from "@/services/Applications.service";
 import { questionsAPI } from "@/services/Questions.service";
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
@@ -27,7 +26,6 @@ const rootReducer = combineReducers({
   query: queryReducer,
   cart: cartReducer,
   [friendsAPI.reducerPath]: friendsAPI.reducer,
-  [categoriesAPI.reducerPath]: categoriesAPI.reducer,
   [applicationsAPI.reducerPath]: applicationsAPI.reducer,
   [questionsAPI.reducerPath]: questionsAPI.reducer,
 });
@@ -43,7 +41,6 @@ export const store = configureStore({
       },
     }).concat([
       friendsAPI.middleware,
-      categoriesAPI.middleware,
       applicationsAPI.middleware,
       questionsAPI.middleware,
     ]),

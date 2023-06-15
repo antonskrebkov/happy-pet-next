@@ -14,17 +14,21 @@ import {
   paginate,
   resetFilter,
 } from "@/store/slices/querySlice";
-import IQuery, { IFilter } from "@/interfaces/IQuery";
+import { IFilter } from "@/interfaces/IQuery";
 import { IOption } from "@/interfaces/IOption";
 import { getPagesQuantity } from "@/utils/pages";
 import styles from "./Friends.module.scss";
 import { IFriend } from "@/interfaces/IFriend";
 import { useTranslation } from "next-i18next";
 
-const Friends: FC = () => {
+interface FriendsProps {
+  data: IFriend[];
+}
+
+const Friends: FC<FriendsProps> = ({ data }) => {
   const { t } = useTranslation("friends");
 
-  const [friends, setFriends] = useState<IFriend[]>([]);
+  const [friends, setFriends] = useState<IFriend[]>(data);
   const [totalCount, setTotalCount] = useState<number>(0);
   const [totalPages, setTotalPages] = useState<number>(0);
   const [isQuerySubmitted, setIsQuerySubmitted] = useState(false);
@@ -35,15 +39,10 @@ const Friends: FC = () => {
   const [getFriends, { isLoading }] = friendsAPI.useGetFriendsMutation();
 
   useEffect(() => {
-    getFriends(queryParams)
-      .unwrap()
-      .then((res) => {
-        setFriends(res.apiResponse);
-        // setTotalCount(res.totalCount);
-        // setTotalPages(getPagesQuantity(res.totalCount, 6));
-        setTotalCount(7);
-        setTotalPages(getPagesQuantity(7, 6));
-      });
+    // setTotalCount(res.totalCount);
+    // setTotalPages(getPagesQuantity(res.totalCount, 6));
+    setTotalCount(7);
+    setTotalPages(getPagesQuantity(7, 6));
     return () => {
       dispatch(addSort({ sortBy: "id", order: "desc" }));
       dispatch(resetFilter());
@@ -104,15 +103,13 @@ const Friends: FC = () => {
         />
         <FriendsSort handle={handleSortFriends} />
         <FriendsCatalog friends={friends} isLoading={isLoading} />
-        {totalCount > 6 ? (
+        {totalCount > 6 && (
           <FriendsPagination
             queryParams={queryParams}
             totalPages={totalPages}
             isLoading={isLoading}
             handle={handleChangePage}
           />
-        ) : (
-          ""
         )}
       </main>
     </Layout>

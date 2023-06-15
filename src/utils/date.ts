@@ -1,7 +1,6 @@
 import { IDate } from "@/interfaces/IDate";
 
 export const formatDate = (timestamp: Date) => {
-  // const dateAdded: Date = new Date(application.timestamp);
   const date: IDate = {
     day: timestamp.getDate().toString().padStart(2, "0"),
     month: (timestamp.getMonth() + 1).toString().padStart(2, "0"),

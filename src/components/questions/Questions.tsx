@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from "react";
+import React, { FC, useState } from "react";
 import Select from "react-select";
 import styles from "./Questions.module.scss";
 import { IQuestion } from "@/interfaces/IQuestion";
@@ -309,143 +309,71 @@ const Questions: FC = () => {
           </>
         )}
       </div>
-      {isPrivacyPolicyShow ? (
+      {isPrivacyPolicyShow && (
         <Modal>
           <div className={styles.modalText}>
-            <p>
-              This Privacy Policy outlines how we collect, use, and protect the
-              personal information of visitors to our animal shelter website. We
-              are committed to ensuring the privacy and security of your
-              personal information and comply with applicable data protection
-              laws. By accessing and using our website, you consent to the terms
-              of this Privacy Policy.
-            </p>
+            <p>{t("modal-text-0")}</p>
             <ul>
               <li>
-                Information We Collect:
+                {t("modal-title-1")}
                 <ol>
-                  <li>
-                    Personal Information: When you interact with our website, we
-                    may collect personal information such as your name, email
-                    address, phone number, and address. This information is
-                    voluntarily provided by you when you submit forms, make
-                    donations, or contact us.
-                  </li>
-                  <li>
-                    Non-Personal Information: We may also collect non-personal
-                    information such as your IP address, browser type, and
-                    device information. This information is collected
-                    automatically through cookies and similar technologies to
-                    enhance your browsing experience.
-                  </li>
+                  <li>{t("modal-text-1-1")}</li>
+                  <li>{t("modal-text-1-2")}</li>
                 </ol>
               </li>
               <li>
-                Use of Information:
+                {t("modal-title-2")}
                 <ol>
-                  <li>
-                    We use the personal information you provide to respond to
-                    your inquiries, process donations, and provide updates about
-                    our animal shelter activities.
-                  </li>
-                  <li>
-                    Non-personal information is used to analyze website usage,
-                    improve our website's functionality and content, and enhance
-                    your overall experience.
-                  </li>
+                  <li>{t("modal-text-2-1")}</li>
+                  <li>{t("modal-text-2-2")}</li>
                 </ol>
               </li>
               <li>
-                Sharing of Information:
+                {t("modal-title-3")}
                 <ol>
-                  <li>
-                    We do not sell, rent, or disclose your personal information
-                    to third parties without your consent, except as required by
-                    law.
-                  </li>
-                  <li>
-                    We may share your personal information with trusted service
-                    providers who assist us in operating our website and
-                    delivering our services. These providers are bound by
-                    confidentiality obligations and are prohibited from using
-                    your information for any other purpose.
-                  </li>
+                  <li>{t("modal-text-3-1")}</li>
+                  <li>{t("modal-text-3-2")}</li>
                 </ol>
               </li>
               <li>
-                Data Security:
+                {t("modal-title-4")}
                 <ol>
-                  <li>
-                    We implement appropriate security measures to protect your
-                    personal information from unauthorized access, alteration,
-                    or disclosure.
-                  </li>
-                  <li>
-                    However, please note that no method of data transmission
-                    over the internet or electronic storage is 100% secure, and
-                    we cannot guarantee absolute security.
-                  </li>
+                  <li>{t("modal-text-4-1")}</li>
+                  <li>{t("modal-text-4-2")}</li>
                 </ol>
               </li>
               <li>
-                Links to Third-Party Websites:
+                {t("modal-title-5")}
                 <ol>
-                  <li>
-                    Our website may contain links to third-party websites. We
-                    are not responsible for the privacy practices or content of
-                    those websites. We encourage you to review the privacy
-                    policies of those websites before providing any personal
-                    information.
-                  </li>
+                  <li>{t("modal-text-5")}</li>
                 </ol>
               </li>
               <li>
-                Children's Privacy:
+                {t("modal-title-6")}
                 <ol>
-                  <li>
-                    Our website is not intended for children under the age of
-                    13. We do not knowingly collect personal information from
-                    children. If we become aware that we have collected personal
-                    information from a child without parental consent, we will
-                    take steps to remove that information from our servers.
-                  </li>
+                  <li>{t("modal-text-6")}</li>
                 </ol>
               </li>
               <li>
-                Your Rights:
+                {t("modal-title-7")}
                 <ol>
-                  <li>
-                    You have the right to access, update, and delete your
-                    personal information held by us. If you wish to exercise any
-                    of these rights or have any questions or concerns about our
-                    privacy practices, please contact us using the contact
-                    information provided below.
-                  </li>
+                  <li>{t("modal-text-7")}</li>
                 </ol>
               </li>
               <li>
-                Changes to this Privacy Policy:
+                {t("modal-title-8")}
                 <ol>
-                  <li>
-                    We reserve the right to update or modify this Privacy Policy
-                    at any time. Any changes will be effective immediately upon
-                    posting the revised policy on our website. We encourage you
-                    to review this policy periodically for any updates.
-                  </li>
+                  <li>{t("modal-text-8")}</li>
                 </ol>
               </li>
               <li>
-                Contact Us:
+                {t("modal-title-9")}
                 <ol>
-                  <li>
-                    If you have any questions, concerns, or requests regarding
-                    this Privacy Policy or our privacy practices, please contact
-                    us at:
-                  </li>
-                  <li>Name: Happy pet</li>
-                  <li>Email: support@happypet.ua</li>
-                  <li>Phone: +(38) 067 345 2774</li>
-                  <li>Address: Fasova village, Kyiv region</li>
+                  <li>{t("modal-text-9-1")}</li>
+                  <li>{t("modal-text-9-2")}</li>
+                  <li>{t("modal-text-9-3")}</li>
+                  <li>{t("modal-text-9-4")}</li>
+                  <li>{t("modal-text-9-5")}</li>
                 </ol>
               </li>
             </ul>
@@ -454,11 +382,9 @@ const Questions: FC = () => {
             onClick={() => setIsPrivacyPolicyShow(false)}
             className={styles.modalButton}
           >
-            Закрити
+            {t("modal-button")}
           </button>
         </Modal>
-      ) : (
-        ""
       )}
     </section>
   );
