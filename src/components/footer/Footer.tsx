@@ -1,5 +1,5 @@
 import { FC } from "react";
-import styles from "./footer.module.scss";
+import styles from "./Footer.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import twitter from "public/twitter.svg";

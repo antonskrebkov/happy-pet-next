@@ -1,6 +1,6 @@
 import { FC, useEffect, useRef, useState } from "react";
 import Select, { SingleValue } from "react-select";
-import styles from "./header.module.scss";
+import styles from "./Header.module.scss";
 import Link from "next/link";
 import Cart from "../cart/Cart";
 import { useRouter } from "next/router";
