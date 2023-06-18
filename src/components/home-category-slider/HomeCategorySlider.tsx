@@ -46,7 +46,7 @@ const HomeCategorySlider: FC<HomeCategorySliderProps> = ({ categories }) => {
             dragSize: 67,
             draggable: true,
           }}
-          onBeforeInit={(swiper: any) => {
+          onAfterInit={(swiper: any) => {
             swiper.params.navigation.prevEl = buttonPrev.current;
             swiper.params.navigation.nextEl = buttonNext.current;
           }}
