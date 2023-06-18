@@ -37,10 +37,6 @@ const HomeNewSlider: FC<HomeNewSliderProps> = ({ friends }) => {
             spaceBetween={30}
             speed={400}
             navigation
-            // navigation={{
-            //   prevEl: buttonPrev.current,
-            //   nextEl: buttonNext.current,
-            // }}
             pagination={{
               clickable: true,
             }}

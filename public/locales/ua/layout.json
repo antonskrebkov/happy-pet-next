@@ -1,14 +1,14 @@
 {
-  "header-link-1": "Головна",
-  "header-link-2": "Друзі",
-  "header-link-3": "Про нас",
-  "header-link-4": "Контакти",
-  "cart-top": "У переносці",
-  "cart-empty": "Тут порожньо...",
-  "cart-total": "Разом: ",
-  "cart-month": " міс.",
-  "cart-checkout": "Оформити замовлення",
-  "footer-location": "с. Фасова, Київська область, hello@happypet.ua",
-  "footer-rights": "2023 © Всі права захищені",
-  "footer-support": "Якщо ти знайшов на сайті помилки, повідом нам "
+  "Home": "Головна",
+  "Friends": "Друзі",
+  "About": "Про нас",
+  "Contacts": "Контакти",
+  "In pet carrier": "У переносці",
+  "It's empty here...": "Тут порожньо...",
+  "Total: ": "Разом: ",
+  " months": " міс.",
+  "Checkout": "Оформити замовлення",
+  "Fasova village, Kyiv region, hello@happypet.ua": "с. Фасова, Київська область, hello@happypet.ua",
+  "2023 © All rights reserved": "2023 © Всі права захищені",
+  "If you find errors on the site, please let us know ": "Якщо ти знайшов на сайті помилки, повідом нам "
 }

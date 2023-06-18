@@ -36,13 +36,6 @@
     height: 20px;
     border-radius: 50%;
     font-size: 12px;
-    &Total {
-      &::after {
-        content: "₴";
-        position: absolute;
-        padding-left: 2px;
-      }
-    }
   }
 
   &Body {

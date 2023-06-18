@@ -52,7 +52,7 @@ const CartItem: FC<CartItemProps> = ({ friend }) => {
           </div>
           <div className={styles.cartItemAge}>
             <span>{friend.age}</span>
-            {t("cart-month")}
+            {t(" months")}
           </div>
         </div>
         <div className={styles.cartItemPrice}>

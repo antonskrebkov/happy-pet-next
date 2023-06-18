@@ -1,15 +1,11 @@
 {
-  "friend-add": "Додати у переноску",
-  "friend-added": "Додано у переноску",
-  "accordion-item-1": "Опис",
-  "accordion-item-2": "Деталі",
-  "details-key-1": "Вид",
-  "details-key-2": "Вік",
-  "details-key-2-months": "міс.",
-  "details-key-3": "Стать",
-  "details-key-4": "Туалет",
-  "details-key-4-yes": "Так",
-  "details-key-4-no": "Ні",
-  "cart-button-add": "Додати у переноску",
-  "cart-button-added": "Додано у переноску"
+  "Add in pet carrier": "Додати у переноску",
+  "Added in pet carrier": "Додано у переноску",
+  "Description": "Опис",
+  "Details": "Деталі",
+  "Kind": "Вид",
+  "Age": "Вік",
+  "months": "міс.",
+  "Sex": "Стать",
+  "WC": "Туалет"
 }

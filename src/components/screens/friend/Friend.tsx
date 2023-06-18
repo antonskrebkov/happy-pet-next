@@ -2,8 +2,7 @@ import { useState, FC } from "react";
 import Layout from "@/components/layout/Layout";
 import styles from "./Friend.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Thumbs } from "swiper";
-// import {} from "swiper/types/modules/thumbs"
+import { Navigation, Thumbs } from "swiper";
 import "swiper/scss";
 import Image from "next/image";
 import { Accordion, AccordionItem as Item } from "@szhsin/react-accordion";
@@ -70,11 +69,12 @@ const Friend: FC<FriendsProps> = ({ friend }) => {
             <section className={styles.wrapper}>
               <div className={styles.gallery}>
                 <Swiper
-                  modules={[Thumbs]}
+                  modules={[Thumbs, Navigation]}
                   thumbs={{
                     swiper: thumbsSwiper,
                   }}
                   className={styles.gallerySlider}
+                  navigation
                   observer={true}
                   observeParents={true}
                   speed={400}
@@ -140,26 +140,24 @@ const Friend: FC<FriendsProps> = ({ friend }) => {
                   onClick={() => dispatch(addToCart(friend))}
                 >
                   {cartList.find((cartItem) => cartItem.id === friend.id)
-                    ? t("cart-button-added")
-                    : t("cart-button-add")}
+                    ? t("Added in pet carrier")
+                    : t("Add in pet carrier")}
                 </button>
                 <Accordion
                   className={styles.details}
                   transition
                   transitionTimeout={200}
                 >
-                  <AccordionItem header={t("accordion-item-1")}>
+                  <AccordionItem header={t("Description")}>
                     <p className={styles.detailsText}>
                       {locale === "en"
                         ? friend.description
                         : friend.descriptionUA}
                     </p>
                   </AccordionItem>
-                  <AccordionItem header={t("accordion-item-2")}>
+                  <AccordionItem header={t("Details")}>
                     <div className={styles.detailsRow}>
-                      <p className={styles.detailsRowKey}>
-                        {t("details-key-1")}
-                      </p>
+                      <p className={styles.detailsRowKey}>{t("Kind")}</p>
                       <p className={styles.detailsRowValue}>
                         {capitalize(
                           locale === "en" ? friend.category : friend.categoryUA
@@ -167,17 +165,13 @@ const Friend: FC<FriendsProps> = ({ friend }) => {
                       </p>
                     </div>
                     <div className={styles.detailsRow}>
-                      <p className={styles.detailsRowKey}>
-                        {t("details-key-2")}
-                      </p>
+                      <p className={styles.detailsRowKey}>{t("Age")}</p>
                       <p className={styles.detailsRowValue}>
-                        {friend.age} {t("details-key-2-months")}
+                        {friend.age} {t("months")}
                       </p>
                     </div>
                     <div className={styles.detailsRow}>
-                      <p className={styles.detailsRowKey}>
-                        {t("details-key-3")}
-                      </p>
+                      <p className={styles.detailsRowKey}>{t("Sex")}</p>
                       <p className={styles.detailsRowValue}>
                         {capitalize(
                           locale === "en" ? friend.sex : friend.sexUA
@@ -185,9 +179,7 @@ const Friend: FC<FriendsProps> = ({ friend }) => {
                       </p>
                     </div>
                     <div className={styles.detailsRow}>
-                      <p className={styles.detailsRowKey}>
-                        {t("details-key-4")}
-                      </p>
+                      <p className={styles.detailsRowKey}>{t("WC")}</p>
                       <p className={styles.detailsRowValue}>
                         <Image
                           className={styles.detailsRowValueImage}

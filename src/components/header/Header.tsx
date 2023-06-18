@@ -26,10 +26,10 @@ const Header: FC<HeaderProps> = ({ handleLocale, locales, locale }) => {
   const headerEl = useRef(null);
 
   const menuItems = [
-    { link: "/", title: t("header-link-1") },
-    { link: "/friends", title: t("header-link-2") },
-    { link: "/about", title: t("header-link-3") },
-    { link: "/contacts", title: t("header-link-4") },
+    { link: "/", title: t("Home") },
+    { link: "/friends", title: t("Friends") },
+    { link: "/about", title: t("About") },
+    { link: "/contacts", title: t("Contacts") },
   ];
 
   useEffect(() => {

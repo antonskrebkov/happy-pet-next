@@ -17,9 +17,6 @@ interface HomeCategorySliderProps {
 }
 
 const HomeCategorySlider: FC<HomeCategorySliderProps> = ({ categories }) => {
-  const buttonPrev = useRef<HTMLButtonElement | null>(null);
-  const buttonNext = useRef<HTMLButtonElement | null>(null);
-
   const { locale } = useRouter();
 
   const dispatch = useAppDispatch();
@@ -38,18 +35,11 @@ const HomeCategorySlider: FC<HomeCategorySliderProps> = ({ categories }) => {
           observer={true}
           observeParents={true}
           speed={400}
-          navigation={{
-            prevEl: buttonPrev.current,
-            nextEl: buttonNext.current,
-          }}
+          navigation
           scrollbar={{
             dragSize: 67,
             draggable: true,
           }}
-          // onInit={(swiper: any) => {
-          //   swiper.params.navigation.prevEl = buttonPrev.current;
-          //   swiper.params.navigation.nextEl = buttonNext.current;
-          // }}
           breakpoints={{
             320: {
               slidesPerView: 1,
@@ -102,10 +92,6 @@ const HomeCategorySlider: FC<HomeCategorySliderProps> = ({ categories }) => {
               </SwiperSlide>
             ))}
         </Swiper>
-        <div className={styles.sliderNavigation}>
-          <button ref={buttonPrev} className={styles.sliderButtonPrev}></button>
-          <button ref={buttonNext} className={styles.sliderButtonNext}></button>
-        </div>
       </div>
     </section>
   );

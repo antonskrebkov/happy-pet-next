@@ -1,15 +1,11 @@
 {
-  "friend-add": "Add in pet carrier",
-  "friend-added": "Added in pet carrier",
-  "accordion-item-1": "Description",
-  "accordion-item-2": "Details",
-  "details-key-1": "Kind",
-  "details-key-2": "Age",
-  "details-key-2-months": "months",
-  "details-key-3": "Sex",
-  "details-key-4": "WC",
-  "details-key-4-yes": "Yes",
-  "details-key-4-no": "No",
-  "cart-button-add": "Add to pet carrier",
-  "cart-button-added": "Added to pet carrier"
+  "Add in pet carrier": "Add in pet carrier",
+  "Added in pet carrier": "Added in pet carrier",
+  "Description": "Description",
+  "Details": "Details",
+  "Kind": "Kind",
+  "Age": "Age",
+  "months": "months",
+  "Sex": "Sex",
+  "WC": "WC"
 }

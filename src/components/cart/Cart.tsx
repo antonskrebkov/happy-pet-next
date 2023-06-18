@@ -21,7 +21,6 @@ const Cart: FC = () => {
   return (
     <div className={styles.cart} onClick={() => setCartIsOpen(!cartIsOpen)}>
       <span className={styles.cartBadge}>{cartList.length}</span>
-      <span className={styles.cartBadgeTotal}>{summarize(cartList)}</span>
       <div
         className={
           cartIsOpen
@@ -30,9 +29,9 @@ const Cart: FC = () => {
         }
         onClick={(e) => e.stopPropagation()}
       >
-        <div className={styles.cartTop}>{t("cart-top")}</div>
+        <div className={styles.cartTop}>{t("In pet carrier")}</div>
         {cartList.length === 0 ? (
-          <p className={styles.cartEmpty}>{t("cart-empty")}</p>
+          <p className={styles.cartEmpty}>{t("It's empty here...")}</p>
         ) : (
           <ul className={styles.cartItems}>
             {cartList.map((cartItem: IFriend) => (
@@ -43,11 +42,11 @@ const Cart: FC = () => {
         {cartList.length !== 0 && (
           <div className={styles.cartBottom}>
             <div className={styles.cartTotal}>
-              {t("cart-total")}
+              {t("Total: ")}
               <span>{formatPrice(summarize(cartList), locale)}</span>
             </div>
             <Link href="/checkout" className={styles.cartCheckout}>
-              {t("cart-checkout")}
+              {t("Checkout")}
             </Link>
           </div>
         )}

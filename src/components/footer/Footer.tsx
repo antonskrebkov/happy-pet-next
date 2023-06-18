@@ -57,7 +57,7 @@ const Footer: FC = () => {
             target="_blank"
             className={styles.topLocation}
           >
-            {t("footer-location")}
+            {t("Fasova village, Kyiv region, hello@happypet.ua")}
           </a>
           <a href="tel:+380673452774" className={styles.topPhone}>
             +(38) 067 345 2774
@@ -67,9 +67,12 @@ const Footer: FC = () => {
           <Link href="/" className={styles.bottomLogo}>
             Happy pet
           </Link>
-          <div className={styles.bottomRights}> {t("footer-rights")}</div>
+          <div className={styles.bottomRights}>
+            {" "}
+            {t("2023 © All rights reserved")}
+          </div>
           <div className={styles.bottomSupport}>
-            {t("footer-support")}
+            {t("If you find errors on the site, please let us know ")}
             <a href="mailto:support@happypet.ua">support@happypet.ua</a>
           </div>
         </div>
