@@ -12,21 +12,6 @@ const FriendPage: FC<FriendPageProps> = ({ friend }) => {
   return <Friend friend={friend} />;
 };
 
-export async function getStaticPaths() {
-  const friendsResponse = await axios.get(
-    "https://64807757f061e6ec4d4954e4.mockapi.io/friends"
-  );
-  const friends = await friendsResponse.data;
-  const paths = friends.map((friend: IFriend) => ({
-    params: { id: friend.id },
-  }));
-
-  return {
-    paths,
-    fallback: "blocking",
-  };
-}
-
 export async function getStaticProps({
   locale,
   params,
@@ -43,8 +28,23 @@ export async function getStaticProps({
   return {
     props: {
       friend,
-      ...(await serverSideTranslations(locale, ["friend", "layout"])),
+      ...(await serverSideTranslations(locale, ["layout", "friend"])),
     },
+  };
+}
+
+export async function getStaticPaths() {
+  const friendsResponse = await axios.get(
+    "https://64807757f061e6ec4d4954e4.mockapi.io/friends"
+  );
+  const friends = await friendsResponse.data;
+  const paths = friends.map((friend: IFriend) => ({
+    params: { id: friend.id },
+  }));
+
+  return {
+    paths,
+    fallback: "blocking",
   };
 }
 

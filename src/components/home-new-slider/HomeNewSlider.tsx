@@ -18,8 +18,8 @@ const HomeNewSlider: FC<HomeNewSliderProps> = ({ friends }) => {
   const { locale } = useRouter();
   const { t } = useTranslation("home");
 
-  const buttonPrev = useRef<HTMLButtonElement | null>(null);
-  const buttonNext = useRef<HTMLButtonElement | null>(null);
+  // const buttonPrev = useRef<HTMLButtonElement | null>(null);
+  // const buttonNext = useRef<HTMLButtonElement | null>(null);
 
   return (
     <section className={styles.new}>
@@ -36,17 +36,18 @@ const HomeNewSlider: FC<HomeNewSliderProps> = ({ friends }) => {
             slidesPerGroup={3}
             spaceBetween={30}
             speed={400}
-            navigation={{
-              prevEl: buttonPrev.current,
-              nextEl: buttonNext.current,
-            }}
+            navigation
+            // navigation={{
+            //   prevEl: buttonPrev.current,
+            //   nextEl: buttonNext.current,
+            // }}
             pagination={{
               clickable: true,
             }}
-            onBeforeInit={(swiper: any) => {
-              swiper.params.navigation.prevEl = buttonPrev.current;
-              swiper.params.navigation.nextEl = buttonNext.current;
-            }}
+            // onBeforeInit={(swiper: any) => {
+            //   swiper.params.navigation.prevEl = buttonPrev.current;
+            //   swiper.params.navigation.nextEl = buttonNext.current;
+            // }}
             breakpoints={{
               0: {
                 slidesPerView: 1,
@@ -83,10 +84,10 @@ const HomeNewSlider: FC<HomeNewSliderProps> = ({ friends }) => {
                 </SwiperSlide>
               ))}
           </Swiper>
-          <div className={styles.newNavigation}>
+          {/* <div className={styles.newNavigation}>
             <button ref={buttonPrev} className={styles.newButtonPrev}></button>
             <button ref={buttonNext} className={styles.newButtonNext}></button>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

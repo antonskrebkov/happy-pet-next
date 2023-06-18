@@ -59,7 +59,58 @@
     @media (max-width: 799px) {
       max-width: 290px;
     }
-    > div:not(:last-child) {
+
+    > div:nth-child(2) {
+      position: absolute;
+      width: 35px;
+      height: 35px;
+      background-color: #fff;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+      top: calc(50% - 35px);
+      background-image: url("/slider-arrow-left.svg");
+      left: 12px;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      background-position: center;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      transition: all 0.3s;
+      z-index: 1;
+      &:hover {
+        background-color: rgba(#fff, 0.5);
+      }
+
+      @media (max-width: 420px) {
+        display: none;
+      }
+    }
+
+    > div:nth-child(3) {
+      position: absolute;
+      width: 35px;
+      height: 35px;
+      background-color: #fff;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+      top: calc(50% - 35px);
+      background-image: url("/slider-arrow-right.svg");
+      right: 10px;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      background-position: center;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      transition: all 0.3s;
+      z-index: 1;
+      &:hover {
+        background-color: rgba(#fff, 0.5);
+      }
+
+      @media (max-width: 420px) {
+        display: none;
+      }
+    }
+
+    > div:first-child {
       padding-bottom: 25px;
       margin-bottom: 30px;
       box-sizing: border-box;
