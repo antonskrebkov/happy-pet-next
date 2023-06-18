@@ -46,10 +46,10 @@ const HomeCategorySlider: FC<HomeCategorySliderProps> = ({ categories }) => {
             dragSize: 67,
             draggable: true,
           }}
-          onInit={(swiper: any) => {
-            swiper.params.navigation.prevEl = buttonPrev.current;
-            swiper.params.navigation.nextEl = buttonNext.current;
-          }}
+          // onInit={(swiper: any) => {
+          //   swiper.params.navigation.prevEl = buttonPrev.current;
+          //   swiper.params.navigation.nextEl = buttonNext.current;
+          // }}
           breakpoints={{
             320: {
               slidesPerView: 1,
