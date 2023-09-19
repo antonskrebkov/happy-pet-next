@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, useEffect, useRef } from "react";
 import { useAppSelector } from "@/store/hooks";
 import styles from "./Cart.module.scss";
 import Link from "next/link";
@@ -16,10 +16,34 @@ const Cart: FC = () => {
 
   const [cartIsOpen, setCartIsOpen] = useState(false);
 
+  const cartRef = useRef<HTMLDivElement>(null);
+
+  const handleOutsideClick = (e: MouseEvent) => {
+    if (cartRef.current && !cartRef.current.contains(e.target as Node)) {
+      setCartIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (cartIsOpen) {
+      document.addEventListener("mousedown", handleOutsideClick);
+    } else {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [cartIsOpen]);
+
   const cartList = useAppSelector((state) => state.cart);
 
   return (
-    <div className={styles.cart} onClick={() => setCartIsOpen(!cartIsOpen)}>
+    <div
+      className={styles.cart}
+      onClick={() => setCartIsOpen(!cartIsOpen)}
+      ref={cartRef}
+    >
       <span className={styles.cartBadge}>{cartList.length}</span>
       <div
         className={

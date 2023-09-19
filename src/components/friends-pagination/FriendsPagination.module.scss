@@ -20,6 +20,14 @@
     margin: 0 5px;
     background-color: #f4cb38;
     transition: background-color 0.2s;
+    background-repeat: no-repeat;
+    background-position: center;
+    &.prev {
+      background-image: url("/pagination-arrow-left.svg");
+    }
+    &.next {
+      background-image: url("/pagination-arrow-right.svg");
+    }
     &Active {
       border: 2.5px solid #000;
     }

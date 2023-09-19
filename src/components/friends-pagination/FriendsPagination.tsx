@@ -1,7 +1,4 @@
 import { FC } from "react";
-import Image from "next/image";
-import prev from "public/pagination-arrow-left.svg";
-import next from "public/pagination-arrow-right.svg";
 import IQuery from "@/interfaces/IQuery";
 import styles from "./FriendsPagination.module.scss";
 
@@ -31,11 +28,9 @@ const FriendsPagination: FC<FriendsPaginationProps> = ({
         <div className={styles.paginationItems}>
           {queryParams.page !== 1 && (
             <button
-              className={styles.paginationItem}
+              className={`${styles.paginationItem} ${styles.prev}`}
               onClick={() => handle(queryParams.page - 1)}
-            >
-              <Image src={prev} alt="" />
-            </button>
+            ></button>
           )}
           {pagesArray.map((page: number) => (
             <button
@@ -52,11 +47,9 @@ const FriendsPagination: FC<FriendsPaginationProps> = ({
           ))}
           {queryParams.page !== totalPages && (
             <button
-              className={styles.paginationItem}
+              className={`${styles.paginationItem} ${styles.next}`}
               onClick={() => handle(queryParams.page + 1)}
-            >
-              <Image src={next} alt="" />
-            </button>
+            ></button>
           )}
         </div>
       </div>

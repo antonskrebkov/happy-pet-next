@@ -20,16 +20,19 @@ import { getPagesQuantity } from "@/utils/pages";
 import styles from "./Friends.module.scss";
 import { IFriend } from "@/interfaces/IFriend";
 import { useTranslation } from "next-i18next";
+import { ICategory } from "@/interfaces/ICategory";
 
 interface FriendsProps {
   data: IFriend[];
+  totalFriends: IFriend[];
+  categories: ICategory[];
 }
 
-const Friends: FC<FriendsProps> = ({ data }) => {
+const Friends: FC<FriendsProps> = ({ data, totalFriends, categories }) => {
   const { t } = useTranslation("friends");
 
   const [friends, setFriends] = useState<IFriend[]>(data);
-  const [totalCount, setTotalCount] = useState<number>(0);
+  const [totalCount, setTotalCount] = useState<number>(totalFriends.length);
   const [totalPages, setTotalPages] = useState<number>(0);
   const [isQuerySubmitted, setIsQuerySubmitted] = useState(false);
 
@@ -37,12 +40,12 @@ const Friends: FC<FriendsProps> = ({ data }) => {
   const queryParams = useAppSelector((state) => state.query);
 
   const [getFriends, { isLoading }] = friendsAPI.useGetFriendsMutation();
+  const [getAllFriends] = friendsAPI.useGetAllFriendsMutation();
 
   useEffect(() => {
     // setTotalCount(res.totalCount);
     // setTotalPages(getPagesQuantity(res.totalCount, 6));
-    setTotalCount(7);
-    setTotalPages(getPagesQuantity(7, 6));
+    setTotalPages(getPagesQuantity(totalFriends.length, 6));
     return () => {
       dispatch(addSort({ sortBy: "id", order: "desc" }));
       dispatch(resetFilter());
@@ -52,18 +55,22 @@ const Friends: FC<FriendsProps> = ({ data }) => {
 
   useEffect(() => {
     if (isQuerySubmitted) {
+      getAllFriends(queryParams)
+        .unwrap()
+        .then((res) => {
+          setTotalCount(res.apiResponse.length);
+          setTotalPages(getPagesQuantity(res.apiResponse.length, 6));
+        });
       getFriends(queryParams)
         .unwrap()
         .then((res) => {
           setFriends(res.apiResponse);
           // setTotalCount(res.totalCount);
           // setTotalPages(getPagesQuantity(res.totalCount, 6));
-          setTotalCount(7);
-          setTotalPages(getPagesQuantity(7, 6));
         });
       setIsQuerySubmitted(false);
     }
-  }, [queryParams, isQuerySubmitted, getFriends]);
+  }, [queryParams, isQuerySubmitted, getFriends, getAllFriends]);
 
   const handleFilterFriends = (newFilter: IFilter) => {
     dispatch(addNewFilter(newFilter));
@@ -73,7 +80,10 @@ const Friends: FC<FriendsProps> = ({ data }) => {
 
   const handleResetFilter = () => {
     dispatch(resetFilter());
+    dispatch(paginate(1));
     setIsQuerySubmitted(true);
+    setTotalCount(totalFriends.length);
+    getPagesQuantity(totalFriends.length, 6);
   };
 
   const handleSortFriends = (newOption: IOption | null) => {
@@ -100,6 +110,7 @@ const Friends: FC<FriendsProps> = ({ data }) => {
           handle={handleFilterFriends}
           handleReset={handleResetFilter}
           queryParams={queryParams}
+          categories={categories}
         />
         <FriendsSort handle={handleSortFriends} />
         <FriendsCatalog friends={friends} isLoading={isLoading} />

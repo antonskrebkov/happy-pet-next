@@ -40,7 +40,22 @@ export const friendsAPI = createApi({
       },
       invalidatesTags: ["Friends"],
     }),
+    getAllFriends: build.mutation<{ apiResponse: IFriend[] }, IQuery>({
+      query: ({ filter }) =>
+        `${
+          filter.length
+            ? filter
+                .map((filterItem) => `?${filterItem.key}=${filterItem.value}`)
+                .join("")
+            : ""
+        }`,
+      transformResponse(apiResponse: IFriend[]) {
+        return {
+          apiResponse,
+        };
+      },
+    }),
   }),
 });
 
-export const { useGetFriendsMutation } = friendsAPI;
+export const { useGetFriendsMutation, useGetAllFriendsMutation } = friendsAPI;

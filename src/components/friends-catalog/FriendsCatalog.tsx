@@ -30,7 +30,9 @@ const FriendsCatalog: FC<FriendsCatalogProps> = ({ friends, isLoading }) => {
     );
   }
   if (friends && friends.length === 0) {
-    return <h1 className={styles.catalogNothingFound}>{t("nothing-found")}</h1>;
+    return (
+      <div className={styles.catalogNothingFound}>{t("nothing-found")}</div>
+    );
   }
 
   return (

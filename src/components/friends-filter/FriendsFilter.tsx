@@ -3,35 +3,47 @@ import FilterSelect from "../UI/filter-select/FilterSelect";
 import styles from "./FriendsFilter.module.scss";
 import IQuery, { IFilter } from "@/interfaces/IQuery";
 import { useTranslation } from "next-i18next";
+import { ICategory } from "@/interfaces/ICategory";
+import { capitalize, capitalizeInPlural } from "@/utils/categories";
+import { useRouter } from "next/router";
 
 interface FriendsFilterProps {
   handle: (newOption: IFilter) => void;
   handleReset: () => void;
   queryParams: IQuery;
+  categories: ICategory[];
 }
 
 const FriendsFilter: FC<FriendsFilterProps> = ({
   handle,
   handleReset,
   queryParams,
+  categories,
 }) => {
   const { t } = useTranslation("friends");
+  const { locale } = useRouter();
 
-  const categoryOptions = [
-    { value: "reptile", label: t("filter-category-1") },
-    { value: "cat", label: t("filter-category-2") },
-    { value: "rodent", label: t("filter-category-3") },
-    { value: "dog", label: t("filter-category-4") },
-    { value: "monkey", label: t("filter-category-5") },
-    { value: "parrot", label: t("filter-category-6") },
-  ];
+  const generateCategoriesOptions = () => {
+    const generatedCategoriesOptions = [];
+    for (let i = 0; i < categories.length; i++) {
+      generatedCategoriesOptions.push({
+        value: categories[i].titleEN,
+        label:
+          locale === "en"
+            ? capitalizeInPlural(categories[i].titleEN)
+            : capitalize(categories[i].titleUA),
+      });
+    }
+    return generatedCategoriesOptions;
+  };
+
   const sexOptions = [
     { value: "male", label: t("filter-sex-1") },
     { value: "female", label: t("filter-sex-2") },
   ];
   const ageOptions = [
-    { value: "< 12 месяцев", label: t("filter-age-1") },
-    { value: "> 12 месяцев", label: t("filter-age-2") },
+    { value: "kid", label: t("filter-age-1") },
+    { value: "adult", label: t("filter-age-2") },
   ];
   const wcOptions = [
     { value: "true", label: t("filter-wc-1") },
@@ -48,7 +60,7 @@ const FriendsFilter: FC<FriendsFilterProps> = ({
         <div className={styles.filterFriend}>
           <FilterSelect
             name="category"
-            options={categoryOptions}
+            options={generateCategoriesOptions()}
             placeholder={t("filter-category-placeholder")}
             handle={handle}
           />
@@ -63,7 +75,7 @@ const FriendsFilter: FC<FriendsFilterProps> = ({
         </div>
         <div className={styles.filterFriend}>
           <FilterSelect
-            name="age"
+            name="ageStatus"
             options={ageOptions}
             placeholder={t("filter-age-placeholder")}
             handle={handle}
